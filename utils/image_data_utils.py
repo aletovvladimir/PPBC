@@ -57,8 +57,11 @@ def get_image_dataset_params(cfg, df):
         mean = (0.5493, 0.4451, 0.3435)
         std = (0.2731, 0.2759, 0.2799)
     else:
-        raise NotImplementedError
+        image_size = 224
+        mean = (0.5493, 0.4451, 0.3435)
+        std = (0.2731, 0.2759, 0.2799)
     return image_size, mean, std
+    raise NotImplementedError
 
 
 class ImageDataset(Dataset):

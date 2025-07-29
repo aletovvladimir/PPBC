@@ -1,7 +1,7 @@
 defaults:
     - models@models_dict.model1: resnet18
-    - observed_data_params@dataset: cifar10
-    - observed_data_params@server_test: cifar10
+    - observed_data_params@dataset: cifar10_pathology
+    - observed_data_params@server_test: cifar10_pathology
     - observed_data_params@trust_df: cifar10_trust
     - federated_method: ppbc
     - losses@loss: ce
@@ -16,10 +16,10 @@ single_run_dir: ${hydra:run.dir}
 base_dir: home
 
 training_params:
-    batch_size: 256
+    batch_size: 64
     num_workers: 4
     device: "cuda"
-    device_ids: ['1', '3']
+    device_ids: ['2']
     prediction_threshold: 0.5
     metrics_threshold: "gmean"
     factor: 0.8

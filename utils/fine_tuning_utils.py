@@ -2,13 +2,15 @@ import torch
 
 import fastervit
 from peft import LoraConfig, get_peft_model
-
+import argparse
 
 def LoraVIT(num_classes, r):
+    torch.serialization.add_safe_globals([argparse.Namespace])
     model = fastervit.create_model(
         "faster_vit_0_224",
         pretrained=True,
         model_path="/tmp/faster_vit_0.pth.tar",
+    
     )
 
     LoraConf = LoraConfig(

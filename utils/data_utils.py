@@ -7,6 +7,7 @@ from .image_data_utils import (
     ImageDataset,
     get_image_dataset_params,
 )
+from .text_data_utils import BinTokenDataset
 
 
 def prepare_df_for_federated_training(
@@ -17,11 +18,11 @@ def prepare_df_for_federated_training(
 
     df["client"] = df["client"].apply(lambda x: x - 1)
     df.reset_index(drop=True, inplace=True)
+    if not 'fineweb' in df['fpath'].iloc[0]:
+        num_classes = define_number_of_classes(df)
 
-    num_classes = define_number_of_classes(df)
-
-    with open_dict(cfg):
-        cfg.training_params.num_classes = num_classes
+        with open_dict(cfg):
+            cfg.training_params.num_classes = num_classes
 
     print("Preprocess successfull\n")
     return df, cfg
@@ -45,16 +46,29 @@ def get_dataset_loader(
     mode="train",
     transforms=None,
 ):
-    image_size, mean, std = get_image_dataset_params(cfg, df)
-    dataset = ImageDataset(df, mode, image_size, mean, std)
-
-    loader = DataLoader(
+    
+    if 'fineweb' in df['fpath'].iloc[0]:
+        dataset = BinTokenDataset(df=df, sequence_length=1024)
+        
+        loader = DataLoader(
         dataset,
         batch_size=cfg.training_params.batch_size,
         shuffle=(mode == "train"),
         num_workers=cfg.training_params.num_workers,
         drop_last=drop_last,
     )
+    
+    else:   
+        image_size, mean, std = get_image_dataset_params(cfg, df)
+        dataset = ImageDataset(df, mode, image_size, mean, std)
+
+        loader = DataLoader(
+            dataset,
+            batch_size=cfg.training_params.batch_size,
+            shuffle=(mode == "train"),
+            num_workers=cfg.training_params.num_workers,
+            drop_last=drop_last,
+        )
     assert (
         len(loader) > 0
     ), f"len(dataloader) is 0, either lower the batch size, or put drop_last=False"
@@ -99,7 +113,7 @@ def set_up_base_dir(cfg: dict):
     modes = [
         "dataset",
         "server_test",
-        "trust_df",
+        # "trust_df",
     ]
     for mode in modes:
         # Inside each type, we have different subtypes (train_directories/valid_directories)

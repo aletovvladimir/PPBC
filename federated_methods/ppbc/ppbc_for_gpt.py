@@ -1,5 +1,5 @@
-from ..ts_momentum.ts_momentum_server import TSMomentumServer
-from ..base.fedavg import FedAvg
+from ..ts_momentum.ts_momentum_server_for_gpt import TSMomentumServer
+from ..base.fedavg_gpt import FedAvg
 
 from collections import OrderedDict
 
@@ -12,7 +12,6 @@ import time
 
 from utils.data_utils import read_dataframe_from_cfg, get_stratified_subsample
 from .ppbc_client import ScaffoldClient
-from ..base.moon_client import MoonClient
 import copy
 
 
@@ -58,10 +57,9 @@ class PPBC(FedAvg):
         }
 
         if "pathology" in cfg.dataset.data_sources.train_directories[0]:
-            self.distribution = np.load(self.cfg.dataset.distribution_info[0])
+            self.distribution = np.load(self.cfg.dataset.distribution_info)
         else:
             self.distribution = [len(self.df) // self.num_clients] * self.num_clients
-
 
     def _init_server(self, cfg):
         trust_df = read_dataframe_from_cfg(cfg, "train_directories", "trust_df")
@@ -78,22 +76,6 @@ class PPBC(FedAvg):
         self.iter_prev_trust_scores = [1 / self.num_clients] * self.num_clients
 
     # =========================================================================#
-    #                           FEDDYN Utilities                            #
-    # =========================================================================#
-    
-    def feddyn_aggregation(self):
-        aggregated_weights = self.server.global_model.state_dict()
-        
-        for idx, gradient in enumerate(self.server.client_gradients):
-            cl_politic = self.iter_compress_politic[idx]
-            for key, value in gradient.items():
-                # print(value.device, cl_politic.device)
-                self.history[key] = self.history[key].to(self.server.device) - self.gamma * value.to(self.server.device) * cl_politic
-                aggregated_weights[key] = ((1 / self.iter_k) * (aggregated_weights[key].to(self.server.device) + value.to(self.server.device)) - (1/self.gamma) * self.history[key].to(self.server.device)).to('cpu')
-                
-        return aggregated_weights
-
-    # =========================================================================#
     #                           SCAFFOLD Utilities                            #
     # =========================================================================#
 
@@ -101,7 +83,7 @@ class PPBC(FedAvg):
         aggregated_weights = self.server.global_model.state_dict()
         sum_grad = OrderedDict()
         for key, value in self.server.client_gradients[0].items():
-            sum_grad[key] = torch.zeros_like(value).cpu()
+            sum_grad[key] = torch.zeros_like(value)
         for idx, gradient in enumerate(self.server.client_gradients):
             client_politic = self.iter_compress_politic[idx]
             for key, value in gradient.items():
@@ -117,14 +99,6 @@ class PPBC(FedAvg):
         if self.method == "scaffold":
             self.client_cls = ScaffoldClient
             self.client_args = [self.cfg, self.df, self.local_lr]
-            self.client_kwargs = {
-                "client_cls": self.client_cls,
-                "pipe": None,
-                "rank": None,
-            }
-        elif self.method== 'moon':
-            self.client_cls = MoonClient
-            self.client_args = [self.cfg, self.df]
             self.client_kwargs = {
                 "client_cls": self.client_cls,
                 "pipe": None,
@@ -187,18 +161,6 @@ class PPBC(FedAvg):
                 )
                 for _ in range(self.num_clients)
             ]
-    
-    def get_communication_content(self, rank):
-        # In fedavg we need to send model after aggregate
-        if self.method == 'moon':
-            return {
-                "update_model": {
-                    k: v.cpu() for k, v in self.server.global_model.state_dict().items()
-                },
-                'get_grads': self.server.client_gradients[rank] 
-            }
-        else: 
-            return super().get_communication_content(rank)
 
     # =========================================================================#
     #                    Trust Score Calculation Utilities                    #
@@ -518,8 +480,6 @@ class PPBC(FedAvg):
             super().train_round()
             if self.method == "scaffold":
                 aggregated_weights = self.get_scaffold_aggregation()
-            elif self.method == 'feddyn':
-                aggregated_weights= self.feddyn_aggregation()
             else:
                 aggregated_weights = self.get_errors_on_iter(itn)
 
@@ -555,10 +515,6 @@ class PPBC(FedAvg):
             print(f"\nRound number: {round} of {self.rounds}")
             begin_round_time = time.time()
             self.cur_round = round
-            if round == 0 and self.method == 'feddyn':
-                 self.history = OrderedDict()
-                 for key, value in self.server.global_model.state_dict().items():
-                     self.history[key] = torch.zeros_like(value)
 
             _ = self.server.test_global_model()
 
