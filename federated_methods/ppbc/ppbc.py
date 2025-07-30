@@ -61,6 +61,9 @@ class PPBC(FedAvg):
             self.distribution = np.load(self.cfg.dataset.distribution_info[0])
         else:
             self.distribution = [len(self.df) // self.num_clients] * self.num_clients
+            
+        self.ft_vector = np.abs(np.random.randn(self.num_clients) + 0.1) + 1e-6
+        self.ft_beta = 0.1
 
 
     def _init_server(self, cfg):
@@ -435,6 +438,7 @@ class PPBC(FedAvg):
         print(f"now we use {data_size} objects from dataset")
 
         for rank in range(self.num_clients):
+            f3ast_coeff = self.ft_vector[rank]
             client_grad = self.server.client_gradients[rank]
             current_client_error = self.current_errors_from_clients[f"client {rank}"]
             current_client_prob = self.probs[rank]
@@ -470,8 +474,20 @@ class PPBC(FedAvg):
                     * grads.to(self.server.device)
                     * client_politic
                     * int(not self.need_errors)
-                    * (self.distribution[rank] / data_size)
+                    * int(not (self.method == 'f3ast'))
+                    * (self.distribution[rank] / data_size) \
+                    + self.gamma
+                    * (1 - self.theta)
+                    * grads.to(self.server.device)
+                    * client_politic
+                    * int(not self.need_errors)
+                    * int(self.method == 'f3ast')
+                    * (self.distribution[rank] / (data_size * f3ast_coeff))
                 )
+            if self.method == 'f3ast':
+                f3ast_coeff = (1-self.ft_beta) * f3ast_coeff + self.ft_beta * client_politic.item() * self.num_clients
+                self.ft_vector[rank] = f3ast_coeff 
+            
             if self.need_errors:
                 if itn == self.iterations - 1:
                     self.final_errors[
@@ -549,8 +565,10 @@ class PPBC(FedAvg):
         self.server.global_model = get_model(self.cfg)
         if self.method == "scaffold":
             self._init_controls()
-
+        
         for round in range(self.rounds):
+            if self.method == 'f3ast':
+                print(f'now we check {self.method}. coeff_vector is {self.ft_vector}')
             self.round = round
             print(f"\nRound number: {round} of {self.rounds}")
             begin_round_time = time.time()
