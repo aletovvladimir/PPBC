@@ -32,6 +32,7 @@ class PPBC(FedAvg):
         self.trust_sample_amount = method_args.get("trust_sample_amount", 50)
         self.momentum_beta = method_args.get("momentum_beta", 0.1)
         self.q_m = method_args.get("q_m", 1.0)
+        self.q_e = method_args.get("q_e", 0.7)
 
         self.method = method_args.get("method", "ppbc")
         if self.method != "ppbc":
@@ -282,6 +283,10 @@ class PPBC(FedAvg):
         self.probs = bernoulli_dist.sample((self.num_clients,))
         print(f"now we have selected clients: {self.probs}")
 
+        bernoulli_dist = torch.distributions.Bernoulli(probs=self.q_e)
+        self.probs_epoch = bernoulli_dist.sample((self.num_clients,))
+        print(f"now we have selected clients for full participation: {self.probs_epoch}")
+
     # =========================================================================#
     #                           Compressor Utilities                          #
     # =========================================================================#
@@ -404,6 +409,7 @@ class PPBC(FedAvg):
             current_client_prob = self.probs[rank]
             final_client_error = self.final_errors[f"client {rank}"]
             client_politic = self.iter_compress_politic[rank].to(self.server.device)
+            prob_epoch = self.probs_epoch[rank]
 
             for key, grads in client_grad.items():
                 self.current_errors_from_clients[f"client {rank}"][key] = (
@@ -438,9 +444,16 @@ class PPBC(FedAvg):
                 )
             if self.need_errors:
                 if itn == self.iterations - 1:
-                    self.final_errors[
-                        f"client {rank}"
-                    ] = self.current_errors_from_clients[f"client {rank}"]
+                    if prob_epoch:
+                        print(prob_epoch)
+                        self.final_errors[
+                            f"client {rank}"
+                        ] = self.current_errors_from_clients[f"client {rank}"]
+                    else:
+                        for k, v in self.current_errors_from_clients[f"client {rank}"].items():
+                            self.final_errors[
+                            f"client {rank}"
+                                            ][k] = torch.zeros_like(v)     
                     print("final errors saved!")
         return aggregated_weights
 
