@@ -5,6 +5,7 @@ import signal
 from functools import partial
 from omegaconf import DictConfig
 from hydra.utils import instantiate
+import torch
 
 from utils.data_utils import prepare_df_for_federated_training, set_up_base_dir
 from utils.utils import handle_main_process_sigterm
@@ -16,6 +17,7 @@ print = partial(print, flush=True)
 
 @hydra.main(version_base=None, config_path="configs", config_name="config")
 def train(cfg: DictConfig):
+    torch.set_num_threads(1)
     redirect_stdout_to_log()
     cfg = set_up_base_dir(cfg)
     df, cfg = prepare_df_for_federated_training(cfg, "train_directories")

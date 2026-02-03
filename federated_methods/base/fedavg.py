@@ -43,11 +43,18 @@ class FedAvg:
 
     def aggregate(self):
         aggregated_weights = self.server.global_model.state_dict()
-        for i in range(len(self.server.client_gradients)):
-            for key, weights in self.server.client_gradients[i].items():
-                aggregated_weights[key] = aggregated_weights[key] + weights.to(
-                    self.server.device
-                ) * (1 / len(self.server.client_gradients))
+        if not self.server.error_feedback:
+            for i in range(len(self.server.client_gradients)):
+                for key, weights in self.server.client_gradients[i].items():
+                    aggregated_weights[key] = aggregated_weights[key] + weights.to(
+                        self.server.device
+                    ) * (1 / len(self.server.client_gradients))
+        else:
+            for i in range(len(self.server.client_compressed_gradients)):
+                for key, weights in self.server.client_compressed_gradients[i].items():
+                    aggregated_weights[key] = aggregated_weights[key] + weights.to(
+                        self.server.device
+                    ) * (1 / len(self.server.client_compressed_gradients))
         return aggregated_weights
 
     def create_clients(self):

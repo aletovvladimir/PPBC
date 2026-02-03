@@ -143,7 +143,7 @@ def prepare_splits(df, target_dir):
         df,
         target_dir=target_dir,
         amount_of_clients=10,
-        head_classes=30,
+        head_classes=4,
         head_clients=4,
         random_state=42,
         name="cifar10",

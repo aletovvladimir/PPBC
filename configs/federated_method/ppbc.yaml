@@ -2,17 +2,17 @@ _target_: federated_methods.ppbc.ppbc.PPBC
 
 
 method: 'scaffold'
-theta: 0
+theta: 0.15
 gamma: 1
 
-epoch_method: 'random'
-epoch_k: 3
+epoch_method: 'loss'
+epoch_k: 1
 
 iter_method: 'random'
 iter_k: 1
 
-iterations: 3
-need_errors: False
+iterations: 5
+need_errors: True
 
 beta : 0.1
 trust_sample_amount: 500

@@ -51,6 +51,15 @@ class Server:
         self.last_test_metrics = (None, None)
         self.last_trust_metrics = (None, None)
 
+        self.error_feedback = cfg.training_params.error_feedback
+        if self.error_feedback:
+            print("Error Feedback is being used.")
+            self.client_approx_gradients = [
+                OrderedDict() for _ in range(cfg.federated_params.amount_of_clients)
+            ]
+        else:
+            print(print("Error Feedback is NOT being used."))
+        
     def eval_fn(self, dataset):
         self.global_model.to(self.device)
         self.global_model.eval()
@@ -107,6 +116,10 @@ class Server:
         # Put client information in accordance with his rank
         self.client_gradients[client_result["rank"]] = client_result["grad"]
         self.server_metrics[client_result["rank"]] = client_result["server_metrics"]
+        if self.error_feedback == "EF21":
+            self.client_approx_gradients[client_result["rank"]] = client_result["approx_grad"]
+        elif self.error_feedback:
+            self.client_approx_gradients[client_result["rank"]] = client_result["compressed_grad"]
 
     def save_best_model(self, round):
         # Collect metrics from clients

@@ -3,6 +3,7 @@ import os
 import signal
 import subprocess
 from hydra.core.hydra_config import HydraConfig
+import numpy as np
 
 
 def handle_main_process_sigterm(signum, frame, trainer):
@@ -56,3 +57,6 @@ def create_model_info(model_state, metrics, checkpoint_path, cfg):
         )
 
     return model_info
+
+def softmax(x):
+    return np.exp(x) / np.sum(np.exp(x))
