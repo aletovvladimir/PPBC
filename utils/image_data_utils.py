@@ -46,9 +46,23 @@ def load_image(image_path: str, windowing: bool = False):  # move somewhere else
     return image
 
 
-def get_image_dataset_params(cfg, df):
+"""def get_image_dataset_params(cfg, df):
     # print(cfg.dataset.data_sources.train_directories[0])
     if "cifar10" in cfg.dataset.data_sources.train_directories[0]:
+        image_size = 32
+        mean = (0.4914, 0.4822, 0.4465)
+        std = (0.2023, 0.1994, 0.2010)
+    elif "food101" in cfg.dataset.data_sources.train_directories[0]:
+        image_size = 224
+        mean = (0.5493, 0.4451, 0.3435)
+        std = (0.2731, 0.2759, 0.2799)
+    else:
+        raise NotImplementedError
+    return image_size, mean, std
+"""
+def get_image_dataset_params(cfg, name):
+    # print(cfg.dataset.data_sources.train_directories[0])
+    if "cifar10" in name:
         image_size = 32
         mean = (0.4914, 0.4822, 0.4465)
         std = (0.2023, 0.1994, 0.2010)

@@ -1,22 +1,26 @@
 import pandas as pd
 import warnings
 warnings.filterwarnings("ignore")
-from utils.data_distributions import set_hetero_split
+import torch
+from utils.model_utils import resnet18
+from utils.data_utils import get_dataset_loader
+import yaml
+from omegaconf import OmegaConf
 
-df = pd.read_csv("./cifar10/image_data/cifar10_hetero_map_file.csv")
+with open("configs/config.yaml", "r") as f:
+    cfg = OmegaConf.load(f)
 
-set_hetero_split(
-    df=df,
-    name="cifar10",
-    target_dir="cifar10",
-    amount_of_clients=10,
-    head_classes=4,
-    head_clients=4,
-    random_state=42
-)
+df = pd.read_csv("/home/DBystrov/EF25_NIPS/cifar10/image_data/cifar10_pathology_map_file.csv")
+dataset = get_dataset_loader(df, cfg)
 
-for i in range(1,11):
-    print(f"\nClient {i}, total len = {len(df[df['client']==i])}")
-    for j in range(10):
-        print(len(df[df["client"] == i][df["target"] == j]), end=" ")
-print()
+for i in range(10):
+    model = resnet18(10).to("cuda")
+    model.load_state_dict(torch.load(f"test_client{i}.pt"))
+    print(i)
+    for _, (x, y) in dataset:
+        y2 = model(x[0].to("cuda"))
+        y3 = torch.softmax(y2, dim=1)
+        if y2.isnan().any():
+            print(_, "2")
+        if y3.isnan().any():
+            print(_, "3")

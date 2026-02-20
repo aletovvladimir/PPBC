@@ -44,14 +44,15 @@ def get_dataset_loader(
     drop_last=True,
     mode="train",
     transforms=None,
+    name="cifar10"
 ):
-    image_size, mean, std = get_image_dataset_params(cfg, df)
+    image_size, mean, std = get_image_dataset_params(cfg, name)
     dataset = ImageDataset(df, mode, image_size, mean, std)
 
     loader = DataLoader(
         dataset,
         batch_size=cfg.training_params.batch_size,
-        shuffle=(mode == "train"),
+        shuffle=False, #(mode == "train"),
         num_workers=cfg.training_params.num_workers,
         drop_last=drop_last,
     )

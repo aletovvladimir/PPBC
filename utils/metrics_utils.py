@@ -60,11 +60,11 @@ def calculate_metrics(
 ):
     # Get results
     softmax = torch.nn.Softmax(dim=1)
-    results = softmax(torch.as_tensor(fin_outputs)).max(dim=1)[1]
+    results = softmax(torch.as_tensor(fin_outputs)).max(dim=1)[1] ### CLIP and PRINT
     fin_targets = torch.as_tensor(fin_targets)
     # Calc metrics
     metrics = calculate_image_data_metrics(fin_targets, results, verbose)
-    prediction_threshold = None
+    # prediction_threshold = None
     return metrics, prediction_threshold
 
 

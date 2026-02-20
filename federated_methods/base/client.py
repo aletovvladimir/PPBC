@@ -19,6 +19,8 @@ class Top_K: # k%
         self.k = k
         self.updated_params = updated_params
     def __call__(self, x):
+        if self.k >= 100:
+            return x
         x_size = sum(x[name].reshape(-1).shape[0] for name in self.updated_params)
         x_1d_abs = torch.cat([torch.abs(x[name].reshape(-1)) for name in self.updated_params], dim=0)
         x_1d_abs_sorted, ind = torch.sort(x_1d_abs, dim=0, descending=True,)
@@ -77,6 +79,11 @@ class Client:
         self.compressed_grad = OrderedDict()
         self.approx_grad = OrderedDict()
         self.error_feedback = cfg.training_params.error_feedback
+        self.method = cfg.federated_method.method
+        self.lr = cfg.optimizer.lr
+        self.init_error_feedback(cfg)
+
+    def init_error_feedback(self, cfg):
         if self.error_feedback == "EF21":
             self.approx_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
             self.update_error = True
@@ -94,7 +101,8 @@ class Client:
                 self.compressor = Top_K(int(compressor_name[3:]), updated_params=self.model.state_dict().keys())
             else:
                 print(f"Compressor {compressor_name} is not supported")
-    
+        
+        
     def set_update_error(self, to_update_error):
         self.update_error = to_update_error
 
@@ -161,7 +169,6 @@ class Client:
                 outputs = self.model(inp)
 
                 loss = self.get_loss_value(outputs, targets)
-
                 loss.backward()
 
                 self.optimizer.step()
@@ -170,6 +177,11 @@ class Client:
                 targets = targets.to("cpu")
 
     def get_loss_value(self, outputs, targets, **kwargs):
+        if self.method == "fedprox":
+            result = self.criterion(outputs, targets, **kwargs)
+            for k, v in self.model.state_dict().items():
+                result += self.lr * torch.norm((v - self.server_model_state[k]).to(dtype=torch.float))**2
+            return result
         return self.criterion(outputs, targets, **kwargs)
 
     def eval_fn(self):
@@ -184,9 +196,9 @@ class Client:
 
                 inp = input[0].to(self.device)
                 targets = targets.to(self.device)
-
                 outputs = self.model(inp)
-
+                print(f"output: {outputs.isnan().any().sum()}")
+                torch.save(self.model.state_dict(), f"./test_client{self.rank}.pt")
                 val_loss += self.criterion(outputs, targets).detach().item()
 
                 fin_targets.extend(targets.tolist())
@@ -226,13 +238,10 @@ class Client:
                 for key, _ in self.model.state_dict().items():
                     self.error[key] = self.error[key].to("cpu") + self.grad[key].to("cpu") - self.compressed_grad[key].to("cpu")
         else:
-            norm = 0.    
             for key, _ in self.model.state_dict().items():
                 self.grad[key] = self.model.state_dict()[key].to(
                     "cpu"
                 ) - self.server_model_state[key].to("cpu")
-                norm += torch.norm(self.grad[key].to(dtype=torch.float))
-            print(norm)
         
                 
     def drop_error(self, drop_error):

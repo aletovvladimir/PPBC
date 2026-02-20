@@ -35,7 +35,7 @@ class PPBC(FedAvg):
         self.q_m = method_args.get("q_m", 1.0)
 
         self.method = method_args.get("method", "ppbc")
-        if self.method != "ppbc":
+        if not ("ppbc" in self.method):
             print(
                 f"for {self.method} we do not need errors, so theta and need errors params are equals to 0.0 and False"
             )
@@ -45,15 +45,15 @@ class PPBC(FedAvg):
         # Scaffold method
         if self.method == "scaffold":
             print('using scaffold method')
-            self.global_lr = method_args.get("global_lr", 3e-4)
-            self.local_lr = method_args.get("local_lr", 3e-4)
+            self.global_lr = 1e-4 # method_args.get("global_lr", 3e-4)
+            self.local_lr = 3e-4 # method_args.get("local_lr", 3e-4)
         
         self.current_iter = 0
         print(f"{self.method} algorithm, theta={self.theta}")
 
     def _init_federated(self, cfg, df):
         super()._init_federated(cfg, df)
-        print(f"grads sent per round: {self.iter_k * self.iterations + self.num_clients * (self.method == 'ppbc')}")
+        print(f"grads sent per round: {self.iter_k * self.iterations + self.num_clients * ('ppbc' in self.method)}")
 
         self.current_errors_from_clients = {
             f"client {i}": OrderedDict() for i in range(self.num_clients)
@@ -89,19 +89,18 @@ class PPBC(FedAvg):
     # =========================================================================#
 
     def get_scaffold_aggregation(self):
-        if self.server.error_feedback:
-            client_gradients = self.server.client_approx_gradients
-        else:
-            client_gradients = self.server.client_gradients
+        client_gradients = self.server.client_gradients
         aggregated_weights = self.server.global_model.state_dict()
         sum_grad = OrderedDict()
         for key, value in client_gradients[0].items():
             sum_grad[key] = torch.zeros(value.shape, device = self.server.device)
         for idx, gradient in enumerate(client_gradients):
             client_politic = self.iter_compress_politic[idx]
-            for key, value in gradient.items():
-                # print(sum_grad[key], type(client_politic), value.device)
-                sum_grad[key] += client_politic * value.to(self.server.device)
+            for key, value in self.server.global_model.named_parameters():
+                if not self.server.error_feedback:
+                    sum_grad[key] += client_politic * gradient[key].to(self.server.device)
+                else:
+                    sum_grad[key] += client_politic * (self.global_control[key].to(self.server.device) + self.clients_delta_control[idx][key])
 
         coef = self.global_lr * (1 / sum(self.iter_compress_politic))
         for key, _ in aggregated_weights.items():
@@ -158,21 +157,27 @@ class PPBC(FedAvg):
             ]
 
     def _update_global_control(self):
-        for k in self.global_control.keys():
-            add_factor = torch.sum(
-                torch.stack([delta_c[k] for delta_c in self.clients_delta_control]),
-                dim=0,
-            )
 
-            # self.global_control[k] = self.global_control[k] + (
-            #     add_factor / self.cfg.federated_params.amount_of_clients
-            # )
-            self.clients_delta_control = [
-                OrderedDict(
-                    (k, torch.zeros_like(v)) for k, v in self.global_control.items()
-                )
-                for _ in range(self.num_clients)
-            ]
+        total_delta = OrderedDict()
+        for key, value in self.global_control.items():
+            total_delta[key] = torch.zeros(value.shape, device = "cpu")
+        for idx, gradient in enumerate(self.clients_delta_control):
+            client_politic = self.iter_compress_politic[idx].to("cpu")
+            for key, value in gradient.items():
+                total_delta[key] += client_politic * value.to("cpu")
+                if (client_politic > 0):
+                    self.clients_control[idx][key] += self.clients_delta_control[idx][key].to("cpu")
+
+        coef = self.global_lr * (1 / sum(self.iter_compress_politic))
+        for key, _ in self.global_control.items():
+            self.global_control[key] = self.global_control[key] + coef.to("cpu") * total_delta[key]
+
+        self.clients_delta_control = [
+            OrderedDict(
+                (k, torch.zeros_like(v)) for k, v in self.global_control.items()
+            )
+            for _ in range(self.num_clients)
+        ]
 
     # =========================================================================#
     #                    Trust Score Calculation Utilities                    #
@@ -318,7 +323,7 @@ class PPBC(FedAvg):
 
         if self.server.error_feedback:
             content["do_update_error"] = (self.iter_compress_politic[rank] > 0)
-            if (self.current_iter == self.iterations - 1) and (self.method == "ppbc") and (self.server.error_feedback == "EF"):
+            if (self.current_iter == self.iterations - 1) and ("ppbc" in self.method) and (self.server.error_feedback == "EF"):
                 content["drop_error"] = True
         return content
 
@@ -404,6 +409,10 @@ class PPBC(FedAvg):
 
     def trust_score_compressor(self, mode="epoch"):
         if mode == "epoch":
+            print(
+                "trust scores1",
+                self.epoch_prev_trust_scores,
+            )
             idx_of_k_clients = np.argsort(self.epoch_prev_trust_scores)[::-1][
                 : self.epoch_k
             ]
@@ -495,9 +504,20 @@ class PPBC(FedAvg):
             final_client_error = self.final_errors[f"client {rank}"]
             client_politic = self.iter_compress_politic[rank].to(self.server.device)
 
-            for key, grads in client_grad.items():
-                self.current_errors_from_clients[f"client {rank}"][key] = (
-                    current_client_error[key]
+            if self.method == "ppbc":
+                for key, grads in client_grad.items():
+                    self.current_errors_from_clients[f"client {rank}"][key] = (
+                        current_client_error[key]
+                        + (1 - self.theta)
+                        * (1 / self.num_clients - client_politic)
+                        * grads.to(self.server.device)
+                        * int(self.need_errors)
+                        * current_client_prob
+                        / self.q_m
+                    )
+            elif self.method == "sppbc":
+                for key, grads in client_approx_grad.items():
+                    self.current_errors_from_clients[f"client {rank}"][key] = (
                     + (1 - self.theta)
                     * (1 / self.num_clients - client_politic)
                     * grads.to(self.server.device)
@@ -582,6 +602,7 @@ class PPBC(FedAvg):
                 self._epoch_count_trust_score()
 
             self.server.global_model.load_state_dict(aggregated_weights)
+            print("nans in weights:", sum(v.isnan().any() for k,v in aggregated_weights.items()))
 
             print("processing is done")
         if "bant" not in self.epoch_method:

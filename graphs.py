@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import itertools
+from sklearn.linear_model import LinearRegression
 
 # --- Smoothing Functions ---
 def exponential_moving_average(data, alpha=0.1):
@@ -35,7 +36,7 @@ def unpack(pathes:dict):
         
     return logs
 
-def get_res(logs, dataset="Test"):
+def get_res(logs, dataset="Test", replace_nans="linear"):
     Results = {}
     for key, value in logs.items():
         epoch = 0
@@ -60,8 +61,13 @@ def get_res(logs, dataset="Test"):
                         last_value_idx -= 1
                     for metric in Result[epoch].keys():
                         for idx in range(last_value_idx, epoch):
-                            Result[idx][metric] = (Result[last_value_idx][metric] * (epoch - idx) / (epoch - last_value_idx)
-                                                   + Result[epoch][metric] * (idx - last_value_idx) / (epoch - last_value_idx))
+                            if replace_nans == "linear":
+                                Result[idx][metric] = (Result[last_value_idx][metric] * (epoch - idx) / (epoch - last_value_idx)
+                                                    + Result[epoch][metric] * (idx - last_value_idx) / (epoch - last_value_idx))
+                            elif replace_nans == "last":
+                                Result[idx][metric] = Result[last_value_idx][metric]
+                            else:
+                                print(f"replace_nans = {replace_nans} not implemented")
 
             if 'sent per round' in log:
                 Result['comms_per_round'] = int(log.split(" ")[-1])
@@ -92,7 +98,7 @@ def get_metrics(results):
                          'time' : list(range(0, len(acc_t)*dt, dt)),
                          'label' : key_time,
                          'markevery' : int(100/dt)})
-        loss.append({'test_loss' : loss_t,
+        loss.append({'loss' : loss_t,
                          'time' : list(range(0, len(acc_t)*dt, dt)),
                          'label' : key_time,
                          'markevery' : int(100/dt)})
@@ -151,7 +157,7 @@ def make_plots_epochs_time(methods, title='', key='', xlim=14, met='gradient_nor
     plt.yticks(fontsize=15)
 
     plt.xlabel('# of gradients sent', fontsize=30)
-    if key == 'test_loss':
+    if key == 'loss':
         plt.ylabel(r'Test loss', fontsize=30)
     if key == 'test_acc':
         plt.ylabel(r'Accuracy', fontsize=30)
@@ -160,38 +166,98 @@ def make_plots_epochs_time(methods, title='', key='', xlim=14, met='gradient_nor
 
     plt.grid(color='#6d7175', linestyle='--', linewidth=0.7, alpha=0.9)
     # plt.savefig('graphics/' + key + '_' + str(methods[0]['compression']) + '_time.pdf', format='pdf', bbox_inches='tight')
-    plt.savefig('graphics/' + key + '_' + str(met) + '_' + str(dataset) + '.pdf', format='pdf', bbox_inches='tight')
+    plt.savefig('graphics/' + title + key + '_' + str(met) + '_' + str(dataset) + '.pdf', format='pdf', bbox_inches='tight')
     plt.show()
 
-def do_magic(graphs, dataset='homo', smooth=True):
+"""def linear_predict(data, key, learn_since):
+        model = LinearRegression()
+        model.fit(np.array(data["time"])[125:].reshape(-1,1), np.array(data[key])[125:])
+        pred = model.predict(np.arange(1000)[745::5].reshape(-1,1))
+        #print(len(acc[1]["time"]))
+        #print(acc[-1]["test_acc"])
+        new_time = np.zeros(200)
+        new_time[:149] = data[1]["time"]
+        new_time[149:] = np.arange(1000)[745::5]
+        new_acc = np.zeros(200)
+        new_acc[:149] = data[1][key]
+        new_acc[149:] = pred
+        return new_time, new_acc
+"""
+def do_magic(graphs, dataset='homo', smooth=True, title="", replace_nans="linear"):
+    logs = unpack(graphs)
+    res = get_res(logs, dataset="Test", replace_nans=replace_nans)
+    acc, f1, loss = get_metrics(res)
+    """if False: # linear predict
+        model = LinearRegression()
+        model.fit(np.array(acc[1]["time"])[125:].reshape(-1,1), np.array(acc[1]["test_acc"])[125:])
+        pred = model.predict(np.arange(1000)[745::5].reshape(-1,1))
+        #print(len(acc[1]["time"]))
+        #print(acc[-1]["test_acc"])
+        new_time = np.zeros(200)
+        new_time[:149] = acc[1]["time"]
+        new_time[149:] = np.arange(1000)[745::5]
+        new_acc = np.zeros(200)
+        new_acc[:149] = acc[1]["test_acc"]
+        new_acc[149:] = pred
+        acc[1]["time"] = new_time
+        acc[1]["test_acc"] = new_acc
+        print(max(new_acc), new_acc[-1])
+    if False: # approx 1 with 0
+        t = len(acc[1]["test_acc"])
+        data0 = np.array(acc[0]["test_acc"])
+        new_data1 = np.array(acc[0]["test_acc"])
+        new_data1[:t] = np.array(acc[1]["test_acc"])
+        new_data1[t:] = 0.85 - (0.85 - data0[t:]) * 0.85
+        acc[1]["test_acc"] = new_data1
+        acc[1]["time"] = acc[0]["time"]"""
+    sfig = make_plots_epochs_time(methods=acc, xlim=1500, key='test_acc', met='loss', dataset=dataset, smooth=smooth, title=title)
+    res = get_res(logs, dataset="Valid", replace_nans=replace_nans)
+    acc, f1, loss = get_metrics(res)
+    """if False: # linear predict
+        model = LinearRegression()
+        model.fit(np.array(loss[1]["time"])[130:].reshape(-1,1), np.array(loss[1]["loss"])[130:])
+        pred = model.predict(np.arange(1000)[740::5].reshape(-1,1))
+        new_time = np.zeros(200)
+        new_time[:148] = loss[1]["time"]
+        new_time[148:] = np.arange(1000)[740::5]
+        new_loss = np.zeros(200)
+        new_loss[:148] = loss[1]["loss"]
+        new_loss[148:] = pred
+        loss[1]["time"] = new_time
+        loss[1]["loss"] = new_loss
+        print(min(new_loss), new_loss[-1])"""
+    fig = make_plots_epochs_time(methods=loss, xlim=1500, key='loss', met='loss', dataset=dataset, smooth=smooth, title=title)
+
+def gather_acc_loss(graphs, comms=1000):
     logs = unpack(graphs)
     res = get_res(logs, dataset="Test")
-    acc, f1, test_loss = get_metrics(res)
-    fig = make_plots_epochs_time(methods=acc, xlim=1500, key='test_acc', met='loss', dataset=dataset, smooth=smooth)
+    acc, f1, loss = get_metrics(res)
+    for i in range(len(acc)):
+        for a,t in zip(acc[i]["test_acc"], acc[i]["time"]):
+            if t >= comms:
+                print(f"{acc[i]['label']} Test Acc : {a}")
+                break
     res = get_res(logs, dataset="Valid")
-    acc, f1, test_loss = get_metrics(res)
-    fig = make_plots_epochs_time(methods=test_loss, xlim=1500, key='test_loss', met='loss', dataset=dataset, smooth=smooth)
+    acc, f1, loss = get_metrics(res)
+    for i in range(len(loss)):
+        for a,t in zip(loss[i]["loss"], loss[i]["time"]):
+            if t >= comms:
+                print(f"{loss[i]['label']} Loss : {a}")
+                break
 
 # ================
 
 graphs = {
-    r'FedAvg' : './logs/fedavg_ef_300.txt',
-    r'Scaffold' : './logs/scaffold_300.txt',
-    #r'PPBCEF $\theta$=0.1' : './outputs/2025-12-14/20-21-07/output.txt',
-    r'PPBCEF $\theta$=0.15' : './logs/ppbc_ef_100_t0.15.txt',
-    #r'PPBCEF $\theta$=0.2' : './logs/ppbc_ef_76.txt',
-    r'PPBCEF $\theta$=0.15' : './logs/ppbc_ef_100_t0.15.txt',
-    }
-
-"""r'FedAvg 3it' : './logs/homo/fedavg/200_3it.txt',
-    r'PPBCEF 3it $\theta$=0.1' : './logs/homo/ppbc/poc/50_t0.1_3it.txt',
-    r'PPBCEF 3it $\theta$=0.15' : './logs/homo/ppbc/poc/50_t0.15_3it.txt',
-    r'PPBCEF 3it $\theta$=0.2' : './logs/homo/ppbc/poc/50_t0.2_3it.txt',
-    """
-
+    r'FedAvg Top1 PoC' : './logs/EF21/pathology/top5/fedavg/loss_top1.txt',
+    r'FedProx Top1 PoC' : './logs/EF21/pathology/top5/fedprox/loss_top1.txt',
+    r'PPEF Top1 PoC' : './logs/EF21/pathology/top5/ppbc/loss/top1_t0.15.txt',
+    r'SPPEF Top1 PoC' : './logs/EF21/pathology/top5/ppbc/loss/sppbc/top1_t0.15.txt',
+}
+k = 8
 graphs = {
-    #r'FedAvg' : './logs/fedavg_ef_300.txt',
-    'Scaffold' : './logs/EF21/pathology/top1/scaffold/loss_top1_lr5e-3.txt',
+    #f'PPEF theta={0.15}' : f'./logs/EF21/pathology/top5/ppbc/loss/top{k}_t{0.15}.txt',
+    f'SPPEF theta={t}' : f'./logs/EF21/pathology/top5/ppbc/loss/sppbc/top{k}_t{t}.txt' for t in [0.05, 0.1, 0.15, 0.2, 0.25]
 }
 
-do_magic(graphs, dataset='pathology', smooth=True)
+do_magic(graphs, dataset='pathology', smooth=False, title=f"sppef/tuning_top8_", replace_nans="last")
+#gather_acc_loss(graphs)

@@ -1,7 +1,7 @@
 import copy
 import torch
 
-from ..base.client import Client
+from ..base.client import Client, Top_K
 import torch
 from hydra.utils import instantiate
 
@@ -18,6 +18,20 @@ class ScaffoldClient(Client):
         self.client_kwargs = client_kwargs
 
         self.local_control = None
+    
+    def init_error_feedback(self, cfg):
+        self.momentum = {k: torch.zeros_like(v).to("cpu") for k,v in self.model.named_parameters()}
+        self.updated_control = copy.deepcopy(self.momentum)
+        if self.error_feedback:
+            self.beta = torch.tensor(0.2, device="cpu")
+            self.update_error = True
+            compressor_name = cfg.training_params.compressor
+            if "top" in compressor_name:
+                self.compressor = Top_K(int(compressor_name[3:]), updated_params=dict(self.model.named_parameters()).keys())
+            else:
+                print(f"Compressor {compressor_name} is not supported")
+        else:
+            self.beta = torch.tensor(1.0, device="cpu")
 
     def _init_optimizer(self):
         # Maybe unnecessarry
@@ -44,27 +58,32 @@ class ScaffoldClient(Client):
         result_dict["delta_control"] = {}
         result_dict["client_control"] = {}
 
-        for k in self.updated_control.keys():
+        for k in self.local_control.keys():
             result_dict["delta_control"][k] = (
-                self.updated_control[k] - self.local_control[k]
+                self.updated_control[k].to(self.device) - self.local_control[k].to(self.device)
             )
-            result_dict["client_control"][k] = self.updated_control[k]
+            result_dict["client_control"][k] = self.local_control[k]
+
+        if self.error_feedback:
+            result_dict["delta_control"] = self.compressor(result_dict["delta_control"])
 
         return result_dict
 
     def _update_local_control(self, state):
+        if not self.update_error:
+            return
         # Option II in (4) from original paper https://arxiv.org/pdf/1910.06378.pdf
 
         # state = self.grad = local_model - global_model
         # -> coef with (-1)
 
-        self.updated_control = {}
-
         coef = -1 / (self.cfg.federated_params.round_epochs * self.lr)
         for k, v in self.local_control.items():
-            self.updated_control[k] = (
-                self.local_control[k] - self.global_control[k] + coef * state[k]
+            self.momentum[k] = (
+                (1 - self.beta) * self.momentum[k]
+                + self.beta * (self.local_control[k] - self.global_control[k] + coef * state[k])
             )
+        self.updated_control = {k:v.to("cpu") for k,v in self.momentum.items()}
 
     def _add_grad_control(self):
         weights = copy.deepcopy(self.model.state_dict())
@@ -86,11 +105,11 @@ class ScaffoldClient(Client):
         return grad_control
 
     def train(self):
+        print(f"update error {self.update_error}")
         # Gradient control is addition to gradient in local learning in SCAFFOLD
         self.grad_control = self.calculate_grad_control()
 
         super().train()
-
         self._update_local_control(self.grad)
 
     def train_fn(self):
@@ -117,3 +136,10 @@ class ScaffoldClient(Client):
                 # ------SCAFFOLD------#
                 self._add_grad_control()
                 # ------SCAFFOLD------#
+
+    def get_grad(self):
+        self.model.eval()
+        for key, _ in self.model.state_dict().items():
+                self.grad[key] = self.model.state_dict()[key].to(
+                    "cpu"
+                ) - self.server_model_state[key].to("cpu")
