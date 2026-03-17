@@ -34,7 +34,6 @@ class Client:
         self.valid_loader = None
         self.criterion = None
         self.server_model_state = None
-        self.old_model_dict = None
 
         self.metrics_threshold = cfg.training_params.metrics_threshold
         self.print_metrics = cfg.federated_params.print_client_metrics
@@ -108,7 +107,6 @@ class Client:
         return pipe_commands_map
 
     def train_fn(self):
-        self.old_model_dict = copy.deepcopy(self.model).state_dict()
         self.model.train()
         for _ in range(self.cfg.federated_params.round_epochs):
             for batch in self.train_loader:
@@ -162,21 +160,13 @@ class Client:
         )
 
         return val_loss / len(self.valid_loader), client_metrics
-'''
-    def get_grad(self):
-        self.model.eval()
-        for key, _ in self.model.state_dict().items():
-            self.grad[key] = self.model.state_dict()[key].to(
-                "cpu"
-            ) - self.server_model_state[key].to("cpu")
-'''
 
     def get_grad(self):
         self.model.eval()
         for key, _ in self.model.state_dict().items():
             self.grad[key] = self.model.state_dict()[key].to(
                 "cpu"
-            ) - self.old_model_dict[key].to("cpu")
+            ) - self.server_model_state[key].to("cpu")
 
     def train(self):
         # Save the server model state to get_grad
