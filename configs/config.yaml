@@ -1,12 +1,12 @@
 defaults:
-    - models@models_dict.model1: fine_tuning
-    - observed_data_params@dataset: food101_pathology
-    - observed_data_params@server_test: food101_pathology
-    - observed_data_params@trust_df: food101_trust
+    - models@models_dict.model1: resnet18
+    - observed_data_params@dataset: cifar10_pathology
+    - observed_data_params@server_test: cifar10_pathology
+    - observed_data_params@trust_df: cifar10_trust
     - federated_method: ppbc
     - losses@loss: ce
     - manager: sequential
-    - optimizer: adam
+    - optimizer: sgd
     - _self_
 models: ${oc.dict.values:models_dict}
 
@@ -26,10 +26,10 @@ training_params:
     saving_metrics: ["loss"]
 
 federated_params:
-    amount_of_clients: 10
+    amount_of_clients: 4
     min_sample_number: 1000
     communication_rounds: 16
-    round_epochs: 1
+    round_epochs: 10
     client_train_val_prop: 0.2
     print_client_metrics: False
     server_saving_metrics: ["loss"]

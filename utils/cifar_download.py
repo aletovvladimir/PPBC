@@ -15,7 +15,7 @@ import fire
 
 # Set global seeds for reproducibility
 
-
+CLIENTS_AMOUNT = 4
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
@@ -133,7 +133,7 @@ def prepare_splits(df, target_dir):
         df=df,
         std=0.1,
         target_dir=target_dir,
-        amount_of_clients=10,
+        amount_of_clients=CLIENTS_AMOUNT,
         random_state=42,
         name="cifar10",
     )
@@ -142,7 +142,7 @@ def prepare_splits(df, target_dir):
     set_hetero_split(
         df,
         target_dir=target_dir,
-        amount_of_clients=10,
+        amount_of_clients=CLIENTS_AMOUNT,
         head_classes=30,
         head_clients=4,
         random_state=42,

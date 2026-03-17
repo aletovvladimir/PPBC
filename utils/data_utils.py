@@ -102,9 +102,10 @@ def set_up_base_dir(cfg: dict):
         "trust_df",
     ]
     for mode in modes:
-        # Inside each type, we have different subtypes (train_directories/valid_directories)
+        print(f" ====== {mode} ======") # Inside each type, we have different subtypes (train_directories/valid_directories)
+        print(cfg[mode])
         for type in cfg[mode]["data_sources"]:
-            # Each subtype is a list of map_files
+            print(type) # Each subtype is a list of map_files
             for i in range(len(cfg[mode]["data_sources"][type])):
                 path_without_base = "/".join(
                     cfg[mode]["data_sources"][type][i].split("/")[2:]
