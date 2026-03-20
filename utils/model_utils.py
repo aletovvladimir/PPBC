@@ -21,6 +21,19 @@ Reference:
     Deep Residual Learning for Image Recognition. arXiv:1512.03385
 """
 
+class LayerNorm2d(nn.Module):
+    def __init__(self, num_channels, eps=1e-5):
+        super().__init__()
+        self.norm = nn.LayerNorm(num_channels, eps=eps)
+    
+    def forward(self, x):
+        # x: (N, C, H, W)
+        # Permute to put channel dimension last for LayerNorm
+        x = x.permute(0, 2, 3, 1)  # (N, H, W, C)
+        x = self.norm(x)
+        x = x.permute(0, 3, 1, 2)  # (N, C, H, W)
+        return x
+
 
 class BasicBlock(nn.Module):
     expansion = 1
@@ -30,11 +43,11 @@ class BasicBlock(nn.Module):
         self.conv1 = nn.Conv2d(
             in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False
         )
-        self.bn1 = nn.LayerNorm(planes)
+        self.bn1 = LayerNorm2d(planes)
         self.conv2 = nn.Conv2d(
             planes, planes, kernel_size=3, stride=1, padding=1, bias=False
         )
-        self.bn2 = nn.LayerNorm(planes)
+        self.bn2 = LayerNorm2d(planes)
 
         self.shortcut = nn.Sequential()
         if stride != 1 or in_planes != self.expansion * planes:
@@ -46,7 +59,7 @@ class BasicBlock(nn.Module):
                     stride=stride,
                     bias=False,
                 ),
-                nn.LayerNorm(self.expansion * planes),
+                LayerNorm2d(self.expansion * planes),
             )
 
     def forward(self, x):
@@ -63,15 +76,15 @@ class Bottleneck(nn.Module):
     def __init__(self, in_planes, planes, stride=1):
         super(Bottleneck, self).__init__()
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=1, bias=False)
-        self.bn1 = nn.LayerNorm(planes)
+        self.bn1 = LayerNorm2d(planes)
         self.conv2 = nn.Conv2d(
             planes, planes, kernel_size=3, stride=stride, padding=1, bias=False
         )
-        self.bn2 = nn.LayerNorm(planes)
+        self.bn2 = LayerNorm2d(planes)
         self.conv3 = nn.Conv2d(
             planes, self.expansion * planes, kernel_size=1, bias=False
         )
-        self.bn3 = nn.LayerNorm(self.expansion * planes)
+        self.bn3 = LayerNorm2d(self.expansion * planes)
 
         self.shortcut = nn.Sequential()
         if stride != 1 or in_planes != self.expansion * planes:
@@ -83,7 +96,7 @@ class Bottleneck(nn.Module):
                     stride=stride,
                     bias=False,
                 ),
-                nn.LayerNorm(self.expansion * planes),
+                LayerNorm2d(self.expansion * planes),
             )
 
     def forward(self, x):
@@ -101,7 +114,7 @@ class ResNet(nn.Module):
         self.in_planes = 64
 
         self.conv1 = nn.Conv2d(3, 64, kernel_size=3, stride=1, padding=1, bias=False)
-        self.bn1 = nn.LayerNorm(64)
+        self.bn1 = LayerNorm2d(64)
         self.layer1 = self._make_layer(block, 64, num_blocks[0], stride=1)
         self.layer2 = self._make_layer(block, 128, num_blocks[1], stride=2)
         self.layer3 = self._make_layer(block, 256, num_blocks[2], stride=2)
