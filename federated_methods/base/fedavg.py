@@ -6,6 +6,7 @@ from .client import Client, multiprocess_client
 from utils.manager_utils import Manager
 
 from utils.model_utils import get_model
+from utils.data_utils import read_dataframe_from_cfg, get_stratified_subsample
 
 
 class FedAvg:
@@ -27,7 +28,14 @@ class FedAvg:
         self._init_manager()
 
     def _init_server(self, cfg):
-        self.server = Server(cfg)
+        trust_df = read_dataframe_from_cfg(cfg, "train_directories", "trust_df")
+        _, trust_df = get_stratified_subsample(
+            df=trust_df,
+            num_samples=len(trust_df),
+            random_state=cfg.random_state,
+        )
+
+        self.server = Server(cfg, trust_df)
 
     def _init_client_cls(self):
         self.client_cls = Client

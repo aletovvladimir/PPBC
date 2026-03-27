@@ -132,7 +132,7 @@ class PPBC(FedAvg):
             client_errors = self.final_errors[f"client {rank}"]
 
             for key, _ in aggregated_weights.items():
-                aggregated_weights[key] = _ + client_errors[key] / self.iterations
+                aggregated_weights[key] = _ + client_errors[key] # / self.iterations
 
         self.server.global_model.load_state_dict(aggregated_weights)
 
@@ -172,7 +172,7 @@ class PPBC(FedAvg):
                     * client_politic
                     + self.gamma
                     * self.theta
-                    * final_client_error[key] / self.iterations
+                    * final_client_error[key]  #/ self.iterations
                 )
 
             if itn == self.iterations - 1:
@@ -242,10 +242,18 @@ class PPBC(FedAvg):
         self.clients_loader = self.manager.batches
         self.server.global_model = get_model(self.cfg)
 
+        #Run for statistics
+        # 1) run eavluation on trust dataset
+        self.server.eval_trust_fn()
+        # 2) save running stats
+        self.bn_stats = self.server.save_bn_stats()
+        # 3) now on each round we rewrite stats on round
         for round in range(self.rounds):
             begin_round_time = time.time()
             self.cur_round = round
             print(f"\nRound number: {round} of {self.rounds}")
+
+            self.server.restore_bn_stats(self.bn_stats)
 
             _ = self.server.test_global_model()
 
