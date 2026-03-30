@@ -59,6 +59,14 @@ class Server:
             ]
         else:
             print(print("Error Feedback is NOT being used."))
+        self.method = cfg.federated_method.method
+        if self.method == "s-dane":
+            self.client_prox_center_grad = [
+                OrderedDict() for _ in range(cfg.federated_params.amount_of_clients)
+            ]
+            self.client_approx_prox_center_grad = [
+                OrderedDict() for _ in range(cfg.federated_params.amount_of_clients)
+            ]
         
     def eval_fn(self, dataset):
         self.global_model.to(self.device)
@@ -120,6 +128,9 @@ class Server:
             self.client_approx_gradients[client_result["rank"]] = client_result["approx_grad"]
         elif self.error_feedback:
             self.client_approx_gradients[client_result["rank"]] = client_result["compressed_grad"]
+        if self.method == 's-dane':
+            self.client_prox_center_grad[client_result["rank"]] = client_result["prox_center_grad"]
+            self.client_approx_prox_center_grad[client_result["rank"]] = client_result["approx_prox_center_grad"]
 
     def save_best_model(self, round):
         # Collect metrics from clients

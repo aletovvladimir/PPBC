@@ -13,14 +13,18 @@ with open("configs/config.yaml", "r") as f:
 df = pd.read_csv("/home/DBystrov/EF25_NIPS/cifar10/image_data/cifar10_pathology_map_file.csv")
 dataset = get_dataset_loader(df, cfg)
 
-for i in range(10):
+for i in range(1):
     model = resnet18(10).to("cuda")
-    model.load_state_dict(torch.load(f"test_client{i}.pt"))
-    print(i)
+    model.load_state_dict(torch.load(f"models/client{i}.pt"))
     for _, (x, y) in dataset:
-        y2 = model(x[0].to("cuda"))
-        y3 = torch.softmax(y2, dim=1)
+        x = x[0].to("cuda")
+        y2 = model(x)
         if y2.isnan().any():
-            print(_, "2")
-        if y3.isnan().any():
-            print(_, "3")
+            y = x
+            for idx, child in enumerate(list(model.children())):
+                y = child(y)
+                if y.isnan().any():
+                    print(idx, child)
+                    break
+            break                    
+            

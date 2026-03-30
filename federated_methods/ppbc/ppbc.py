@@ -34,8 +34,8 @@ class PPBC(FedAvg):
         self.momentum_beta = method_args.get("momentum_beta", 0.1)
         self.q_m = method_args.get("q_m", 1.0)
 
-        self.method = method_args.get("method", "ppbc")
-        if not ("ppbc" in self.method):
+        self.method = method_args.get("method", "pp")
+        if not ("pp" in self.method):
             print(
                 f"for {self.method} we do not need errors, so theta and need errors params are equals to 0.0 and False"
             )
@@ -48,12 +48,18 @@ class PPBC(FedAvg):
             self.global_lr = 1e-4 # method_args.get("global_lr", 3e-4)
             self.local_lr = 3e-4 # method_args.get("local_lr", 3e-4)
         
+        if self.method == "s-dane": # only with k=1 sampling per iteration!
+            print('using s-dane method')
+            if self.iter_k > 1:
+                print(f"Warning! S-Dane method is not implemented properly to work with more than 1 client per iteration!")
+
         self.current_iter = 0
+        self.factor = method_args.get("factor", 1.0)
         print(f"{self.method} algorithm, theta={self.theta}")
 
     def _init_federated(self, cfg, df):
         super()._init_federated(cfg, df)
-        print(f"grads sent per round: {self.iter_k * self.iterations + self.num_clients * ('ppbc' in self.method)}")
+        print(f"grads sent per round: {self.iter_k * self.iterations + self.num_clients * ('pp' in self.method)}")
 
         self.current_errors_from_clients = {
             f"client {i}": OrderedDict() for i in range(self.num_clients)
@@ -320,10 +326,13 @@ class PPBC(FedAvg):
         }
         if self.method == "scaffold":
             content["controls"] = (self.global_control, self.clients_control[rank])
+        
+        if self.method == "s-dane":
+            content["update_prox_center"] = self.prox_center
 
         if self.server.error_feedback:
-            content["do_update_error"] = (self.iter_compress_politic[rank] > 0)
-            if (self.current_iter == self.iterations - 1) and ("ppbc" in self.method) and (self.server.error_feedback == "EF"):
+            content["do_update_error"] = (self.iter_compress_politic[rank] > 0) 
+            if (self.current_iter == self.iterations - 1) and ("pp" in self.method) and (self.server.error_feedback == "EF"):
                 content["drop_error"] = True
         return content
 
@@ -409,10 +418,6 @@ class PPBC(FedAvg):
 
     def trust_score_compressor(self, mode="epoch"):
         if mode == "epoch":
-            print(
-                "trust scores1",
-                self.epoch_prev_trust_scores,
-            )
             idx_of_k_clients = np.argsort(self.epoch_prev_trust_scores)[::-1][
                 : self.epoch_k
             ]
@@ -475,7 +480,7 @@ class PPBC(FedAvg):
             client_errors = self.final_errors[f"client {rank}"]
 
             for key, _ in aggregated_weights.items():
-                aggregated_weights[key] = _ + client_errors[key]
+                aggregated_weights[key] = _ + client_errors[key] * self.factor
 
         self.server.global_model.load_state_dict(aggregated_weights)
 
@@ -504,7 +509,7 @@ class PPBC(FedAvg):
             final_client_error = self.final_errors[f"client {rank}"]
             client_politic = self.iter_compress_politic[rank].to(self.server.device)
 
-            if self.method == "ppbc":
+            if self.method == "pp":
                 for key, grads in client_grad.items():
                     self.current_errors_from_clients[f"client {rank}"][key] = (
                         current_client_error[key]
@@ -515,9 +520,10 @@ class PPBC(FedAvg):
                         * current_client_prob
                         / self.q_m
                     )
-            elif self.method == "sppbc":
+            elif self.method == "spp":
                 for key, grads in client_approx_grad.items():
                     self.current_errors_from_clients[f"client {rank}"][key] = (
+                    current_client_error[key]
                     + (1 - self.theta)
                     * (1 / self.num_clients - client_politic)
                     * grads.to(self.server.device)
@@ -525,20 +531,29 @@ class PPBC(FedAvg):
                     * current_client_prob
                     / self.q_m
                 )
+            elif self.method == "s-dane":
+                client_prox_center_approx_grad = self.server.client_prox_center_grad[rank]
+                for key, grads in client_prox_center_approx_grad.items():
+                    self.prox_center[key] = (
+                        self.prox_center[key]
+                        + grads
+                    )
+
             for key, grads in client_approx_grad.items():
                 aggregated_weights[key] = (
                     aggregated_weights[key]
                     + self.gamma
                     * (1 - self.theta)
                     * grads.to(self.server.device)
-                    * client_politic
+                    * (client_politic * int(self.method != 's-dane') 
+                       + int(client_politic > 0) * int(self.method == "s-dane"))
                     * int(self.need_errors)
                     * current_client_prob
                     / self.q_m
                     + self.gamma
                     * self.theta
                     * final_client_error[key]
-                    * int(self.need_errors)
+                    * int(self.need_errors) * self.factor
                     + self.gamma
                     * (1 - self.theta)
                     * grads.to(self.server.device)
@@ -602,7 +617,6 @@ class PPBC(FedAvg):
                 self._epoch_count_trust_score()
 
             self.server.global_model.load_state_dict(aggregated_weights)
-            print("nans in weights:", sum(v.isnan().any() for k,v in aggregated_weights.items()))
 
             print("processing is done")
         if "bant" not in self.epoch_method:
@@ -621,6 +635,8 @@ class PPBC(FedAvg):
         self.create_clients()
         self.clients_loader = self.manager.batches
         self.server.global_model = get_model(self.cfg)
+        if self.method == "s-dane":
+            self.prox_center = self.server.global_model.state_dict()
         if self.method == "scaffold":
             self._init_controls()
 

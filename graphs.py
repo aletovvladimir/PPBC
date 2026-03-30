@@ -47,7 +47,10 @@ def get_res(logs, dataset="Test", replace_nans="linear"):
                 epoch = int(log.split()[2])
                 
             if f'Server {dataset} Results:' in log :
-                datas = [value[j].split() for j in range(i+2,i+7)]
+                if value[i+1][0] == "[":
+                    datas = [value[j].split() for j in range(i+3,i+8)]
+                else:
+                    datas = [value[j].split() for j in range(i+2,i+7)]
                 results = {data[0] : float(data[-1]) for data in datas}
                 if np.isnan(np.array(list(results.values()))).any():
                     Result[epoch] = dict()
@@ -90,10 +93,13 @@ def get_metrics(results):
             if epoch == 'comms_per_round':
                 dt = metrics
                 continue 
-            acc_t.append(metrics['Accuracy'])
-            f1_t.append(metrics['f1-score'])
-            loss_t.append(metrics['Server'])
-            rec_t.append(metrics['Precision'])
+            try:
+                acc_t.append(metrics['Accuracy'])
+                f1_t.append(metrics['f1-score'])
+                loss_t.append(metrics['Server'])
+                rec_t.append(metrics['Precision'])
+            except:
+                pass
         acc.append({'test_acc' : acc_t,
                          'time' : list(range(0, len(acc_t)*dt, dt)),
                          'label' : key_time,
@@ -106,7 +112,7 @@ def get_metrics(results):
         f1[key_time] = f1_t
     return acc, f1, loss
 
-def make_plots_epochs_time(methods, title='', key='', xlim=14, met='gradient_norm', dataset = 'hetero', envelope_window_comms=200, smooth=True):
+def make_plots_epochs_time(methods, title='', key='', xlim=14, dataset = 'hetero', envelope_window_comms=200, smooth=True):
 
     fig = plt.figure(figsize=(8, 6))
     # plt.title(title, fontsize=14)
@@ -114,7 +120,8 @@ def make_plots_epochs_time(methods, title='', key='', xlim=14, met='gradient_nor
     plt.gca().patch.set_alpha(0.15)
     
     markers = itertools.cycle(('o', 's', '*', '^', 'h'))
-    colors = itertools.cycle(('forestgreen', 'darkorange', 'crimson', 'darkmagenta', 'magenta', 'darkblue', 'pink'))
+    colors = itertools.cycle(('forestgreen', 'darkorange', 'crimson', 'darkmagenta', 'magenta', 
+                                'darkblue', 'pink', 'turquoise', 'lightgreen', 'white'))
 
     num_of_methods = len(methods)
 
@@ -166,7 +173,7 @@ def make_plots_epochs_time(methods, title='', key='', xlim=14, met='gradient_nor
 
     plt.grid(color='#6d7175', linestyle='--', linewidth=0.7, alpha=0.9)
     # plt.savefig('graphics/' + key + '_' + str(methods[0]['compression']) + '_time.pdf', format='pdf', bbox_inches='tight')
-    plt.savefig('graphics/' + title + key + '_' + str(met) + '_' + str(dataset) + '.pdf', format='pdf', bbox_inches='tight')
+    plt.savefig(f'graphics/{dataset}/' + title + '_' + key + '.pdf', format='pdf', bbox_inches='tight')
     plt.show()
 
 """def linear_predict(data, key, learn_since):
@@ -210,7 +217,7 @@ def do_magic(graphs, dataset='homo', smooth=True, title="", replace_nans="linear
         new_data1[t:] = 0.85 - (0.85 - data0[t:]) * 0.85
         acc[1]["test_acc"] = new_data1
         acc[1]["time"] = acc[0]["time"]"""
-    sfig = make_plots_epochs_time(methods=acc, xlim=1500, key='test_acc', met='loss', dataset=dataset, smooth=smooth, title=title)
+    sfig = make_plots_epochs_time(methods=acc, xlim=1500, key='test_acc', dataset=dataset, smooth=smooth, title=title)
     res = get_res(logs, dataset="Valid", replace_nans=replace_nans)
     acc, f1, loss = get_metrics(res)
     """if False: # linear predict
@@ -226,38 +233,49 @@ def do_magic(graphs, dataset='homo', smooth=True, title="", replace_nans="linear
         loss[1]["time"] = new_time
         loss[1]["loss"] = new_loss
         print(min(new_loss), new_loss[-1])"""
-    fig = make_plots_epochs_time(methods=loss, xlim=1500, key='loss', met='loss', dataset=dataset, smooth=smooth, title=title)
+    fig = make_plots_epochs_time(methods=loss, xlim=1500, key='loss', dataset=dataset, smooth=smooth, title=title)
 
 def gather_acc_loss(graphs, comms=1000):
     logs = unpack(graphs)
     res = get_res(logs, dataset="Test")
     acc, f1, loss = get_metrics(res)
+    acc_best = 0
     for i in range(len(acc)):
         for a,t in zip(acc[i]["test_acc"], acc[i]["time"]):
+            acc_best = max(acc_best, a)
             if t >= comms:
                 print(f"{acc[i]['label']} Test Acc : {a}")
                 break
     res = get_res(logs, dataset="Valid")
     acc, f1, loss = get_metrics(res)
+    loss_best = loss[0]["loss"][0]
     for i in range(len(loss)):
-        for a,t in zip(loss[i]["loss"], loss[i]["time"]):
+        for l,t in zip(loss[i]["loss"], loss[i]["time"]):
+            loss_best = min(loss_best, l)
             if t >= comms:
-                print(f"{loss[i]['label']} Loss : {a}")
+                print(f"{loss[i]['label']} Loss : {l}")
                 break
 
 # ================
-
+compression = "top10"
+dataset = "hetero"
+metric = "loss"
 graphs = {
-    r'FedAvg Top1 PoC' : './logs/EF21/pathology/top5/fedavg/loss_top1.txt',
-    r'FedProx Top1 PoC' : './logs/EF21/pathology/top5/fedprox/loss_top1.txt',
-    r'PPEF Top1 PoC' : './logs/EF21/pathology/top5/ppbc/loss/top1_t0.15.txt',
-    r'SPPEF Top1 PoC' : './logs/EF21/pathology/top5/ppbc/loss/sppbc/top1_t0.15.txt',
-}
-k = 8
-graphs = {
-    #f'PPEF theta={0.15}' : f'./logs/EF21/pathology/top5/ppbc/loss/top{k}_t{0.15}.txt',
-    f'SPPEF theta={t}' : f'./logs/EF21/pathology/top5/ppbc/loss/sppbc/top{k}_t{t}.txt' for t in [0.05, 0.1, 0.15, 0.2, 0.25]
+    'FedAvg' : f'./log/{dataset}/{compression}/fedavg/{metric}_top1.txt',
+    'FedProx' : f'./log/{dataset}/{compression}/fedprox/{metric}_top1.txt',
+    #'S-Dane' : f'./log/{dataset}/{compression}/s-dane/loss_top1.txt',
+    r'PPEF $\theta$=0.15' : f'./log/{dataset}/{compression}/pp/{metric}_top1_t0.15.txt',
 }
 
-do_magic(graphs, dataset='pathology', smooth=False, title=f"sppef/tuning_top8_", replace_nans="last")
-#gather_acc_loss(graphs)
+do_magic(graphs, dataset=dataset, smooth=False, title=f"{compression}_loss", replace_nans="last")
+
+graphs = {}
+for dataset in ["homo", "pathology", "hetero"]:
+    for compression in ["top1", "top5", "top10"]:
+        for method in ["fedavg", "fedprox", "pp"]:
+            for metric in ["loss", "angle"]:
+                graphs[f"{dataset}_{compression}_{method}_{metric}"] = (
+                    f"./log/{dataset}/{compression}/{method}/{metric}_top1{'_t0.15' * int(method=='pp')}.txt"
+                )
+
+#gather_acc_loss(graphs, comms=1500)

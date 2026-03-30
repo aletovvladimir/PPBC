@@ -80,6 +80,12 @@ class Client:
         self.approx_grad = OrderedDict()
         self.error_feedback = cfg.training_params.error_feedback
         self.method = cfg.federated_method.method
+        if self.method == "s-dane":
+            self.prox_center = copy.deepcopy(self.model)
+            self.server_prox_center = copy.deepcopy(self.model)
+            self.prox_center_grad = OrderedDict()
+            self.approx_prox_center_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
+            self.prox_optimizer = instantiate(self.cfg.optimizer, params=self.prox_center.parameters())    
         self.lr = cfg.optimizer.lr
         self.init_error_feedback(cfg)
 
@@ -151,7 +157,8 @@ class Client:
             ),
             "reinit": lambda new_rank: self.reinit_self(new_rank),
             "drop_error": lambda drop_error: self.drop_error(drop_error),
-            "do_update_error": lambda d_u_e: self.set_update_error(d_u_e,)
+            "do_update_error": lambda d_u_e: self.set_update_error(d_u_e,),
+            "update_prox_center": lambda v: self.set_prox_center(v)
         }
 
         return pipe_commands_map
@@ -175,12 +182,39 @@ class Client:
 
                 inp = input[0].to("cpu")
                 targets = targets.to("cpu")
+    
+    def train_prox_center(self):
+        self.prox_center.train()
+        for _ in range(self.cfg.federated_params.round_epochs):
+            for batch in self.train_loader:
+                _, (input, targets) = batch
+
+                inp = input[0].to(self.device)
+                targets = targets.to(self.device)
+
+                self.prox_optimizer.zero_grad()
+                outputs = self.model(inp)
+
+                loss = self.criterion(outputs, targets)
+                for k, v in self.prox_center.state_dict().items():
+                    loss += 0.5 * self.lr * torch.norm((v - self.model.state_dict()[k]).to(dtype=torch.float))**2
+                    loss += 0.5 * self.lr * torch.norm((v - self.server_prox_center[k].to(v.device)).to(dtype=torch.float))**2
+                    new_grad = (self.model.state_dict()[k] - (self.grad[k].to(v.device) + self.server_model_state[k])) # gradient in current point x
+                    loss += torch.tensordot(new_grad.to(dtype=torch.float), v.to(dtype=torch.float), dims=[list(range(v.dim())),] * 2) # scalar product
+                loss.backward()
+
+                self.prox_optimizer.step()
 
     def get_loss_value(self, outputs, targets, **kwargs):
         if self.method == "fedprox":
             result = self.criterion(outputs, targets, **kwargs)
             for k, v in self.model.state_dict().items():
                 result += self.lr * torch.norm((v - self.server_model_state[k]).to(dtype=torch.float))**2
+            return result
+        elif self.method == "s-dane":
+            result = self.criterion(outputs, targets, **kwargs)
+            for k, v in self.model.state_dict().items():
+                result += self.lr * torch.norm((v - self.prox_center.state_dict()[k]).to(dtype=torch.float))**2
             return result
         return self.criterion(outputs, targets, **kwargs)
 
@@ -197,8 +231,6 @@ class Client:
                 inp = input[0].to(self.device)
                 targets = targets.to(self.device)
                 outputs = self.model(inp)
-                print(f"output: {outputs.isnan().any().sum()}")
-                torch.save(self.model.state_dict(), f"./test_client{self.rank}.pt")
                 val_loss += self.criterion(outputs, targets).detach().item()
 
                 fin_targets.extend(targets.tolist())
@@ -242,11 +274,31 @@ class Client:
                 self.grad[key] = self.model.state_dict()[key].to(
                     "cpu"
                 ) - self.server_model_state[key].to("cpu")
+
+    def get_prox_center_grad(self):
+        self.prox_center.eval()
+        if self.error_feedback:
+            for key, _ in self.prox_center.state_dict().items():
+                self.prox_center_grad[key] = self.prox_center.state_dict()[key].to("cpu") - self.server_prox_center[key].to("cpu")
+            if self.update_error:
+                error = self.compressor({
+                    key : self.prox_center_grad[key].to("cpu") - self.approx_prox_center_grad[key].to("cpu") for key, _ in self.prox_center.state_dict().items()
+                })
+                for key, _ in self.prox_center.state_dict().items():
+                    self.approx_prox_center_grad[key] = self.approx_prox_center_grad[key].to("cpu") + error[key]
+        else:
+            for key, _ in self.prox_center.state_dict().items():
+                self.prox_center_grad[key] = self.prox_center.state_dict()[key].to(
+                    "cpu"
+                ) - self.server_prox_center[key].to("cpu")
         
                 
     def drop_error(self, drop_error):
         if drop_error:
             self.error = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
+    def set_prox_center(self, prox_center): # reference point for for s-dane method
+        self.prox_center.load_state_dict(prox_center)
+        self.server_prox_center = prox_center
     
     def train(self):
         # Save the server model state to get_grad
@@ -265,6 +317,11 @@ class Client:
 
         # For now grad is the diff between trained model and server state
         self.get_grad()
+
+        if (self.method == "s-dane") and self.update_error:
+            self.train_fn() # calculate grad f(current x)
+            self.train_prox_center()
+            self.get_prox_center_grad()
 
         # Save training time
         self.result_time = time.time() - start
@@ -285,6 +342,10 @@ class Client:
         }
         if self.print_metrics:
             result_dict["client_metrics"] = (self.client_val_loss, self.client_metrics)
+        
+        if self.method == "s-dane":
+            result_dict["prox_center_grad"] = self.prox_center_grad
+            result_dict["approx_prox_center_grad"] = self.approx_prox_center_grad
 
         return result_dict
 
