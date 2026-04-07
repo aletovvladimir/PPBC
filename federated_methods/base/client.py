@@ -12,6 +12,7 @@ from utils.model_utils import get_model
 from utils.data_utils import get_dataset_loader
 from utils.metrics_utils import calculate_metrics
 from utils.utils import handle_client_process_sigterm
+from torch.optim.lr_scheduler import CosineAnnealingLR
 
 
 class Client:
@@ -61,8 +62,15 @@ class Client:
 
         self.grad = OrderedDict()
 
+
+
     def _init_optimizer(self):
         self.optimizer = instantiate(self.cfg.optimizer, params=self.model.parameters())
+        self.scheduler = CosineAnnealingLR(
+            self.optimizer,
+            T_max=150,
+            eta_min=1e-6  # minimum LR
+        )
 
     def _init_criterion(self):
         self.criterion = get_loss(
