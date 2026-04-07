@@ -135,6 +135,7 @@ class Client:
                 loss.backward()
 
                 self.optimizer.step()
+                self.scheduler.step()
 
                 inp = input[0].to("cpu")
                 targets = targets.to("cpu")
