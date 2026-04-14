@@ -19,11 +19,11 @@ class ScaffoldClient(Client):
 
         self.local_control = None
 
-    def _init_optimizer(self):
+    # def _init_optimizer(self):
         # Maybe unnecessarry
-        self.optimizer = instantiate(
-            self.cfg.optimizer, params=self.model.parameters(), lr=self.lr
-        )
+    #    self.optimizer = instantiate(
+    #        self.cfg.optimizer, params=self.model.parameters(), lr=self.lr
+    #    )
 
     def create_pipe_commands(self):
         pipe_commands_map = super().create_pipe_commands()
