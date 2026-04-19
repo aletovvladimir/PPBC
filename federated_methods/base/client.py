@@ -76,6 +76,7 @@ class Client:
         self.train_df = self.df[self.df["client"] == self.rank]
 
     def _init_loaders(self):
+        print(self.train_df.shape)
         self.train_df, self.valid_df = train_test_split(
             self.train_df,
             test_size=self.train_val_prop,
