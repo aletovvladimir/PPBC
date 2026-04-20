@@ -1,14 +1,15 @@
 defaults:
-    - models@models_dict.model1: fine_tuning
-    - observed_data_params@dataset: food101_pathology
-    - observed_data_params@server_test: food101_pathology
-    - observed_data_params@trust_df: food101_trust
+    - models@models_dict.model1: resnet18
+    - observed_data_params@dataset: cifar10
+    - observed_data_params@server_test: cifar10
+    - observed_data_params@trust_df: cifar10_trust
     - federated_method: ppbc
     - losses@loss: ce
     - manager: sequential
     - optimizer: adam
     - _self_
 models: ${oc.dict.values:models_dict}
+dirichlet_alpha: 0.1
 
 models_combination: single
 random_state: 42
@@ -19,18 +20,19 @@ training_params:
     batch_size: 256
     num_workers: 4
     device: "cuda"
-    device_ids: ['1']
+    device_ids: ['1','0', '3']
     prediction_threshold: 0.5
     metrics_threshold: "gmean"
     factor: 0.8
     saving_metrics: ["loss"]
 
 federated_params:
-    amount_of_clients: 10
+    amount_of_clients: 120
     min_sample_number: 1000
-    communication_rounds: 16
-    round_epochs: 1
+    communication_rounds: 30
+    round_epochs: 10
     client_train_val_prop: 0.2
     print_client_metrics: False
     server_saving_metrics: ["loss"]
     server_saving_agg: "uniform"
+

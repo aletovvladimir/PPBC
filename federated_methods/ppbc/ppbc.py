@@ -380,7 +380,7 @@ class PPBC(FedAvg):
             client_errors = self.final_errors[f"client {rank}"]
 
             for key, _ in aggregated_weights.items():
-                aggregated_weights[key] = _ + client_errors[key]
+                aggregated_weights[key] = _ + client_errors[key] * 0.5
 
         self.server.global_model.load_state_dict(aggregated_weights)
 
@@ -428,7 +428,7 @@ class PPBC(FedAvg):
                     + self.gamma
                     * self.theta
                     * final_client_error[key]
-                    * int(self.need_errors)
+                    * int(self.need_errors) * 0.5
                     + self.gamma
                     * (1 - self.theta)
                     * grads.to(self.server.device)

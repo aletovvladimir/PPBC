@@ -123,3 +123,43 @@ def define_number_of_classes(df):
                 df["target"].apply(lambda x: x if isinstance(x, list) else [x]).values
             )
         ).nunique()
+    
+def print_df_distribution(df, num_classes, num_clients, pathology_names=None):
+    is_multilabel = isinstance(df["target"].iloc[0], list)
+    if is_multilabel:
+        df["class_target"] = df["target"].apply(
+            lambda x: [i for i, val in enumerate(x) if val == 1] or [-1]
+        )
+
+    print(f"Total usage data: {len(df[df['client'] != -1])}")
+
+    client_groups = df.groupby("client")
+    valid_clients = set(df["client"].unique())
+
+    for cl in range(num_clients):
+        if cl not in valid_clients:
+            print(f"Client {cl:>2} | No data")
+            continue
+
+        client_data = client_groups.get_group(cl)
+        if is_multilabel:
+            distr = (
+                client_data["class_target"]
+                .explode()
+                .value_counts()
+                .reindex(range(-1, num_classes), fill_value=0)
+                .tolist()
+            )
+        else:
+            distr = (
+                client_data["target"]
+                .value_counts()
+                .reindex(range(num_classes), fill_value=0)
+                .tolist()
+            )
+        x_str = " ".join(f"{num:>5}" for num in distr)
+        if cl == 0 and is_multilabel:
+            pathology_str = " " * 11 + "  ".join(["Other"] + pathology_names)
+            print(pathology_str)
+        print(f"Client {cl:>3} | {x_str} | {len(client_data):>5}")
+
