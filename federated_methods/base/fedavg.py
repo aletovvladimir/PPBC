@@ -28,14 +28,7 @@ class FedAvg:
         self._init_manager()
 
     def _init_server(self, cfg):
-        trust_df = read_dataframe_from_cfg(cfg, "train_directories", "trust_df")
-        _, trust_df = get_stratified_subsample(
-            df=trust_df,
-            num_samples=len(trust_df),
-            random_state=cfg.random_state,
-        )
-
-        self.server = Server(cfg, trust_df)
+        self.server = Server(cfg)
 
     def _init_client_cls(self):
         self.client_cls = Client

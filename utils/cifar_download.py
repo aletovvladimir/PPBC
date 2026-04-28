@@ -121,11 +121,11 @@ def train_test_trust_splits(target_dir, trust_data_size):
     return df
 
 
-def prepare_splits(df, target_dir):
+def prepare_splits(df, target_dir, amount_of_client):
     print("Preparing splits for different distributions")
 
     set_uniform_split(
-        df=df, target_dir=target_dir, amount_of_clients=200, name="cifar10"
+        df=df, target_dir=target_dir, amount_of_clients=amount_of_client, name="cifar10"
     )
     print("Uniform split is done")
 
@@ -213,9 +213,9 @@ def set_data_configs(target_dir):
     print("All steps completed successfully!!!")
 
 
-def prepare_data(target_dir="cifar10", trust_data_size=0.05):
+def prepare_data(target_dir="cifar10", trust_data_size=0.05, amount_of_clients=10):
     df = train_test_trust_splits(target_dir=target_dir, trust_data_size=trust_data_size)
-    prepare_splits(df=df, target_dir=target_dir)
+    prepare_splits(df=df, target_dir=target_dir, amount_of_client=amount_of_clients)
     set_data_configs(target_dir=target_dir)
 
 

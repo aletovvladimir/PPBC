@@ -17,7 +17,7 @@ from utils.metrics_utils import (
 
 
 class Server:
-    def __init__(self, cfg, trust_df):
+    def __init__(self, cfg):
         self.cfg = cfg
         self.client_gradients = [
             OrderedDict() for _ in range(cfg.federated_params.amount_of_clients)
@@ -51,11 +51,6 @@ class Server:
         self.best_round = 0
         self.last_test_metrics = (None, None)
         self.last_trust_metrics = (None, None)
-
-        self.trust_df = trust_df
-        self.trust_loader = get_dataset_loader(
-            self.trust_df, cfg, drop_last=False, mode="train"
-        )
 
     def eval_fn(self, dataset):
         self.global_model.to(self.device)
@@ -198,44 +193,3 @@ class Server:
     def reinit_client(self, rank, new_rank, client_cls, pipe):
         self.pipes[rank].send({"reinit": [new_rank, client_cls, pipe]})
 
-    def save_bn_stats(self):
-        bn_stats = {}
-        for name, module in self.global_model.named_modules():
-            if isinstance(module, nn.modules.batchnorm._BatchNorm):
-                print('zaletely')
-                bn_stats[name] = {
-                    "running_mean": module.running_mean.detach().clone(),
-                    "running_var": module.running_var.detach().clone(),
-                    "num_batches_tracked": module.num_batches_tracked.detach().clone(),
-                }
-        return bn_stats
-
-    @torch.no_grad()
-    def restore_bn_stats(self, bn_stats):
-        for name, module in self.global_model.named_modules():
-            if isinstance(module, nn.modules.batchnorm._BatchNorm):
-                module.running_mean.copy_(bn_stats[name]["running_mean"])
-                module.running_var.copy_(bn_stats[name]["running_var"])
-                module.num_batches_tracked.copy_(bn_stats[name]["num_batches_tracked"])
-
-    
-    def _init_criterion_trust(self):
-        self.criterion = get_loss(
-            loss_cfg=self.cfg.loss,
-            device=self.device,
-            df=self.trust_df,
-        )
-    
-    def eval_trust_fn(self):
-        self._init_criterion_trust()
-        self.global_model.train()
-        self.global_model.to(self.device)
-
-        with torch.no_grad():
-            for _, batch in enumerate(self.trust_loader):
-                _, (input, _) = batch
-
-                inp = input[0].to(self.device)
-                self.global_model(inp)
-                # inp.to('cpu')
-        self.global_model.to('cpu')
