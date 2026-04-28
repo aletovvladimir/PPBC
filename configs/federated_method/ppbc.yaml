@@ -2,18 +2,20 @@ _target_: federated_methods.ppbc.ppbc.PPBC
 
 
 method: 'ppbc'
-theta: 0.2
+theta: 0.25
 gamma: 1
 
 epoch_method: 'random'
-epoch_k: 120
+epoch_k: 100
 
 iter_method: 'random'
 iter_k: 10
 
-iterations: 3
+iterations: 5
 need_errors: True
 
 beta : 0.1
 trust_sample_amount: 500
 q_m: 1.0
+
+strategy: 'sample'
