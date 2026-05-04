@@ -125,7 +125,7 @@ def prepare_splits(df, target_dir):
     print("Preparing splits for different distributions")
 
     set_uniform_split(
-        df=df, target_dir=target_dir, amount_of_clients=10, name="cifar10"
+        df=df, target_dir=target_dir, amount_of_clients=120, name="cifar10"
     )
     print("Uniform split is done")
 

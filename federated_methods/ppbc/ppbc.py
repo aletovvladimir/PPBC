@@ -32,6 +32,7 @@ class PPBC(FedAvg):
         self.trust_sample_amount = method_args.get("trust_sample_amount", 50)
         self.momentum_beta = method_args.get("momentum_beta", 0.1)
         self.q_m = method_args.get("q_m", 1.0)
+        self.strategy = method_args.get('strategy', 'top')
 
         self.method = method_args.get("method", "ppbc")
         if self.method != "ppbc":
@@ -322,9 +323,16 @@ class PPBC(FedAvg):
 
     def trust_score_compressor(self, mode="epoch"):
         if mode == "epoch":
-            idx_of_k_clients = np.argsort(self.epoch_prev_trust_scores)[::-1][
-                : self.epoch_k
-            ]
+            if self.strategy == 'top':
+                idx_of_k_clients = np.argsort(self.epoch_prev_trust_scores)[::-1][
+                    : self.epoch_k
+                ]
+            elif self.strategy == 'sample':
+                idx_of_k_clients = np.random.choice(self.num_clients, p=np.array(self.epoch_prev_trust_scores) / np.array(self.epoch_prev_trust_scores).sum(), 
+                                                    replace=False, size=self.epoch_k)
+            
+            else:
+                raise ValueError('not correct stratedy!')
 
             self.epoch_compress_politic = torch.zeros_like(self.current_politic)
             for rank in range(self.epoch_k):
@@ -339,17 +347,25 @@ class PPBC(FedAvg):
             )
 
         if mode == "iter":
-            idx_of_k_clients = np.argsort(self.iter_prev_trust_scores)[::-1]
-            nonzero_rank = np.nonzero(self.epoch_compress_politic.cpu())
-            best_epoch_results = idx_of_k_clients[
-                np.isin(idx_of_k_clients, nonzero_rank)
-            ]
+            nonzero_rank = np.array(self.epoch_compress_politic.cpu()).nonzero()[0]
+            
+            if self.strategy == 'top':
+                idx_of_k_clients = np.argsort(self.iter_prev_trust_scores)[::-1]
+                best_epoch_results = idx_of_k_clients[np.isin(idx_of_k_clients, nonzero_rank)]
+            
+            elif self.strategy == 'sample':
+                p = np.array(self.iter_prev_trust_scores)[nonzero_rank]
+                print(nonzero_rank)
+                p = p / p.sum()  # нормализуем только по nonzero клиентам
+                best_epoch_results = np.random.choice(nonzero_rank, p=p, replace=False, size=self.iter_k)
+            
+            else:
+                raise ValueError('not correct strategy!')
 
             self.iter_compress_politic = torch.zeros_like(self.epoch_compress_politic)
             for rank in range(self.iter_k):
-                self.iter_compress_politic[
-                    best_epoch_results[rank]
-                ] = self.epoch_compress_politic[best_epoch_results[rank]]
+                self.iter_compress_politic[best_epoch_results[rank]] = \
+                    self.epoch_compress_politic[best_epoch_results[rank]]
 
             print(
                 self.iter_prev_trust_scores,
@@ -380,8 +396,11 @@ class PPBC(FedAvg):
             client_errors = self.final_errors[f"client {rank}"]
 
             for key, _ in aggregated_weights.items():
-                aggregated_weights[key] = _ + client_errors[key]
+                aggregated_weights[key] = _ + client_errors[key] * 0.5
 
+        for key, val in aggregated_weights.items():
+                if 'running_var' in key:
+                    aggregated_weights[key] = torch.clamp(val, min=0.01)
         self.server.global_model.load_state_dict(aggregated_weights)
 
     def get_data_size(self):
@@ -428,7 +447,7 @@ class PPBC(FedAvg):
                     + self.gamma
                     * self.theta
                     * final_client_error[key]
-                    * int(self.need_errors)
+                    * int(self.need_errors) * 0.5
                     + self.gamma
                     * (1 - self.theta)
                     * grads.to(self.server.device)
@@ -490,6 +509,9 @@ class PPBC(FedAvg):
             if (itn == self.iterations - 1) and ("bant" in self.epoch_method):
                 self._epoch_count_trust_score()
 
+            for key, val in aggregated_weights.items():
+                if 'running_var' in key:
+                    aggregated_weights[key] = torch.clamp(val, min=0.01)
             self.server.global_model.load_state_dict(aggregated_weights)
 
             print("processing is done")
