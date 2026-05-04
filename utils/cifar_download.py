@@ -15,7 +15,7 @@ import fire
 
 # Set global seeds for reproducibility
 
-CLIENTS_AMOUNT = 4
+CLIENTS_AMOUNT = 10
 RANDOM_STATE = 42
 np.random.seed(RANDOM_STATE)
 
