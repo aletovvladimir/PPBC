@@ -1,0 +1,5272 @@
+Information about files:
+File to logging: /home/Jetmind/PPBC2/outputs/2026-05-07/07-28-55/output.txt
+Link file: /home/Jetmind/PPBC2/outputs/2026-05-07/07-27-50/output.txt
+
+ ====== dataset ======
+{'data_name': 'cifar10', 'data_sources': {'test_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_test_map_file.csv'], 'train_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_train_map_file.csv']}}
+test_directories
+train_directories
+ ====== server_test ======
+{'data_name': 'cifar10', 'data_sources': {'test_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_test_map_file.csv'], 'train_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_train_map_file.csv']}}
+test_directories
+train_directories
+ ====== trust_df ======
+{'data_name': 'cifar10_trust', 'data_sources': {'train_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_trust_map_file.csv']}}
+train_directories
+Preprocess successfull
+
+Total usage data: 47500
+Client   0 |     1    31     0     1  1524     0     0   117     0    11 |  1685
+Client   1 |   997     0     0  2173     0     0     0     0     0     0 |  3170
+Client   2 |     0     1     0     0     0     0   363   902     4  2333 |  3603
+Client   3 |     1     3     1     3   286     3     3     3    51     3 |   357
+Client   4 |   139    22     6     0  2007     0     0     0    96   270 |  2540
+Client   5 |     0    29  3158  1072     0  2265     0  2397  2230  2010 | 13161
+Client   6 |  3607     0  1570     0   431    45  1728     0     0    79 |  7460
+Client   7 |     0  4568    15   442   492   497     3     5  1852     0 |  7874
+Client   8 |     0     0     0  1059    10  1419     0  1326     0    44 |  3858
+Client   9 |     5    96     0     0     0   521  2653     0   517     0 |  3792
+
+Checking: All clients have the correct distribution of targets.
+
+server has device cuda:1
+start federfated
+
+Round number: 0 of 50
+
+Server Test Results:
+              value
+Accuracy        0.1
+Precision      0.01
+Recall          0.1
+f1-score   0.018182
+Server Test Loss: 2.4307138919830322
+
+Training started
+
+[0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000,
+        0.1000], device='cuda:1') trust scores via angle of clients and politic for epoch
+creating the errors is done
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(8), tensor(9)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 7.674089670181274
+Client 1 finished in 10.467455625534058
+Current batch of clients is [2, 3]
+Client 2 finished in 8.993941307067871
+Client 3 finished in 6.598615407943726
+Current batch of clients is [4, 5]
+Client 4 finished in 8.14473581314087
+Client 5 finished in 14.31654143333435
+Current batch of clients is [6, 7]
+Client 6 finished in 10.292947053909302
+Client 7 finished in 12.456478357315063
+Current batch of clients is [8, 9]
+Client 8 finished in 7.092360734939575
+Client 9 finished in 5.635518789291382
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(9), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.71717095375061
+Client 1 finished in 7.075971364974976
+Current batch of clients is [2, 3]
+Client 2 finished in 5.527575731277466
+Client 3 finished in 4.561663866043091
+Current batch of clients is [4, 5]
+Client 4 finished in 5.202359914779663
+Client 5 finished in 9.600776672363281
+Current batch of clients is [6, 7]
+Client 6 finished in 7.043962717056274
+Client 7 finished in 9.907068967819214
+Current batch of clients is [8, 9]
+Client 8 finished in 7.185762405395508
+Client 9 finished in 7.091953992843628
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(9), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.114747047424316
+Client 1 finished in 6.908328294754028
+Current batch of clients is [2, 3]
+Client 2 finished in 7.343217849731445
+Client 3 finished in 4.46916389465332
+Current batch of clients is [4, 5]
+Client 4 finished in 5.998698472976685
+Client 5 finished in 10.648484468460083
+Current batch of clients is [6, 7]
+Client 6 finished in 12.281033515930176
+Client 7 finished in 11.660332679748535
+Current batch of clients is [8, 9]
+Client 8 finished in 9.599346160888672
+Client 9 finished in 8.50750732421875
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.078395
+Precision  0.054715
+Recall     0.094380
+f1-score   0.023545
+Server Valid Loss: 3.2562356834029735
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 3.2562356834029735
+Best loss: 3.2562356834029735
+Best round: 0
+
+Round time: 340.697860956192
+
+Round number: 1 of 50
+
+Server Test Results:
+              value
+Accuracy        0.1
+Precision      0.01
+Recall          0.1
+f1-score   0.018182
+Server Test Loss: 3.300849199295044
+
+Training started
+
+[tensor(0.2638), tensor(0.4321), tensor(0.5596), tensor(0.0569), tensor(0.3477), tensor(1.6687), tensor(1.0515), tensor(1.1156), tensor(0.5730), tensor(0.5586)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.662490129470825
+Client 1 finished in 5.393233776092529
+Current batch of clients is [2, 3]
+Client 2 finished in 4.522616147994995
+Client 3 finished in 2.359889507293701
+Current batch of clients is [4, 5]
+Client 4 finished in 4.745453357696533
+Client 5 finished in 9.614498853683472
+Current batch of clients is [6, 7]
+Client 6 finished in 5.526172399520874
+Client 7 finished in 11.002374649047852
+Current batch of clients is [8, 9]
+Client 8 finished in 4.322205305099487
+Client 9 finished in 5.618827819824219
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.562408685684204
+Client 1 finished in 5.834738254547119
+Current batch of clients is [2, 3]
+Client 2 finished in 4.264721870422363
+Client 3 finished in 2.531623601913452
+Current batch of clients is [4, 5]
+Client 4 finished in 5.558690309524536
+Client 5 finished in 8.356826543807983
+Current batch of clients is [6, 7]
+Client 6 finished in 7.717813730239868
+Client 7 finished in 9.792113304138184
+Current batch of clients is [8, 9]
+Client 8 finished in 4.860104084014893
+Client 9 finished in 5.172652721405029
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.35146951675415
+Client 1 finished in 5.692356586456299
+Current batch of clients is [2, 3]
+Client 2 finished in 4.398001194000244
+Client 3 finished in 2.555041551589966
+Current batch of clients is [4, 5]
+Client 4 finished in 6.061640024185181
+Client 5 finished in 7.1198954582214355
+Current batch of clients is [6, 7]
+Client 6 finished in 5.531403303146362
+Client 7 finished in 10.240002632141113
+Current batch of clients is [8, 9]
+Client 8 finished in 3.9239888191223145
+Client 9 finished in 4.8913023471832275
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.208714
+Precision  0.080087
+Recall     0.105576
+f1-score   0.072031
+Server Valid Loss: 2.3679281541279384
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 2.3679281541279384
+Best loss: 2.3679281541279384
+Best round: 1
+
+Round time: 251.50730848312378
+
+Round number: 2 of 50
+
+Server Test Results:
+              value
+Accuracy   0.099967
+Precision  0.012177
+Recall     0.099967
+f1-score   0.018218
+Server Test Loss: 2.366218090057373
+
+Training started
+
+[tensor(0.3623), tensor(0.5986), tensor(0.7373), tensor(0.0734), tensor(0.4878), tensor(2.0909), tensor(1.3815), tensor(1.4226), tensor(0.8734), tensor(0.7126)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.8127989768981934
+Client 1 finished in 6.207760810852051
+Current batch of clients is [2, 3]
+Client 2 finished in 3.877587080001831
+Client 3 finished in 2.235666036605835
+Current batch of clients is [4, 5]
+Client 4 finished in 5.324512481689453
+Client 5 finished in 9.39330267906189
+Current batch of clients is [6, 7]
+Client 6 finished in 6.614751577377319
+Client 7 finished in 10.779762744903564
+Current batch of clients is [8, 9]
+Client 8 finished in 4.771497964859009
+Client 9 finished in 5.9598729610443115
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.9597702026367188
+Client 1 finished in 5.369612693786621
+Current batch of clients is [2, 3]
+Client 2 finished in 4.1421332359313965
+Client 3 finished in 2.3043577671051025
+Current batch of clients is [4, 5]
+Client 4 finished in 5.173655271530151
+Client 5 finished in 8.075883626937866
+Current batch of clients is [6, 7]
+Client 6 finished in 6.241621494293213
+Client 7 finished in 10.02881145477295
+Current batch of clients is [8, 9]
+Client 8 finished in 3.879894733428955
+Client 9 finished in 4.50464129447937
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.5011191368103027
+Client 1 finished in 5.7394468784332275
+Current batch of clients is [2, 3]
+Client 2 finished in 5.732642889022827
+Client 3 finished in 4.64317512512207
+Current batch of clients is [4, 5]
+Client 4 finished in 4.981046915054321
+Client 5 finished in 6.863577365875244
+Current batch of clients is [6, 7]
+Client 6 finished in 5.7394890785217285
+Client 7 finished in 11.873187780380249
+Current batch of clients is [8, 9]
+Client 8 finished in 3.8548474311828613
+Client 9 finished in 4.166791915893555
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.113461
+Precision  0.108680
+Recall     0.131408
+f1-score   0.060099
+Server Valid Loss: 2.5177407530866143
+
+Criterion metrics:
+Current loss: 2.5177407530866143
+Best loss: 2.3679281541279384
+Best round: 1
+
+Round time: 249.0701608657837
+
+Round number: 3 of 50
+
+Server Test Results:
+              value
+Accuracy     0.1492
+Precision  0.055863
+Recall       0.1492
+f1-score   0.070188
+Server Test Loss: 2.228080987930298
+
+Training started
+
+[tensor(0.3770), tensor(0.5910), tensor(0.7337), tensor(0.0775), tensor(0.5066), tensor(1.7962), tensor(1.3570), tensor(1.3976), tensor(0.8676), tensor(0.7453)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.148011207580566
+Client 1 finished in 6.959569454193115
+Current batch of clients is [2, 3]
+Client 2 finished in 4.3817009925842285
+Client 3 finished in 2.101398468017578
+Current batch of clients is [4, 5]
+Client 4 finished in 5.550023794174194
+Client 5 finished in 9.803910255432129
+Current batch of clients is [6, 7]
+Client 6 finished in 7.0892298221588135
+Client 7 finished in 11.000502824783325
+Current batch of clients is [8, 9]
+Client 8 finished in 5.72848653793335
+Client 9 finished in 4.882388591766357
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.866159439086914
+Client 1 finished in 5.403153896331787
+Current batch of clients is [2, 3]
+Client 2 finished in 4.253796577453613
+Client 3 finished in 2.4436094760894775
+Current batch of clients is [4, 5]
+Client 4 finished in 4.654828786849976
+Client 5 finished in 6.913682222366333
+Current batch of clients is [6, 7]
+Client 6 finished in 5.536668062210083
+Client 7 finished in 11.324440717697144
+Current batch of clients is [8, 9]
+Client 8 finished in 3.7131738662719727
+Client 9 finished in 4.470496654510498
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.966461181640625
+Client 1 finished in 8.417349100112915
+Current batch of clients is [2, 3]
+Client 2 finished in 6.016819715499878
+Client 3 finished in 3.1542575359344482
+Current batch of clients is [4, 5]
+Client 4 finished in 5.872634172439575
+Client 5 finished in 10.074623584747314
+Current batch of clients is [6, 7]
+Client 6 finished in 8.652098655700684
+Client 7 finished in 11.790848016738892
+Current batch of clients is [8, 9]
+Client 8 finished in 5.228696584701538
+Client 9 finished in 6.860336542129517
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.276634
+Precision  0.113393
+Recall     0.153114
+f1-score   0.093167
+Server Valid Loss: 2.150965204899445
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 2.150965204899445
+Best loss: 2.150965204899445
+Best round: 3
+
+Round time: 286.33816027641296
+
+Round number: 4 of 50
+
+Server Test Results:
+              value
+Accuracy    0.16545
+Precision  0.035141
+Recall      0.16545
+f1-score    0.05756
+Server Test Loss: 2.303154230117798
+
+Training started
+
+[tensor(0.3069), tensor(0.4735), tensor(0.5758), tensor(0.0610), tensor(0.3897), tensor(1.2804), tensor(1.0170), tensor(1.0099), tensor(0.6749), tensor(0.5673)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.7345523834228516
+Client 1 finished in 6.10578179359436
+Current batch of clients is [2, 3]
+Client 2 finished in 5.964644193649292
+Client 3 finished in 5.4170002937316895
+Current batch of clients is [4, 5]
+Client 4 finished in 6.6977550983428955
+Client 5 finished in 10.214340448379517
+Current batch of clients is [6, 7]
+Client 6 finished in 7.742008447647095
+Client 7 finished in 11.367014646530151
+Current batch of clients is [8, 9]
+Client 8 finished in 5.275883913040161
+Client 9 finished in 5.44081711769104
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.111257314682007
+Client 1 finished in 5.044718265533447
+Current batch of clients is [2, 3]
+Client 2 finished in 4.012132167816162
+Client 3 finished in 2.7988131046295166
+Current batch of clients is [4, 5]
+Client 4 finished in 5.233466386795044
+Client 5 finished in 7.62463903427124
+Current batch of clients is [6, 7]
+Client 6 finished in 6.595531225204468
+Client 7 finished in 9.751871585845947
+Current batch of clients is [8, 9]
+Client 8 finished in 4.742685556411743
+Client 9 finished in 5.846614599227905
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.771350860595703
+Client 1 finished in 6.424998760223389
+Current batch of clients is [2, 3]
+Client 2 finished in 6.366706132888794
+Client 3 finished in 4.194396734237671
+Current batch of clients is [4, 5]
+Client 4 finished in 6.415734767913818
+Client 5 finished in 10.068439722061157
+Current batch of clients is [6, 7]
+Client 6 finished in 7.418150424957275
+Client 7 finished in 8.244308233261108
+Current batch of clients is [8, 9]
+Client 8 finished in 4.663301944732666
+Client 9 finished in 5.881489992141724
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.278605
+Precision  0.085323
+Recall     0.149321
+f1-score   0.093830
+Server Valid Loss: 2.101105850780165
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 2.101105850780165
+Best loss: 2.101105850780165
+Best round: 4
+
+Round time: 277.26878809928894
+
+Round number: 5 of 50
+
+Server Test Results:
+              value
+Accuracy   0.172917
+Precision  0.037463
+Recall     0.172917
+f1-score   0.060613
+Server Test Loss: 2.2026240825653076
+
+Training started
+
+[tensor(0.2285), tensor(0.3352), tensor(0.4174), tensor(0.0458), tensor(0.2981), tensor(0.8339), tensor(0.6806), tensor(0.6554), tensor(0.4817), tensor(0.4124)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.1445152759552
+Client 1 finished in 6.236038446426392
+Current batch of clients is [2, 3]
+Client 2 finished in 6.717291355133057
+Client 3 finished in 4.0450122356414795
+Current batch of clients is [4, 5]
+Client 4 finished in 5.933681964874268
+Client 5 finished in 11.347870349884033
+Current batch of clients is [6, 7]
+Client 6 finished in 8.447051048278809
+Client 7 finished in 10.360359907150269
+Current batch of clients is [8, 9]
+Client 8 finished in 6.421375036239624
+Client 9 finished in 6.659469127655029
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.425713300704956
+Client 1 finished in 5.58266806602478
+Current batch of clients is [2, 3]
+Client 2 finished in 5.538344621658325
+Client 3 finished in 3.286712408065796
+Current batch of clients is [4, 5]
+Client 4 finished in 5.688769817352295
+Client 5 finished in 9.529984951019287
+Current batch of clients is [6, 7]
+Client 6 finished in 6.569072246551514
+Client 7 finished in 9.504262447357178
+Current batch of clients is [8, 9]
+Client 8 finished in 5.319671630859375
+Client 9 finished in 4.960978269577026
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.78782320022583
+Client 1 finished in 6.323419094085693
+Current batch of clients is [2, 3]
+Client 2 finished in 5.996021509170532
+Client 3 finished in 3.3385603427886963
+Current batch of clients is [4, 5]
+Client 4 finished in 5.22281551361084
+Client 5 finished in 8.901264905929565
+Current batch of clients is [6, 7]
+Client 6 finished in 7.290939807891846
+Client 7 finished in 9.958410024642944
+Current batch of clients is [8, 9]
+Client 8 finished in 5.276699066162109
+Client 9 finished in 6.551624774932861
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.134095
+Precision  0.062499
+Recall     0.141760
+f1-score   0.064298
+Server Valid Loss: 2.1566951178756115
+
+Criterion metrics:
+Current loss: 2.1566951178756115
+Best loss: 2.101105850780165
+Best round: 4
+
+Round time: 286.4410033226013
+
+Round number: 6 of 50
+
+Server Test Results:
+              value
+Accuracy    0.18515
+Precision  0.087079
+Recall      0.18515
+f1-score   0.094192
+Server Test Loss: 2.2048933506011963
+
+Training started
+
+[tensor(0.1442), tensor(0.2130), tensor(0.2608), tensor(0.0308), tensor(0.1881), tensor(0.5058), tensor(0.4022), tensor(0.4100), tensor(0.3126), tensor(0.2512)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.728752374649048
+Client 1 finished in 7.968959808349609
+Current batch of clients is [2, 3]
+Client 2 finished in 8.912563800811768
+Client 3 finished in 5.0634777545928955
+Current batch of clients is [4, 5]
+Client 4 finished in 7.4675610065460205
+Client 5 finished in 15.756628036499023
+Current batch of clients is [6, 7]
+Client 6 finished in 9.60647988319397
+Client 7 finished in 10.030257940292358
+Current batch of clients is [8, 9]
+Client 8 finished in 5.123793840408325
+Client 9 finished in 6.229639530181885
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.152268171310425
+Client 1 finished in 5.126961708068848
+Current batch of clients is [2, 3]
+Client 2 finished in 7.715903997421265
+Client 3 finished in 4.473446369171143
+Current batch of clients is [4, 5]
+Client 4 finished in 7.068671226501465
+Client 5 finished in 14.563655614852905
+Current batch of clients is [6, 7]
+Client 6 finished in 6.602157831192017
+Client 7 finished in 10.561049461364746
+Current batch of clients is [8, 9]
+Client 8 finished in 11.263998031616211
+Client 9 finished in 9.14177656173706
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.589603900909424
+Client 1 finished in 7.003005266189575
+Current batch of clients is [2, 3]
+Client 2 finished in 9.976238012313843
+Client 3 finished in 6.8520238399505615
+Current batch of clients is [4, 5]
+Client 4 finished in 7.649017572402954
+Client 5 finished in 13.884966135025024
+Current batch of clients is [6, 7]
+Client 6 finished in 11.766687154769897
+Client 7 finished in 11.528138875961304
+Current batch of clients is [8, 9]
+Client 8 finished in 9.909581422805786
+Client 9 finished in 9.908238649368286
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.148208
+Precision  0.096924
+Recall     0.150564
+f1-score   0.079367
+Server Valid Loss: 2.304503873893709
+
+Criterion metrics:
+Current loss: 2.304503873893709
+Best loss: 2.101105850780165
+Best round: 4
+
+Round time: 369.8741900920868
+
+Round number: 7 of 50
+
+Server Test Results:
+              value
+Accuracy   0.195667
+Precision  0.086234
+Recall     0.195667
+f1-score   0.092913
+Server Test Loss: 2.2274301052093506
+
+Training started
+
+[tensor(0.0823), tensor(0.1162), tensor(0.1398), tensor(0.0195), tensor(0.1029), tensor(0.2937), tensor(0.2160), tensor(0.2348), tensor(0.1801), tensor(0.1352)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.3326427936553955
+Client 1 finished in 6.295732021331787
+Current batch of clients is [2, 3]
+Client 2 finished in 7.674798011779785
+Client 3 finished in 6.102058172225952
+Current batch of clients is [4, 5]
+Client 4 finished in 7.91318678855896
+Client 5 finished in 11.614527225494385
+Current batch of clients is [6, 7]
+Client 6 finished in 10.083868026733398
+Client 7 finished in 11.636924743652344
+Current batch of clients is [8, 9]
+Client 8 finished in 5.9972968101501465
+Client 9 finished in 8.223500967025757
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.9715728759765625
+Client 1 finished in 7.352916240692139
+Current batch of clients is [2, 3]
+Client 2 finished in 7.286426544189453
+Client 3 finished in 5.728017091751099
+Current batch of clients is [4, 5]
+Client 4 finished in 7.097193002700806
+Client 5 finished in 9.798083066940308
+Current batch of clients is [6, 7]
+Client 6 finished in 9.309298992156982
+Client 7 finished in 13.491707801818848
+Current batch of clients is [8, 9]
+Client 8 finished in 4.970488786697388
+Client 9 finished in 5.556278944015503
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.059768438339233
+Client 1 finished in 6.719632148742676
+Current batch of clients is [2, 3]
+Client 2 finished in 5.9437479972839355
+Client 3 finished in 3.2911453247070312
+Current batch of clients is [4, 5]
+Client 4 finished in 6.040321588516235
+Client 5 finished in 8.706573486328125
+Current batch of clients is [6, 7]
+Client 6 finished in 7.7965757846832275
+Client 7 finished in 10.407575368881226
+Current batch of clients is [8, 9]
+Client 8 finished in 5.854686737060547
+Client 9 finished in 7.898572683334351
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.142909
+Precision  0.108764
+Recall     0.143554
+f1-score   0.069569
+Server Valid Loss: 2.101984622829405
+
+Criterion metrics:
+Current loss: 2.101984622829405
+Best loss: 2.101105850780165
+Best round: 4
+
+Round time: 363.7733449935913
+
+Round number: 8 of 50
+
+Server Test Results:
+              value
+Accuracy   0.191517
+Precision  0.076038
+Recall     0.191517
+f1-score   0.097046
+Server Test Loss: 2.209818124771118
+
+Training started
+
+[tensor(0.0452), tensor(0.0646), tensor(0.0774), tensor(0.0103), tensor(0.0544), tensor(0.1945), tensor(0.1430), tensor(0.1419), tensor(0.1094), tensor(0.0751)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 7.06733775138855
+Client 1 finished in 8.24893045425415
+Current batch of clients is [2, 3]
+Client 2 finished in 7.405419826507568
+Client 3 finished in 5.569393634796143
+Current batch of clients is [4, 5]
+Client 4 finished in 7.5997490882873535
+Client 5 finished in 13.036586284637451
+Current batch of clients is [6, 7]
+Client 6 finished in 10.746374607086182
+Client 7 finished in 12.40430760383606
+Current batch of clients is [8, 9]
+Client 8 finished in 7.009926080703735
+Client 9 finished in 8.036293983459473
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.6555280685424805
+Client 1 finished in 5.845472097396851
+Current batch of clients is [2, 3]
+Client 2 finished in 5.000070810317993
+Client 3 finished in 2.9785869121551514
+Current batch of clients is [4, 5]
+Client 4 finished in 6.30346941947937
+Client 5 finished in 11.795538425445557
+Current batch of clients is [6, 7]
+Client 6 finished in 10.598392248153687
+Client 7 finished in 11.561317920684814
+Current batch of clients is [8, 9]
+Client 8 finished in 6.781664609909058
+Client 9 finished in 6.675874948501587
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.974860191345215
+Client 1 finished in 8.215362548828125
+Current batch of clients is [2, 3]
+Client 2 finished in 5.971739053726196
+Client 3 finished in 3.986159324645996
+Current batch of clients is [4, 5]
+Client 4 finished in 5.379898309707642
+Client 5 finished in 9.759769201278687
+Current batch of clients is [6, 7]
+Client 6 finished in 7.554423809051514
+Client 7 finished in 8.328782796859741
+Current batch of clients is [8, 9]
+Client 8 finished in 5.180079698562622
+Client 9 finished in 5.492363452911377
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.198847
+Precision  0.098135
+Recall     0.128455
+f1-score   0.083126
+Server Valid Loss: 2.052600834689615
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 2.052600834689615
+Best loss: 2.052600834689615
+Best round: 8
+
+all errors for 6 client are equals to zeros
+Round time: 304.55280232429504
+
+Round number: 9 of 50
+
+Server Test Results:
+              value
+Accuracy   0.175367
+Precision  0.050829
+Recall     0.175367
+f1-score    0.06142
+Server Test Loss: 2.153611183166504
+
+Training started
+
+[tensor(0.0299), tensor(0.0423), tensor(0.0560), tensor(0.0070), tensor(0.0388), tensor(0.1429), tensor(0.0949), tensor(0.1046), tensor(0.0767), tensor(0.0506)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.57224178314209
+Client 1 finished in 5.432948112487793
+Current batch of clients is [2, 3]
+Client 2 finished in 5.364698886871338
+Client 3 finished in 3.9194705486297607
+Current batch of clients is [4, 5]
+Client 4 finished in 5.079880475997925
+Client 5 finished in 6.5561394691467285
+Current batch of clients is [6, 7]
+Client 6 finished in 5.666144132614136
+Client 7 finished in 8.66151237487793
+Current batch of clients is [8, 9]
+Client 8 finished in 6.219102621078491
+Client 9 finished in 4.51700758934021
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.8262908458709717
+Client 1 finished in 5.418711423873901
+Current batch of clients is [2, 3]
+Client 2 finished in 4.025151968002319
+Client 3 finished in 2.870903730392456
+Current batch of clients is [4, 5]
+Client 4 finished in 6.197118282318115
+Client 5 finished in 8.444952726364136
+Current batch of clients is [6, 7]
+Client 6 finished in 6.895528316497803
+Client 7 finished in 9.9076566696167
+Current batch of clients is [8, 9]
+Client 8 finished in 4.297012567520142
+Client 9 finished in 4.6170973777771
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.160869836807251
+Client 1 finished in 5.590855360031128
+Current batch of clients is [2, 3]
+Client 2 finished in 6.277879953384399
+Client 3 finished in 3.09373140335083
+Current batch of clients is [4, 5]
+Client 4 finished in 4.490882635116577
+Client 5 finished in 7.522032737731934
+Current batch of clients is [6, 7]
+Client 6 finished in 5.4817211627960205
+Client 7 finished in 9.740734815597534
+Current batch of clients is [8, 9]
+Client 8 finished in 3.681535243988037
+Client 9 finished in 4.398001432418823
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.286021
+Precision  0.106401
+Recall     0.147413
+f1-score   0.092600
+Server Valid Loss: 2.033634833494822
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 2.033634833494822
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 242.3229546546936
+
+Round number: 10 of 50
+
+Server Test Results:
+              value
+Accuracy   0.194033
+Precision  0.131467
+Recall     0.194033
+f1-score   0.100592
+Server Test Loss: 2.156006336212158
+
+Training started
+
+[tensor(0.0242), tensor(0.0334), tensor(0.0410), tensor(0.0056), tensor(0.0288), tensor(0.1167), tensor(0.0800), tensor(0.0855), tensor(0.0600), tensor(0.0382)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.0936436653137207
+Client 1 finished in 5.736530780792236
+Current batch of clients is [2, 3]
+Client 2 finished in 4.477134704589844
+Client 3 finished in 2.8686113357543945
+Current batch of clients is [4, 5]
+Client 4 finished in 5.496344804763794
+Client 5 finished in 8.501389503479004
+Current batch of clients is [6, 7]
+Client 6 finished in 6.9354002475738525
+Client 7 finished in 9.273383378982544
+Current batch of clients is [8, 9]
+Client 8 finished in 4.448756456375122
+Client 9 finished in 4.707051992416382
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.5051519870758057
+Client 1 finished in 4.758322715759277
+Current batch of clients is [2, 3]
+Client 2 finished in 5.422234535217285
+Client 3 finished in 3.4194107055664062
+Current batch of clients is [4, 5]
+Client 4 finished in 5.431176662445068
+Client 5 finished in 7.984418869018555
+Current batch of clients is [6, 7]
+Client 6 finished in 8.181929349899292
+Client 7 finished in 8.53239893913269
+Current batch of clients is [8, 9]
+Client 8 finished in 6.978431940078735
+Client 9 finished in 5.036674499511719
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.129891633987427
+Client 1 finished in 5.979049444198608
+Current batch of clients is [2, 3]
+Client 2 finished in 7.959856033325195
+Client 3 finished in 3.9952785968780518
+Current batch of clients is [4, 5]
+Client 4 finished in 6.497640371322632
+Client 5 finished in 8.446016788482666
+Current batch of clients is [6, 7]
+Client 6 finished in 6.051590442657471
+Client 7 finished in 9.6834557056427
+Current batch of clients is [8, 9]
+Client 8 finished in 7.814310073852539
+Client 9 finished in 4.498375654220581
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.277106
+Precision  0.119569
+Recall     0.151441
+f1-score   0.099108
+Server Valid Loss: 2.0548416823277744
+
+Criterion metrics:
+Current loss: 2.0548416823277744
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 266.75922656059265
+
+Round number: 11 of 50
+
+Server Test Results:
+              value
+Accuracy   0.199233
+Precision  0.107109
+Recall     0.199233
+f1-score   0.099907
+Server Test Loss: 2.135026216506958
+
+Training started
+
+[tensor(0.0207), tensor(0.0270), tensor(0.0365), tensor(0.0054), tensor(0.0230), tensor(0.0925), tensor(0.0640), tensor(0.0635), tensor(0.0466), tensor(0.0341)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.9594457149505615
+Client 1 finished in 5.268631935119629
+Current batch of clients is [2, 3]
+Client 2 finished in 4.769787549972534
+Client 3 finished in 2.7523744106292725
+Current batch of clients is [4, 5]
+Client 4 finished in 5.801235198974609
+Client 5 finished in 6.933666944503784
+Current batch of clients is [6, 7]
+Client 6 finished in 6.466168165206909
+Client 7 finished in 9.143593072891235
+Current batch of clients is [8, 9]
+Client 8 finished in 5.956899881362915
+Client 9 finished in 4.086653232574463
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.160898447036743
+Client 1 finished in 5.82554292678833
+Current batch of clients is [2, 3]
+Client 2 finished in 5.511847019195557
+Client 3 finished in 3.1239848136901855
+Current batch of clients is [4, 5]
+Client 4 finished in 4.7045111656188965
+Client 5 finished in 6.489686489105225
+Current batch of clients is [6, 7]
+Client 6 finished in 5.469219923019409
+Client 7 finished in 9.111507892608643
+Current batch of clients is [8, 9]
+Client 8 finished in 5.103693962097168
+Client 9 finished in 5.526774168014526
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.247993230819702
+Client 1 finished in 5.544689416885376
+Current batch of clients is [2, 3]
+Client 2 finished in 7.512796640396118
+Client 3 finished in 3.708688974380493
+Current batch of clients is [4, 5]
+Client 4 finished in 5.708308219909668
+Client 5 finished in 10.248236656188965
+Current batch of clients is [6, 7]
+Client 6 finished in 6.717421531677246
+Client 7 finished in 9.93342638015747
+Current batch of clients is [8, 9]
+Client 8 finished in 6.712168216705322
+Client 9 finished in 8.284440040588379
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.144253
+Precision  0.098388
+Recall     0.130053
+f1-score   0.088551
+Server Valid Loss: 2.0810635111806715
+
+Criterion metrics:
+Current loss: 2.0810635111806715
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 281.8916394710541
+
+Round number: 12 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2336
+Precision  0.117693
+Recall       0.2336
+f1-score   0.152537
+Server Test Loss: 2.1022777557373047
+
+Training started
+
+[tensor(0.0160), tensor(0.0198), tensor(0.0271), tensor(0.0046), tensor(0.0216), tensor(0.0716), tensor(0.0477), tensor(0.0523), tensor(0.0358), tensor(0.0265)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.411551475524902
+Client 1 finished in 8.562788724899292
+Current batch of clients is [2, 3]
+Client 2 finished in 7.27299165725708
+Client 3 finished in 4.091744661331177
+Current batch of clients is [4, 5]
+Client 4 finished in 7.39176082611084
+Client 5 finished in 15.107557773590088
+Current batch of clients is [6, 7]
+Client 6 finished in 9.21323275566101
+Client 7 finished in 11.780516147613525
+Current batch of clients is [8, 9]
+Client 8 finished in 8.265337228775024
+Client 9 finished in 9.19026517868042
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.0250184535980225
+Client 1 finished in 6.883739709854126
+Current batch of clients is [2, 3]
+Client 2 finished in 5.026617527008057
+Client 3 finished in 4.970088720321655
+Current batch of clients is [4, 5]
+Client 4 finished in 6.715449094772339
+Client 5 finished in 13.517045736312866
+Current batch of clients is [6, 7]
+Client 6 finished in 6.760372877120972
+Client 7 finished in 11.127912521362305
+Current batch of clients is [8, 9]
+Client 8 finished in 5.538425445556641
+Client 9 finished in 7.045797109603882
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.597707509994507
+Client 1 finished in 5.930170297622681
+Current batch of clients is [2, 3]
+Client 2 finished in 4.723993539810181
+Client 3 finished in 2.70343279838562
+Current batch of clients is [4, 5]
+Client 4 finished in 5.025719881057739
+Client 5 finished in 7.713113069534302
+Current batch of clients is [6, 7]
+Client 6 finished in 9.897683143615723
+Client 7 finished in 11.354506492614746
+Current batch of clients is [8, 9]
+Client 8 finished in 6.587156534194946
+Client 9 finished in 6.631448984146118
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.166711
+Precision  0.068097
+Recall     0.121108
+f1-score   0.074345
+Server Valid Loss: 2.1208106038374304
+
+Criterion metrics:
+Current loss: 2.1208106038374304
+Best loss: 2.033634833494822
+Best round: 9
+
+all errors for 6 client are equals to zeros
+Round time: 342.0205280780792
+
+Round number: 13 of 50
+
+Server Test Results:
+              value
+Accuracy   0.177733
+Precision  0.053963
+Recall     0.177733
+f1-score    0.06997
+Server Test Loss: 2.174743890762329
+
+Training started
+
+[tensor(0.0122), tensor(0.0179), tensor(0.0255), tensor(0.0038), tensor(0.0166), tensor(0.0626), tensor(0.0384), tensor(0.0505), tensor(0.0357), tensor(0.0241)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.8233211040496826
+Client 1 finished in 5.170125484466553
+Current batch of clients is [2, 3]
+Client 2 finished in 5.111725091934204
+Client 3 finished in 2.7074196338653564
+Current batch of clients is [4, 5]
+Client 4 finished in 4.501171112060547
+Client 5 finished in 7.1800994873046875
+Current batch of clients is [6, 7]
+Client 6 finished in 6.777040481567383
+Client 7 finished in 10.902640581130981
+Current batch of clients is [8, 9]
+Client 8 finished in 5.699891090393066
+Client 9 finished in 6.33778190612793
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.593350887298584
+Client 1 finished in 6.401618480682373
+Current batch of clients is [2, 3]
+Client 2 finished in 6.777666091918945
+Client 3 finished in 3.6070611476898193
+Current batch of clients is [4, 5]
+Client 4 finished in 5.484548330307007
+Client 5 finished in 8.690152406692505
+Current batch of clients is [6, 7]
+Client 6 finished in 8.265442848205566
+Client 7 finished in 11.084468364715576
+Current batch of clients is [8, 9]
+Client 8 finished in 5.790744066238403
+Client 9 finished in 6.739337205886841
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 7.2249956130981445
+Client 1 finished in 8.547708988189697
+Current batch of clients is [2, 3]
+Client 2 finished in 6.693270683288574
+Client 3 finished in 4.01194167137146
+Current batch of clients is [4, 5]
+Client 4 finished in 6.738577127456665
+Client 5 finished in 9.806992769241333
+Current batch of clients is [6, 7]
+Client 6 finished in 6.5687096118927
+Client 7 finished in 9.532015085220337
+Current batch of clients is [8, 9]
+Client 8 finished in 6.070932865142822
+Client 9 finished in 5.397954225540161
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.195170
+Precision  0.163593
+Recall     0.164568
+f1-score   0.092899
+Server Valid Loss: 2.0552170634527744
+
+Criterion metrics:
+Current loss: 2.0552170634527744
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 284.33737230300903
+
+Round number: 14 of 50
+
+Server Test Results:
+              value
+Accuracy   0.205467
+Precision  0.109261
+Recall     0.205467
+f1-score   0.107094
+Server Test Loss: 2.1283187866210938
+
+Training started
+
+[tensor(0.0139), tensor(0.0138), tensor(0.0225), tensor(0.0043), tensor(0.0156), tensor(0.0474), tensor(0.0330), tensor(0.0333), tensor(0.0218), tensor(0.0157)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.524384021759033
+Client 1 finished in 6.136675596237183
+Current batch of clients is [2, 3]
+Client 2 finished in 5.625095844268799
+Client 3 finished in 3.5661048889160156
+Current batch of clients is [4, 5]
+Client 4 finished in 5.2957799434661865
+Client 5 finished in 7.66192626953125
+Current batch of clients is [6, 7]
+Client 6 finished in 6.8712077140808105
+Client 7 finished in 10.788029909133911
+Current batch of clients is [8, 9]
+Client 8 finished in 6.045336484909058
+Client 9 finished in 4.915562629699707
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.890881299972534
+Client 1 finished in 5.4072792530059814
+Current batch of clients is [2, 3]
+Client 2 finished in 4.280460834503174
+Client 3 finished in 3.0075862407684326
+Current batch of clients is [4, 5]
+Client 4 finished in 4.6003077030181885
+Client 5 finished in 6.865506887435913
+Current batch of clients is [6, 7]
+Client 6 finished in 6.216955661773682
+Client 7 finished in 11.573180675506592
+Current batch of clients is [8, 9]
+Client 8 finished in 5.645796298980713
+Client 9 finished in 4.859498739242554
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.9814586639404297
+Client 1 finished in 6.115021467208862
+Current batch of clients is [2, 3]
+Client 2 finished in 4.850437164306641
+Client 3 finished in 2.7942938804626465
+Current batch of clients is [4, 5]
+Client 4 finished in 5.202208757400513
+Client 5 finished in 8.268337726593018
+Current batch of clients is [6, 7]
+Client 6 finished in 5.375633955001831
+Client 7 finished in 10.54027009010315
+Current batch of clients is [8, 9]
+Client 8 finished in 4.848872423171997
+Client 9 finished in 4.8202290534973145
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.146511
+Precision  0.098512
+Recall     0.137086
+f1-score   0.087197
+Server Valid Loss: 2.0644559240702427
+
+Criterion metrics:
+Current loss: 2.0644559240702427
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 243.12075328826904
+
+Round number: 15 of 50
+
+Server Test Results:
+              value
+Accuracy    0.23375
+Precision  0.119458
+Recall      0.23375
+f1-score   0.154712
+Server Test Loss: 2.075570821762085
+
+Training started
+
+[tensor(0.0106), tensor(0.0126), tensor(0.0168), tensor(0.0034), tensor(0.0132), tensor(0.0392), tensor(0.0261), tensor(0.0294), tensor(0.0201), tensor(0.0162)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.9136202335357666
+Client 1 finished in 6.378008127212524
+Current batch of clients is [2, 3]
+Client 2 finished in 4.75594162940979
+Client 3 finished in 3.3945462703704834
+Current batch of clients is [4, 5]
+Client 4 finished in 5.7687249183654785
+Client 5 finished in 8.333093404769897
+Current batch of clients is [6, 7]
+Client 6 finished in 5.025325059890747
+Client 7 finished in 9.925990104675293
+Current batch of clients is [8, 9]
+Client 8 finished in 4.984386920928955
+Client 9 finished in 6.2699079513549805
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.121472120285034
+Client 1 finished in 6.692721605300903
+Current batch of clients is [2, 3]
+Client 2 finished in 4.940575361251831
+Client 3 finished in 3.9617269039154053
+Current batch of clients is [4, 5]
+Client 4 finished in 4.4635396003723145
+Client 5 finished in 7.203671455383301
+Current batch of clients is [6, 7]
+Client 6 finished in 6.6460888385772705
+Client 7 finished in 10.39986515045166
+Current batch of clients is [8, 9]
+Client 8 finished in 5.666764974594116
+Client 9 finished in 6.2764081954956055
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.588960886001587
+Client 1 finished in 7.413349151611328
+Current batch of clients is [2, 3]
+Client 2 finished in 5.134733438491821
+Client 3 finished in 4.419808387756348
+Current batch of clients is [4, 5]
+Client 4 finished in 5.787972927093506
+Client 5 finished in 11.527717351913452
+Current batch of clients is [6, 7]
+Client 6 finished in 8.3450927734375
+Client 7 finished in 12.114238023757935
+Current batch of clients is [8, 9]
+Client 8 finished in 5.861663579940796
+Client 9 finished in 5.065944671630859
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.165792
+Precision  0.079431
+Recall     0.116225
+f1-score   0.071377
+Server Valid Loss: 2.1189532236361406
+
+Criterion metrics:
+Current loss: 2.1189532236361406
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 279.90366888046265
+
+Round number: 16 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2421
+Precision  0.121203
+Recall       0.2421
+f1-score   0.159842
+Server Test Loss: 2.069321870803833
+
+Training started
+
+[tensor(0.0077), tensor(0.0139), tensor(0.0203), tensor(0.0023), tensor(0.0110), tensor(0.0407), tensor(0.0215), tensor(0.0330), tensor(0.0275), tensor(0.0168)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(8), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.8637914657592773
+Client 1 finished in 8.167639017105103
+Current batch of clients is [2, 3]
+Client 2 finished in 4.685572147369385
+Client 3 finished in 2.8599932193756104
+Current batch of clients is [4, 5]
+Client 4 finished in 5.390595436096191
+Client 5 finished in 9.424707651138306
+Current batch of clients is [6, 7]
+Client 6 finished in 5.1686692237854
+Client 7 finished in 9.792216062545776
+Current batch of clients is [8, 9]
+Client 8 finished in 5.879453182220459
+Client 9 finished in 5.465852499008179
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.785168886184692
+Client 1 finished in 6.341553688049316
+Current batch of clients is [2, 3]
+Client 2 finished in 5.701415777206421
+Client 3 finished in 3.874022960662842
+Current batch of clients is [4, 5]
+Client 4 finished in 4.312681198120117
+Client 5 finished in 6.410645484924316
+Current batch of clients is [6, 7]
+Client 6 finished in 5.225375652313232
+Client 7 finished in 7.949827194213867
+Current batch of clients is [8, 9]
+Client 8 finished in 5.050217390060425
+Client 9 finished in 4.695254802703857
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.035359621047974
+Client 1 finished in 6.024052143096924
+Current batch of clients is [2, 3]
+Client 2 finished in 5.817449569702148
+Client 3 finished in 3.4506843090057373
+Current batch of clients is [4, 5]
+Client 4 finished in 5.890740156173706
+Client 5 finished in 7.937066316604614
+Current batch of clients is [6, 7]
+Client 6 finished in 6.2569420337677
+Client 7 finished in 10.487572431564331
+Current batch of clients is [8, 9]
+Client 8 finished in 4.403294324874878
+Client 9 finished in 4.541536808013916
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.166754
+Precision  0.119758
+Recall     0.182083
+f1-score   0.101020
+Server Valid Loss: 2.1420824258487463
+
+Criterion metrics:
+Current loss: 2.1420824258487463
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 249.9826090335846
+
+Round number: 17 of 50
+
+Server Test Results:
+              value
+Accuracy   0.219833
+Precision  0.149764
+Recall     0.219833
+f1-score    0.13622
+Server Test Loss: 2.0943400859832764
+
+Training started
+
+[tensor(0.0122), tensor(0.0088), tensor(0.0134), tensor(0.0045), tensor(0.0152), tensor(0.0292), tensor(0.0250), tensor(0.0191), tensor(0.0078), tensor(0.0150)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.175962448120117
+Client 1 finished in 6.37470555305481
+Current batch of clients is [2, 3]
+Client 2 finished in 4.722185850143433
+Client 3 finished in 2.58752179145813
+Current batch of clients is [4, 5]
+Client 4 finished in 5.255487680435181
+Client 5 finished in 8.108121633529663
+Current batch of clients is [6, 7]
+Client 6 finished in 5.308877468109131
+Client 7 finished in 9.549139976501465
+Current batch of clients is [8, 9]
+Client 8 finished in 5.655356168746948
+Client 9 finished in 5.223875284194946
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.137188673019409
+Client 1 finished in 6.096906900405884
+Current batch of clients is [2, 3]
+Client 2 finished in 6.453616619110107
+Client 3 finished in 3.6112120151519775
+Current batch of clients is [4, 5]
+Client 4 finished in 5.311027765274048
+Client 5 finished in 6.541622638702393
+Current batch of clients is [6, 7]
+Client 6 finished in 5.3402392864227295
+Client 7 finished in 9.617158889770508
+Current batch of clients is [8, 9]
+Client 8 finished in 4.372220277786255
+Client 9 finished in 5.879554986953735
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.4878010749816895
+Client 1 finished in 5.978304386138916
+Current batch of clients is [2, 3]
+Client 2 finished in 4.454456329345703
+Client 3 finished in 3.3204505443573
+Current batch of clients is [4, 5]
+Client 4 finished in 5.296267747879028
+Client 5 finished in 7.223446607589722
+Current batch of clients is [6, 7]
+Client 6 finished in 5.187827110290527
+Client 7 finished in 9.982922315597534
+Current batch of clients is [8, 9]
+Client 8 finished in 5.77999472618103
+Client 9 finished in 5.206230163574219
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.274067
+Precision  0.133704
+Recall     0.189987
+f1-score   0.119760
+Server Valid Loss: 2.112823141150144
+
+Criterion metrics:
+Current loss: 2.112823141150144
+Best loss: 2.033634833494822
+Best round: 9
+
+all errors for 7 client are equals to zeros
+Round time: 246.17011094093323
+
+Round number: 18 of 50
+
+Server Test Results:
+              value
+Accuracy   0.218633
+Precision  0.111335
+Recall     0.218633
+f1-score   0.131911
+Server Test Loss: 2.16542387008667
+
+Training started
+
+[tensor(0.0103), tensor(0.0108), tensor(0.0192), tensor(0.0035), tensor(0.0124), tensor(0.0300), tensor(0.0268), tensor(0.0140), tensor(0.0124), tensor(0.0120)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(2), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.551352024078369
+Client 1 finished in 6.236074447631836
+Current batch of clients is [2, 3]
+Client 2 finished in 5.621033668518066
+Client 3 finished in 3.2763755321502686
+Current batch of clients is [4, 5]
+Client 4 finished in 4.738245964050293
+Client 5 finished in 5.993122816085815
+Current batch of clients is [6, 7]
+Client 6 finished in 5.417412757873535
+Client 7 finished in 8.77068305015564
+Current batch of clients is [8, 9]
+Client 8 finished in 5.952069520950317
+Client 9 finished in 4.683783292770386
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(2), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.3843584060668945
+Client 1 finished in 6.608232021331787
+Current batch of clients is [2, 3]
+Client 2 finished in 5.5857648849487305
+Client 3 finished in 4.144117116928101
+Current batch of clients is [4, 5]
+Client 4 finished in 5.131019592285156
+Client 5 finished in 6.619797945022583
+Current batch of clients is [6, 7]
+Client 6 finished in 5.130604982376099
+Client 7 finished in 9.392417430877686
+Current batch of clients is [8, 9]
+Client 8 finished in 4.2273828983306885
+Client 9 finished in 4.672046422958374
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(2), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.422819375991821
+Client 1 finished in 6.342447996139526
+Current batch of clients is [2, 3]
+Client 2 finished in 5.051871299743652
+Client 3 finished in 4.087148189544678
+Current batch of clients is [4, 5]
+Client 4 finished in 5.537567138671875
+Client 5 finished in 7.410876274108887
+Current batch of clients is [6, 7]
+Client 6 finished in 7.529171943664551
+Client 7 finished in 8.664043188095093
+Current batch of clients is [8, 9]
+Client 8 finished in 7.0378382205963135
+Client 9 finished in 6.553488254547119
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.212945
+Precision  0.165796
+Recall     0.200314
+f1-score   0.119164
+Server Valid Loss: 2.0686818297291216
+
+Criterion metrics:
+Current loss: 2.0686818297291216
+Best loss: 2.033634833494822
+Best round: 9
+
+Round time: 256.55678057670593
+
+Round number: 19 of 50
+
+Server Test Results:
+              value
+Accuracy   0.244783
+Precision  0.222614
+Recall     0.244783
+f1-score   0.187825
+Server Test Loss: 2.0261037349700928
+
+Training started
+
+[tensor(0.0100), tensor(0.0083), tensor(0.0087), tensor(0.0038), tensor(0.0123), tensor(0.0222), tensor(0.0221), tensor(0.0155), tensor(0.0074), tensor(0.0106)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.512753486633301
+Client 1 finished in 8.260355472564697
+Current batch of clients is [2, 3]
+Client 2 finished in 6.528720855712891
+Client 3 finished in 3.83083176612854
+Current batch of clients is [4, 5]
+Client 4 finished in 5.91945481300354
+Client 5 finished in 15.28667402267456
+Current batch of clients is [6, 7]
+Client 6 finished in 8.283666133880615
+Client 7 finished in 11.460476875305176
+Current batch of clients is [8, 9]
+Client 8 finished in 6.750674247741699
+Client 9 finished in 7.8135504722595215
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.404695987701416
+Client 1 finished in 7.709052085876465
+Current batch of clients is [2, 3]
+Client 2 finished in 5.6946539878845215
+Client 3 finished in 3.335190534591675
+Current batch of clients is [4, 5]
+Client 4 finished in 4.343465566635132
+Client 5 finished in 7.08122992515564
+Current batch of clients is [6, 7]
+Client 6 finished in 5.005683183670044
+Client 7 finished in 9.380156993865967
+Current batch of clients is [8, 9]
+Client 8 finished in 4.145414113998413
+Client 9 finished in 4.953233242034912
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.284137725830078
+Client 1 finished in 5.8297998905181885
+Current batch of clients is [2, 3]
+Client 2 finished in 5.29170036315918
+Client 3 finished in 2.832998514175415
+Current batch of clients is [4, 5]
+Client 4 finished in 5.25444221496582
+Client 5 finished in 8.398255586624146
+Current batch of clients is [6, 7]
+Client 6 finished in 4.578455209732056
+Client 7 finished in 10.229849100112915
+Current batch of clients is [8, 9]
+Client 8 finished in 5.686679363250732
+Client 9 finished in 4.916830062866211
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.271197
+Precision  0.157062
+Recall     0.118656
+f1-score   0.097405
+Server Valid Loss: 1.9654510120292763
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.9654510120292763
+Best loss: 1.9654510120292763
+Best round: 19
+
+Round time: 282.4877755641937
+
+Round number: 20 of 50
+
+Server Test Results:
+              value
+Accuracy   0.247067
+Precision   0.16952
+Recall     0.247067
+f1-score   0.165687
+Server Test Loss: 2.0124993324279785
+
+Training started
+
+[tensor(0.0068), tensor(0.0063), tensor(0.0133), tensor(0.0022), tensor(0.0089), tensor(0.0251), tensor(0.0137), tensor(0.0186), tensor(0.0159), tensor(0.0102)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(7), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.1050803661346436
+Client 1 finished in 6.048751592636108
+Current batch of clients is [2, 3]
+Client 2 finished in 4.74061131477356
+Client 3 finished in 3.794198989868164
+Current batch of clients is [4, 5]
+Client 4 finished in 5.108940601348877
+Client 5 finished in 8.416451930999756
+Current batch of clients is [6, 7]
+Client 6 finished in 5.651494741439819
+Client 7 finished in 8.840484619140625
+Current batch of clients is [8, 9]
+Client 8 finished in 5.083787202835083
+Client 9 finished in 5.5385167598724365
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.5070109367370605
+Client 1 finished in 6.436398983001709
+Current batch of clients is [2, 3]
+Client 2 finished in 7.483081817626953
+Client 3 finished in 3.5681121349334717
+Current batch of clients is [4, 5]
+Client 4 finished in 5.249273777008057
+Client 5 finished in 9.984604835510254
+Current batch of clients is [6, 7]
+Client 6 finished in 6.9731125831604
+Client 7 finished in 10.769118785858154
+Current batch of clients is [8, 9]
+Client 8 finished in 5.009356737136841
+Client 9 finished in 5.908302545547485
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.1637020111083984
+Client 1 finished in 7.125322341918945
+Current batch of clients is [2, 3]
+Client 2 finished in 5.077440500259399
+Client 3 finished in 4.75986647605896
+Current batch of clients is [4, 5]
+Client 4 finished in 7.7175774574279785
+Client 5 finished in 14.520433902740479
+Current batch of clients is [6, 7]
+Client 6 finished in 6.742225408554077
+Client 7 finished in 13.542958974838257
+Current batch of clients is [8, 9]
+Client 8 finished in 4.67848014831543
+Client 9 finished in 7.211687088012695
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.239177
+Precision  0.168592
+Recall     0.194805
+f1-score   0.120802
+Server Valid Loss: 2.053110618882881
+
+Criterion metrics:
+Current loss: 2.053110618882881
+Best loss: 1.9654510120292763
+Best round: 19
+
+Round time: 294.9639341831207
+
+Round number: 21 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2267
+Precision  0.155815
+Recall       0.2267
+f1-score    0.13899
+Server Test Loss: 2.0849688053131104
+
+Training started
+
+[tensor(0.0098), tensor(0.0077), tensor(0.0118), tensor(0.0037), tensor(0.0111), tensor(0.0164), tensor(0.0168), tensor(0.0098), tensor(0.0058), tensor(0.0073)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(2), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.39791464805603
+Client 1 finished in 6.253333806991577
+Current batch of clients is [2, 3]
+Client 2 finished in 4.6609625816345215
+Client 3 finished in 4.157054662704468
+Current batch of clients is [4, 5]
+Client 4 finished in 5.335964202880859
+Client 5 finished in 8.43182373046875
+Current batch of clients is [6, 7]
+Client 6 finished in 5.9372663497924805
+Client 7 finished in 10.484442949295044
+Current batch of clients is [8, 9]
+Client 8 finished in 5.615800619125366
+Client 9 finished in 5.08826756477356
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.297122478485107
+Client 1 finished in 7.35985541343689
+Current batch of clients is [2, 3]
+Client 2 finished in 4.624576568603516
+Client 3 finished in 2.06575083732605
+Current batch of clients is [4, 5]
+Client 4 finished in 4.217225551605225
+Client 5 finished in 6.377574920654297
+Current batch of clients is [6, 7]
+Client 6 finished in 5.595297574996948
+Client 7 finished in 9.994097709655762
+Current batch of clients is [8, 9]
+Client 8 finished in 4.783953666687012
+Client 9 finished in 4.931983709335327
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.7413575649261475
+Client 1 finished in 6.754078388214111
+Current batch of clients is [2, 3]
+Client 2 finished in 4.740036964416504
+Client 3 finished in 3.7169744968414307
+Current batch of clients is [4, 5]
+Client 4 finished in 5.8292236328125
+Client 5 finished in 8.44882321357727
+Current batch of clients is [6, 7]
+Client 6 finished in 5.313137054443359
+Client 7 finished in 9.750368356704712
+Current batch of clients is [8, 9]
+Client 8 finished in 4.921218395233154
+Client 9 finished in 5.19414496421814
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.214593
+Precision  0.196125
+Recall     0.195165
+f1-score   0.110529
+Server Valid Loss: 2.0287132116365223
+
+Criterion metrics:
+Current loss: 2.0287132116365223
+Best loss: 1.9654510120292763
+Best round: 19
+
+all errors for 2 client are equals to zeros
+Round time: 243.7163667678833
+
+Round number: 22 of 50
+
+Server Test Results:
+              value
+Accuracy     0.1918
+Precision  0.109101
+Recall       0.1918
+f1-score   0.089856
+Server Test Loss: 2.165376901626587
+
+Training started
+
+[tensor(0.0060), tensor(0.0118), tensor(0.0021), tensor(0.0032), tensor(0.0080), tensor(0.0218), tensor(0.0190), tensor(0.0188), tensor(0.0102), tensor(0.0109)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.162764549255371
+Client 1 finished in 6.809643268585205
+Current batch of clients is [2, 3]
+Client 2 finished in 5.013173818588257
+Client 3 finished in 2.879462957382202
+Current batch of clients is [4, 5]
+Client 4 finished in 5.792439222335815
+Client 5 finished in 8.208933115005493
+Current batch of clients is [6, 7]
+Client 6 finished in 4.479723691940308
+Client 7 finished in 10.28657341003418
+Current batch of clients is [8, 9]
+Client 8 finished in 4.883594512939453
+Client 9 finished in 5.5004963874816895
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.017025709152222
+Client 1 finished in 6.253540754318237
+Current batch of clients is [2, 3]
+Client 2 finished in 5.1531970500946045
+Client 3 finished in 3.7116620540618896
+Current batch of clients is [4, 5]
+Client 4 finished in 4.351914167404175
+Client 5 finished in 6.744285583496094
+Current batch of clients is [6, 7]
+Client 6 finished in 5.386316537857056
+Client 7 finished in 9.888956069946289
+Current batch of clients is [8, 9]
+Client 8 finished in 4.496948719024658
+Client 9 finished in 5.120456218719482
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.085918426513672
+Client 1 finished in 5.6101343631744385
+Current batch of clients is [2, 3]
+Client 2 finished in 4.605740785598755
+Client 3 finished in 3.1050140857696533
+Current batch of clients is [4, 5]
+Client 4 finished in 4.592637300491333
+Client 5 finished in 7.54268217086792
+Current batch of clients is [6, 7]
+Client 6 finished in 5.173662424087524
+Client 7 finished in 9.693114280700684
+Current batch of clients is [8, 9]
+Client 8 finished in 5.456588983535767
+Client 9 finished in 5.407106161117554
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.181184
+Precision  0.136048
+Recall     0.111804
+f1-score   0.068831
+Server Valid Loss: 2.0375183236289334
+
+Criterion metrics:
+Current loss: 2.0375183236289334
+Best loss: 1.9654510120292763
+Best round: 19
+
+Round time: 257.8485629558563
+
+Round number: 23 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2157
+Precision  0.209726
+Recall       0.2157
+f1-score   0.124866
+Server Test Loss: 1.996590256690979
+
+Training started
+
+[tensor(0.0057), tensor(0.0077), tensor(0.0108), tensor(0.0024), tensor(0.0074), tensor(0.0240), tensor(0.0117), tensor(0.0208), tensor(0.0172), tensor(0.0097)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(8), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.809718608856201
+Client 1 finished in 7.005045175552368
+Current batch of clients is [2, 3]
+Client 2 finished in 6.538440942764282
+Client 3 finished in 3.1644155979156494
+Current batch of clients is [4, 5]
+Client 4 finished in 6.0431883335113525
+Client 5 finished in 12.679677724838257
+Current batch of clients is [6, 7]
+Client 6 finished in 7.525967597961426
+Client 7 finished in 11.233548879623413
+Current batch of clients is [8, 9]
+Client 8 finished in 8.200736045837402
+Client 9 finished in 7.6208336353302
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.8211705684661865
+Client 1 finished in 7.785013675689697
+Current batch of clients is [2, 3]
+Client 2 finished in 5.32637619972229
+Client 3 finished in 4.146646499633789
+Current batch of clients is [4, 5]
+Client 4 finished in 5.670441627502441
+Client 5 finished in 8.56422758102417
+Current batch of clients is [6, 7]
+Client 6 finished in 6.889717102050781
+Client 7 finished in 10.168663740158081
+Current batch of clients is [8, 9]
+Client 8 finished in 4.314900636672974
+Client 9 finished in 5.456841945648193
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.129091501235962
+Client 1 finished in 5.8405444622039795
+Current batch of clients is [2, 3]
+Client 2 finished in 5.302190065383911
+Client 3 finished in 2.7529654502868652
+Current batch of clients is [4, 5]
+Client 4 finished in 4.781429767608643
+Client 5 finished in 8.53259801864624
+Current batch of clients is [6, 7]
+Client 6 finished in 7.165969133377075
+Client 7 finished in 10.331113576889038
+Current batch of clients is [8, 9]
+Client 8 finished in 6.355590581893921
+Client 9 finished in 8.632469415664673
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.179418
+Precision  0.130534
+Recall     0.206457
+f1-score   0.117489
+Server Valid Loss: 2.0783917133555265
+
+Criterion metrics:
+Current loss: 2.0783917133555265
+Best loss: 1.9654510120292763
+Best round: 19
+
+all errors for 8 client are equals to zeros
+Round time: 294.34821009635925
+
+Round number: 24 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2156
+Precision  0.117892
+Recall       0.2156
+f1-score   0.136467
+Server Test Loss: 2.1204304695129395
+
+Training started
+
+[tensor(0.0108), tensor(0.0065), tensor(0.0068), tensor(0.0048), tensor(0.0134), tensor(0.0170), tensor(0.0186), tensor(0.0112), tensor(-0.0005), tensor(0.0120)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(6), tensor(4)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.788829326629639
+Client 1 finished in 8.055751323699951
+Current batch of clients is [2, 3]
+Client 2 finished in 7.089572191238403
+Client 3 finished in 4.402831077575684
+Current batch of clients is [4, 5]
+Client 4 finished in 7.105820417404175
+Client 5 finished in 13.552666187286377
+Current batch of clients is [6, 7]
+Client 6 finished in 13.21255874633789
+Client 7 finished in 11.281720161437988
+Current batch of clients is [8, 9]
+Client 8 finished in 7.2015931606292725
+Client 9 finished in 8.047399044036865
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(4)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.216241121292114
+Client 1 finished in 5.478143930435181
+Current batch of clients is [2, 3]
+Client 2 finished in 4.149933815002441
+Client 3 finished in 3.9220311641693115
+Current batch of clients is [4, 5]
+Client 4 finished in 4.949954271316528
+Client 5 finished in 8.892090320587158
+Current batch of clients is [6, 7]
+Client 6 finished in 7.429219007492065
+Client 7 finished in 9.510678052902222
+Current batch of clients is [8, 9]
+Client 8 finished in 7.424760818481445
+Client 9 finished in 7.602071285247803
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.397564888000488
+Client 1 finished in 7.3020710945129395
+Current batch of clients is [2, 3]
+Client 2 finished in 7.5356080532073975
+Client 3 finished in 5.164624214172363
+Current batch of clients is [4, 5]
+Client 4 finished in 8.07407832145691
+Client 5 finished in 12.67408037185669
+Current batch of clients is [6, 7]
+Client 6 finished in 8.033938884735107
+Client 7 finished in 10.098726272583008
+Current batch of clients is [8, 9]
+Client 8 finished in 9.102609395980835
+Client 9 finished in 7.704541921615601
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.183952
+Precision  0.129170
+Recall     0.226059
+f1-score   0.117857
+Server Valid Loss: 2.2169062906529478
+
+Criterion metrics:
+Current loss: 2.2169062906529478
+Best loss: 1.9654510120292763
+Best round: 19
+
+Round time: 313.9203157424927
+
+Round number: 25 of 50
+
+Server Test Results:
+              value
+Accuracy    0.23565
+Precision   0.16529
+Recall      0.23565
+f1-score   0.143705
+Server Test Loss: 2.077977180480957
+
+Training started
+
+[tensor(0.0123), tensor(0.0084), tensor(0.0046), tensor(0.0052), tensor(0.0150), tensor(0.0107), tensor(0.0193), tensor(0.0106), tensor(-0.0017), tensor(0.0133)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.1000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(9), tensor(4), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.1000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 8.572320461273193
+Client 1 finished in 7.194952011108398
+Current batch of clients is [2, 3]
+Client 2 finished in 9.04512906074524
+Client 3 finished in 5.602696180343628
+Current batch of clients is [4, 5]
+Client 4 finished in 8.39903736114502
+Client 5 finished in 15.967409610748291
+Current batch of clients is [6, 7]
+Client 6 finished in 11.267774105072021
+Client 7 finished in 11.090919971466064
+Current batch of clients is [8, 9]
+Client 8 finished in 8.295195579528809
+Client 9 finished in 9.028372049331665
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(9), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.335583209991455
+Client 1 finished in 5.406470060348511
+Current batch of clients is [2, 3]
+Client 2 finished in 6.786533832550049
+Client 3 finished in 4.0588767528533936
+Current batch of clients is [4, 5]
+Client 4 finished in 5.7767863273620605
+Client 5 finished in 8.93802523612976
+Current batch of clients is [6, 7]
+Client 6 finished in 7.504065752029419
+Client 7 finished in 8.433387279510498
+Current batch of clients is [8, 9]
+Client 8 finished in 7.52209997177124
+Client 9 finished in 6.826258897781372
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(9), tensor(4)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 8.121046304702759
+Client 1 finished in 9.411856651306152
+Current batch of clients is [2, 3]
+Client 2 finished in 7.276201009750366
+Client 3 finished in 5.428392648696899
+Current batch of clients is [4, 5]
+Client 4 finished in 6.661745309829712
+Client 5 finished in 11.683775663375854
+Current batch of clients is [6, 7]
+Client 6 finished in 10.993460178375244
+Client 7 finished in 11.261221885681152
+Current batch of clients is [8, 9]
+Client 8 finished in 8.975246906280518
+Client 9 finished in 7.632892608642578
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.307201
+Precision  0.159553
+Recall     0.150576
+f1-score   0.106882
+Server Valid Loss: 1.9313932063646646
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.9313932063646646
+Best loss: 1.9313932063646646
+Best round: 25
+
+Round time: 327.5799376964569
+
+Round number: 26 of 50
+
+Server Test Results:
+              value
+Accuracy   0.187017
+Precision   0.23067
+Recall     0.187017
+f1-score    0.12494
+Server Test Loss: 2.0632340908050537
+
+Training started
+
+[tensor(-0.0003), tensor(0.0076), tensor(0.0081), tensor(3.1958e-05), tensor(0.0001), tensor(0.0148), tensor(0.0115), tensor(0.0122), tensor(0.0120), tensor(0.0053)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 5.083930015563965
+Client 1 finished in 6.136873245239258
+Current batch of clients is [2, 3]
+Client 2 finished in 7.544651508331299
+Client 3 finished in 3.9738972187042236
+Current batch of clients is [4, 5]
+Client 4 finished in 6.17191743850708
+Client 5 finished in 10.634057998657227
+Current batch of clients is [6, 7]
+Client 6 finished in 7.831182956695557
+Client 7 finished in 11.34006929397583
+Current batch of clients is [8, 9]
+Client 8 finished in 6.31484317779541
+Client 9 finished in 5.923993825912476
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(8), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.991103649139404
+Client 1 finished in 8.043298482894897
+Current batch of clients is [2, 3]
+Client 2 finished in 5.343262672424316
+Client 3 finished in 3.383314847946167
+Current batch of clients is [4, 5]
+Client 4 finished in 5.567294120788574
+Client 5 finished in 11.457619428634644
+Current batch of clients is [6, 7]
+Client 6 finished in 9.409152030944824
+Client 7 finished in 10.775055408477783
+Current batch of clients is [8, 9]
+Client 8 finished in 5.143338680267334
+Client 9 finished in 7.18867039680481
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.781700849533081
+Client 1 finished in 7.884135961532593
+Current batch of clients is [2, 3]
+Client 2 finished in 6.6562910079956055
+Client 3 finished in 4.752370119094849
+Current batch of clients is [4, 5]
+Client 4 finished in 7.414470434188843
+Client 5 finished in 13.714131593704224
+Current batch of clients is [6, 7]
+Client 6 finished in 9.472523212432861
+Client 7 finished in 11.148457050323486
+Current batch of clients is [8, 9]
+Client 8 finished in 8.18983006477356
+Client 9 finished in 8.380359888076782
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.299348
+Precision  0.148587
+Recall     0.176430
+f1-score   0.115556
+Server Valid Loss: 1.9436040412553979
+
+Criterion metrics:
+Current loss: 1.9436040412553979
+Best loss: 1.9313932063646646
+Best round: 25
+
+Round time: 315.84970688819885
+
+Round number: 27 of 50
+
+Server Test Results:
+              value
+Accuracy   0.243583
+Precision  0.160861
+Recall     0.243583
+f1-score   0.167295
+Server Test Loss: 2.0271084308624268
+
+Training started
+
+[tensor(0.0047), tensor(0.0050), tensor(0.0107), tensor(0.0017), tensor(0.0050), tensor(0.0144), tensor(0.0121), tensor(0.0050), tensor(0.0071), tensor(0.0046)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(2), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.976378679275513
+Client 1 finished in 5.697886943817139
+Current batch of clients is [2, 3]
+Client 2 finished in 4.925363779067993
+Client 3 finished in 3.9867970943450928
+Current batch of clients is [4, 5]
+Client 4 finished in 6.255779266357422
+Client 5 finished in 8.951648712158203
+Current batch of clients is [6, 7]
+Client 6 finished in 6.498218774795532
+Client 7 finished in 10.960120916366577
+Current batch of clients is [8, 9]
+Client 8 finished in 5.889085054397583
+Client 9 finished in 5.218937158584595
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(2), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.073542356491089
+Client 1 finished in 5.101001501083374
+Current batch of clients is [2, 3]
+Client 2 finished in 5.275243282318115
+Client 3 finished in 3.6519484519958496
+Current batch of clients is [4, 5]
+Client 4 finished in 5.496472358703613
+Client 5 finished in 8.63786506652832
+Current batch of clients is [6, 7]
+Client 6 finished in 6.273471832275391
+Client 7 finished in 10.931057214736938
+Current batch of clients is [8, 9]
+Client 8 finished in 4.60589337348938
+Client 9 finished in 5.030161380767822
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.139477729797363
+Client 1 finished in 6.1140594482421875
+Current batch of clients is [2, 3]
+Client 2 finished in 4.296118974685669
+Client 3 finished in 2.07205867767334
+Current batch of clients is [4, 5]
+Client 4 finished in 4.483129024505615
+Client 5 finished in 7.220933437347412
+Current batch of clients is [6, 7]
+Client 6 finished in 6.083700895309448
+Client 7 finished in 9.160406827926636
+Current batch of clients is [8, 9]
+Client 8 finished in 5.793906927108765
+Client 9 finished in 5.159775495529175
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.190803
+Precision  0.138906
+Recall     0.221977
+f1-score   0.118944
+Server Valid Loss: 2.0628708226340158
+
+Criterion metrics:
+Current loss: 2.0628708226340158
+Best loss: 1.9313932063646646
+Best round: 25
+
+Round time: 244.4146933555603
+
+Round number: 28 of 50
+
+Server Test Results:
+              value
+Accuracy   0.225317
+Precision  0.161338
+Recall     0.225317
+f1-score   0.140521
+Server Test Loss: 2.100001096725464
+
+Training started
+
+[tensor(0.0086), tensor(0.0088), tensor(0.0006), tensor(0.0037), tensor(0.0106), tensor(0.0109), tensor(0.0158), tensor(0.0088), tensor(-0.0014), tensor(0.0077)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(5), tensor(4)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.305743217468262
+Client 1 finished in 6.847889423370361
+Current batch of clients is [2, 3]
+Client 2 finished in 4.14467978477478
+Client 3 finished in 2.0371217727661133
+Current batch of clients is [4, 5]
+Client 4 finished in 5.528399229049683
+Client 5 finished in 9.966578722000122
+Current batch of clients is [6, 7]
+Client 6 finished in 6.231551885604858
+Client 7 finished in 10.416520118713379
+Current batch of clients is [8, 9]
+Client 8 finished in 5.572756052017212
+Client 9 finished in 6.388965368270874
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.176518440246582
+Client 1 finished in 6.238956689834595
+Current batch of clients is [2, 3]
+Client 2 finished in 4.115689754486084
+Client 3 finished in 2.239999294281006
+Current batch of clients is [4, 5]
+Client 4 finished in 4.735934495925903
+Client 5 finished in 6.941161870956421
+Current batch of clients is [6, 7]
+Client 6 finished in 6.9255266189575195
+Client 7 finished in 10.57572627067566
+Current batch of clients is [8, 9]
+Client 8 finished in 4.39410400390625
+Client 9 finished in 4.508875846862793
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(4), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.755136251449585
+Client 1 finished in 6.363883018493652
+Current batch of clients is [2, 3]
+Client 2 finished in 5.243384599685669
+Client 3 finished in 2.483750581741333
+Current batch of clients is [4, 5]
+Client 4 finished in 4.52578330039978
+Client 5 finished in 7.999377250671387
+Current batch of clients is [6, 7]
+Client 6 finished in 6.2322304248809814
+Client 7 finished in 10.594098567962646
+Current batch of clients is [8, 9]
+Client 8 finished in 4.066800594329834
+Client 9 finished in 5.211512088775635
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.326273
+Precision  0.173516
+Recall     0.188850
+f1-score   0.120027
+Server Valid Loss: 1.9280046043457921
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.9280046043457921
+Best loss: 1.9280046043457921
+Best round: 28
+
+Round time: 257.9609639644623
+
+Round number: 29 of 50
+
+Server Test Results:
+              value
+Accuracy   0.267183
+Precision  0.190722
+Recall     0.267183
+f1-score   0.179668
+Server Test Loss: 2.0117976665496826
+
+Training started
+
+[tensor(-0.0002), tensor(0.0059), tensor(0.0059), tensor(0.0007), tensor(0.0002), tensor(0.0144), tensor(0.0076), tensor(0.0128), tensor(0.0109), tensor(0.0081)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.188774824142456
+Client 1 finished in 5.7141664028167725
+Current batch of clients is [2, 3]
+Client 2 finished in 7.76169228553772
+Client 3 finished in 5.8031134605407715
+Current batch of clients is [4, 5]
+Client 4 finished in 5.69926643371582
+Client 5 finished in 13.070844650268555
+Current batch of clients is [6, 7]
+Client 6 finished in 8.759002208709717
+Client 7 finished in 12.005221843719482
+Current batch of clients is [8, 9]
+Client 8 finished in 7.865736246109009
+Client 9 finished in 7.061344146728516
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(8), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.358818054199219
+Client 1 finished in 7.625605583190918
+Current batch of clients is [2, 3]
+Client 2 finished in 8.340890884399414
+Client 3 finished in 4.555047273635864
+Current batch of clients is [4, 5]
+Client 4 finished in 6.445277452468872
+Client 5 finished in 10.714282751083374
+Current batch of clients is [6, 7]
+Client 6 finished in 8.63944959640503
+Client 7 finished in 10.590739727020264
+Current batch of clients is [8, 9]
+Client 8 finished in 6.599762439727783
+Client 9 finished in 6.57096791267395
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.1658520698547363
+Client 1 finished in 4.932084083557129
+Current batch of clients is [2, 3]
+Client 2 finished in 5.250675916671753
+Client 3 finished in 2.8895323276519775
+Current batch of clients is [4, 5]
+Client 4 finished in 5.951350927352905
+Client 5 finished in 9.89396619796753
+Current batch of clients is [6, 7]
+Client 6 finished in 5.595679998397827
+Client 7 finished in 10.45385479927063
+Current batch of clients is [8, 9]
+Client 8 finished in 4.672137260437012
+Client 9 finished in 5.092789888381958
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.300629
+Precision  0.176650
+Recall     0.167731
+f1-score   0.115358
+Server Valid Loss: 1.9585530240814406
+
+Criterion metrics:
+Current loss: 1.9585530240814406
+Best loss: 1.9280046043457921
+Best round: 28
+
+all errors for 7 client are equals to zeros
+Round time: 289.6186351776123
+
+Round number: 30 of 50
+
+Server Test Results:
+              value
+Accuracy   0.233617
+Precision  0.203092
+Recall     0.233617
+f1-score   0.145767
+Server Test Loss: 2.0471854209899902
+
+Training started
+
+[tensor(0.0048), tensor(0.0064), tensor(0.0095), tensor(0.0022), tensor(0.0052), tensor(0.0116), tensor(0.0120), tensor(0.0030), tensor(0.0062), tensor(0.0048)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(2), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.933872938156128
+Client 1 finished in 5.822359800338745
+Current batch of clients is [2, 3]
+Client 2 finished in 5.186431407928467
+Client 3 finished in 4.034030199050903
+Current batch of clients is [4, 5]
+Client 4 finished in 6.252731800079346
+Client 5 finished in 8.931706428527832
+Current batch of clients is [6, 7]
+Client 6 finished in 6.242626428604126
+Client 7 finished in 9.999196529388428
+Current batch of clients is [8, 9]
+Client 8 finished in 4.02532958984375
+Client 9 finished in 4.172381401062012
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(2), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.1886940002441406
+Client 1 finished in 5.379429578781128
+Current batch of clients is [2, 3]
+Client 2 finished in 4.037876605987549
+Client 3 finished in 3.0511975288391113
+Current batch of clients is [4, 5]
+Client 4 finished in 4.692586421966553
+Client 5 finished in 8.422210454940796
+Current batch of clients is [6, 7]
+Client 6 finished in 4.897134065628052
+Client 7 finished in 9.524905681610107
+Current batch of clients is [8, 9]
+Client 8 finished in 5.103808403015137
+Client 9 finished in 4.783658504486084
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.816610336303711
+Client 1 finished in 5.232334136962891
+Current batch of clients is [2, 3]
+Client 2 finished in 4.700257062911987
+Client 3 finished in 3.604034423828125
+Current batch of clients is [4, 5]
+Client 4 finished in 6.312722444534302
+Client 5 finished in 9.89295768737793
+Current batch of clients is [6, 7]
+Client 6 finished in 5.260493755340576
+Client 7 finished in 9.677218198776245
+Current batch of clients is [8, 9]
+Client 8 finished in 5.059135675430298
+Client 9 finished in 4.483543872833252
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.314476
+Precision  0.171015
+Recall     0.139400
+f1-score   0.114062
+Server Valid Loss: 1.911575831556733
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.911575831556733
+Best loss: 1.911575831556733
+Best round: 30
+
+Round time: 235.8080973625183
+
+Round number: 31 of 50
+
+Server Test Results:
+              value
+Accuracy   0.236233
+Precision  0.205843
+Recall     0.236233
+f1-score     0.1449
+Server Test Loss: 2.022411346435547
+
+Training started
+
+[tensor(0.0046), tensor(0.0034), tensor(0.0070), tensor(0.0022), tensor(0.0056), tensor(0.0100), tensor(0.0046), tensor(0.0068), tensor(0.0076), tensor(0.0056)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(2), tensor(8), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.4872453212738037
+Client 1 finished in 6.90234899520874
+Current batch of clients is [2, 3]
+Client 2 finished in 3.9140186309814453
+Client 3 finished in 4.239567756652832
+Current batch of clients is [4, 5]
+Client 4 finished in 5.184751033782959
+Client 5 finished in 8.440057277679443
+Current batch of clients is [6, 7]
+Client 6 finished in 5.81562614440918
+Client 7 finished in 10.970824241638184
+Current batch of clients is [8, 9]
+Client 8 finished in 3.4997541904449463
+Client 9 finished in 4.478882789611816
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(2), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.221482992172241
+Client 1 finished in 7.153574466705322
+Current batch of clients is [2, 3]
+Client 2 finished in 4.026960134506226
+Client 3 finished in 4.364842414855957
+Current batch of clients is [4, 5]
+Client 4 finished in 4.432010650634766
+Client 5 finished in 8.257915496826172
+Current batch of clients is [6, 7]
+Client 6 finished in 5.34343409538269
+Client 7 finished in 11.120174169540405
+Current batch of clients is [8, 9]
+Client 8 finished in 3.9612371921539307
+Client 9 finished in 4.131669044494629
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(5), tensor(2)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.947489023208618
+Client 1 finished in 5.376434087753296
+Current batch of clients is [2, 3]
+Client 2 finished in 4.682574987411499
+Client 3 finished in 3.4307258129119873
+Current batch of clients is [4, 5]
+Client 4 finished in 5.02077841758728
+Client 5 finished in 6.776027202606201
+Current batch of clients is [6, 7]
+Client 6 finished in 5.063447713851929
+Client 7 finished in 10.191343069076538
+Current batch of clients is [8, 9]
+Client 8 finished in 4.098903656005859
+Client 9 finished in 5.069331407546997
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.222278
+Precision  0.163884
+Recall     0.206235
+f1-score   0.123860
+Server Valid Loss: 2.063073484154491
+
+Criterion metrics:
+Current loss: 2.063073484154491
+Best loss: 1.911575831556733
+Best round: 30
+
+Round time: 237.52349829673767
+
+Round number: 32 of 50
+
+Server Test Results:
+              value
+Accuracy   0.234133
+Precision  0.133515
+Recall     0.234133
+f1-score   0.148942
+Server Test Loss: 2.036677360534668
+
+Training started
+
+[tensor(0.0079), tensor(0.0096), tensor(-0.0014), tensor(0.0041), tensor(0.0100), tensor(0.0084), tensor(0.0114), tensor(0.0097), tensor(2.9159e-05), tensor(0.0082)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(7), tensor(4), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.2753424644470215
+Client 1 finished in 6.2378082275390625
+Current batch of clients is [2, 3]
+Client 2 finished in 5.879132032394409
+Client 3 finished in 5.037576675415039
+Current batch of clients is [4, 5]
+Client 4 finished in 5.226889133453369
+Client 5 finished in 10.6796236038208
+Current batch of clients is [6, 7]
+Client 6 finished in 6.366917371749878
+Client 7 finished in 11.100663185119629
+Current batch of clients is [8, 9]
+Client 8 finished in 4.647153377532959
+Client 9 finished in 6.913033723831177
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(4), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.1799092292785645
+Client 1 finished in 5.254851341247559
+Current batch of clients is [2, 3]
+Client 2 finished in 3.6021807193756104
+Client 3 finished in 3.8960020542144775
+Current batch of clients is [4, 5]
+Client 4 finished in 5.175892114639282
+Client 5 finished in 8.231208562850952
+Current batch of clients is [6, 7]
+Client 6 finished in 9.13431715965271
+Client 7 finished in 12.138227224349976
+Current batch of clients is [8, 9]
+Client 8 finished in 5.252209424972534
+Client 9 finished in 5.733560085296631
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(7), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 6.4736411571502686
+Client 1 finished in 7.866023063659668
+Current batch of clients is [2, 3]
+Client 2 finished in 4.636072635650635
+Client 3 finished in 2.2909364700317383
+Current batch of clients is [4, 5]
+Client 4 finished in 4.67205286026001
+Client 5 finished in 8.017776012420654
+Current batch of clients is [6, 7]
+Client 6 finished in 6.66563606262207
+Client 7 finished in 10.675302982330322
+Current batch of clients is [8, 9]
+Client 8 finished in 4.891831636428833
+Client 9 finished in 5.048501253128052
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.310209
+Precision  0.184819
+Recall     0.194228
+f1-score   0.139580
+Server Valid Loss: 1.9446435224571268
+
+Criterion metrics:
+Current loss: 1.9446435224571268
+Best loss: 1.911575831556733
+Best round: 30
+
+Round time: 288.3497223854065
+
+Round number: 33 of 50
+
+Server Test Results:
+              value
+Accuracy   0.196183
+Precision  0.155171
+Recall     0.196183
+f1-score   0.094235
+Server Test Loss: 2.0610671043395996
+
+Training started
+
+[tensor(0.0052), tensor(0.0060), tensor(0.0073), tensor(0.0023), tensor(0.0061), tensor(0.0099), tensor(0.0134), tensor(0.0015), tensor(0.0036), tensor(0.0046)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(2), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.6549482345581055
+Client 1 finished in 5.683380365371704
+Current batch of clients is [2, 3]
+Client 2 finished in 5.385920286178589
+Client 3 finished in 3.6223363876342773
+Current batch of clients is [4, 5]
+Client 4 finished in 4.803184270858765
+Client 5 finished in 7.60868501663208
+Current batch of clients is [6, 7]
+Client 6 finished in 6.315017223358154
+Client 7 finished in 11.536268711090088
+Current batch of clients is [8, 9]
+Client 8 finished in 4.875852823257446
+Client 9 finished in 4.8130927085876465
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.942575693130493
+Client 1 finished in 5.493779420852661
+Current batch of clients is [2, 3]
+Client 2 finished in 3.5184857845306396
+Client 3 finished in 2.9001662731170654
+Current batch of clients is [4, 5]
+Client 4 finished in 5.097058057785034
+Client 5 finished in 7.014913082122803
+Current batch of clients is [6, 7]
+Client 6 finished in 5.5116941928863525
+Client 7 finished in 10.679699897766113
+Current batch of clients is [8, 9]
+Client 8 finished in 3.2087974548339844
+Client 9 finished in 3.814052104949951
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(2), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.076937913894653
+Client 1 finished in 5.907403945922852
+Current batch of clients is [2, 3]
+Client 2 finished in 4.907345533370972
+Client 3 finished in 3.1702795028686523
+Current batch of clients is [4, 5]
+Client 4 finished in 4.405553340911865
+Client 5 finished in 6.625591278076172
+Current batch of clients is [6, 7]
+Client 6 finished in 5.34918737411499
+Client 7 finished in 10.574965238571167
+Current batch of clients is [8, 9]
+Client 8 finished in 3.3254201412200928
+Client 9 finished in 4.07610011100769
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.244843
+Precision  0.193279
+Recall     0.168982
+f1-score   0.110207
+Server Valid Loss: 1.9111769809222323
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.9111769809222323
+Best loss: 1.9111769809222323
+Best round: 33
+
+Round time: 231.89544439315796
+
+Round number: 34 of 50
+
+Server Test Results:
+             value
+Accuracy   0.23635
+Precision  0.21104
+Recall     0.23635
+f1-score   0.16726
+Server Test Loss: 2.0198099613189697
+
+Training started
+
+[tensor(0.0032), tensor(0.0069), tensor(5.0050e-05), tensor(0.0023), tensor(0.0039), tensor(0.0109), tensor(0.0067), tensor(0.0089), tensor(0.0042), tensor(0.0048)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(1), tensor(7), tensor(5)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.861776828765869
+Client 1 finished in 7.310545444488525
+Current batch of clients is [2, 3]
+Client 2 finished in 5.502270698547363
+Client 3 finished in 2.8917970657348633
+Current batch of clients is [4, 5]
+Client 4 finished in 6.360492944717407
+Client 5 finished in 9.055859804153442
+Current batch of clients is [6, 7]
+Client 6 finished in 7.09813928604126
+Client 7 finished in 11.205147504806519
+Current batch of clients is [8, 9]
+Client 8 finished in 5.2451653480529785
+Client 9 finished in 6.8355700969696045
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(1), tensor(7), tensor(5)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.9511122703552246
+Client 1 finished in 6.331571340560913
+Current batch of clients is [2, 3]
+Client 2 finished in 4.712552547454834
+Client 3 finished in 3.286015748977661
+Current batch of clients is [4, 5]
+Client 4 finished in 5.114226818084717
+Client 5 finished in 7.238240003585815
+Current batch of clients is [6, 7]
+Client 6 finished in 6.339629173278809
+Client 7 finished in 12.374921083450317
+Current batch of clients is [8, 9]
+Client 8 finished in 5.212975263595581
+Client 9 finished in 6.325101852416992
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(1)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.8069114685058594
+Client 1 finished in 6.8091139793396
+Current batch of clients is [2, 3]
+Client 2 finished in 4.1297478675842285
+Client 3 finished in 3.830197334289551
+Current batch of clients is [4, 5]
+Client 4 finished in 5.280570030212402
+Client 5 finished in 6.688120603561401
+Current batch of clients is [6, 7]
+Client 6 finished in 4.527178049087524
+Client 7 finished in 11.066926002502441
+Current batch of clients is [8, 9]
+Client 8 finished in 3.5975000858306885
+Client 9 finished in 4.662887334823608
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.219554
+Precision  0.177170
+Recall     0.123783
+f1-score   0.093515
+Server Valid Loss: 1.9378949096837599
+
+Criterion metrics:
+Current loss: 1.9378949096837599
+Best loss: 1.9111769809222323
+Best round: 33
+
+Round time: 278.9243667125702
+
+Round number: 35 of 50
+
+Server Test Results:
+              value
+Accuracy   0.239667
+Precision  0.267996
+Recall     0.239667
+f1-score   0.138581
+Server Test Loss: 1.9421957731246948
+
+Training started
+
+[tensor(0.0044), tensor(-0.0044), tensor(0.0081), tensor(0.0023), tensor(0.0060), tensor(0.0127), tensor(0.0039), tensor(0.0111), tensor(0.0077), tensor(0.0101)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.0000,
+        0.1000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(9), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.1000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.1930699348449707
+Client 1 finished in 5.163201332092285
+Current batch of clients is [2, 3]
+Client 2 finished in 3.5939996242523193
+Client 3 finished in 2.971646785736084
+Current batch of clients is [4, 5]
+Client 4 finished in 4.37989354133606
+Client 5 finished in 6.316481828689575
+Current batch of clients is [6, 7]
+Client 6 finished in 5.477856636047363
+Client 7 finished in 10.185362339019775
+Current batch of clients is [8, 9]
+Client 8 finished in 4.290796279907227
+Client 9 finished in 5.002575874328613
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(9), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.1000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.2819998264312744
+Client 1 finished in 6.428913354873657
+Current batch of clients is [2, 3]
+Client 2 finished in 3.5728769302368164
+Client 3 finished in 2.6304025650024414
+Current batch of clients is [4, 5]
+Client 4 finished in 4.203184366226196
+Client 5 finished in 5.5299952030181885
+Current batch of clients is [6, 7]
+Client 6 finished in 5.1201746463775635
+Client 7 finished in 10.120913028717041
+Current batch of clients is [8, 9]
+Client 8 finished in 3.808875560760498
+Client 9 finished in 4.318181276321411
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(9), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.1000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.780226230621338
+Client 1 finished in 5.552832841873169
+Current batch of clients is [2, 3]
+Client 2 finished in 3.97444224357605
+Client 3 finished in 2.974275827407837
+Current batch of clients is [4, 5]
+Client 4 finished in 4.128840208053589
+Client 5 finished in 8.031370162963867
+Current batch of clients is [6, 7]
+Client 6 finished in 4.679250478744507
+Client 7 finished in 9.381924867630005
+Current batch of clients is [8, 9]
+Client 8 finished in 4.280085563659668
+Client 9 finished in 4.288836479187012
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.188647
+Precision  0.147038
+Recall     0.123703
+f1-score   0.082683
+Server Valid Loss: 1.9949015214587704
+
+Criterion metrics:
+Current loss: 1.9949015214587704
+Best loss: 1.9111769809222323
+Best round: 33
+
+all errors for 9 client are equals to zeros
+Round time: 237.22132420539856
+
+Round number: 36 of 50
+
+Server Test Results:
+              value
+Accuracy   0.209817
+Precision  0.146034
+Recall     0.209817
+f1-score    0.10354
+Server Test Loss: 2.053441047668457
+
+Training started
+
+[tensor(0.0069), tensor(0.0084), tensor(0.0045), tensor(0.0028), tensor(0.0083), tensor(0.0111), tensor(0.0089), tensor(0.0046), tensor(0.0041), tensor(-0.0016)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(1), tensor(5), tensor(6)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.671844720840454
+Client 1 finished in 6.877672433853149
+Current batch of clients is [2, 3]
+Client 2 finished in 4.257440567016602
+Client 3 finished in 3.1743688583374023
+Current batch of clients is [4, 5]
+Client 4 finished in 4.8686769008636475
+Client 5 finished in 7.387246131896973
+Current batch of clients is [6, 7]
+Client 6 finished in 5.990579843521118
+Client 7 finished in 10.52179479598999
+Current batch of clients is [8, 9]
+Client 8 finished in 5.120661020278931
+Client 9 finished in 5.722803115844727
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(1), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.350644826889038
+Client 1 finished in 5.978777885437012
+Current batch of clients is [2, 3]
+Client 2 finished in 4.747316837310791
+Client 3 finished in 3.9154305458068848
+Current batch of clients is [4, 5]
+Client 4 finished in 4.964450359344482
+Client 5 finished in 7.63602089881897
+Current batch of clients is [6, 7]
+Client 6 finished in 4.71335506439209
+Client 7 finished in 9.771668910980225
+Current batch of clients is [8, 9]
+Client 8 finished in 4.682702541351318
+Client 9 finished in 4.95648193359375
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(1), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.680147171020508
+Client 1 finished in 5.214830636978149
+Current batch of clients is [2, 3]
+Client 2 finished in 3.220353364944458
+Client 3 finished in 2.44472074508667
+Current batch of clients is [4, 5]
+Client 4 finished in 4.1203343868255615
+Client 5 finished in 5.688144683837891
+Current batch of clients is [6, 7]
+Client 6 finished in 4.301077842712402
+Client 7 finished in 9.42338514328003
+Current batch of clients is [8, 9]
+Client 8 finished in 3.529326915740967
+Client 9 finished in 3.5232527256011963
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.183226
+Precision  0.191048
+Recall     0.121409
+f1-score   0.090694
+Server Valid Loss: 1.9402259342082135
+
+Criterion metrics:
+Current loss: 1.9402259342082135
+Best loss: 1.9111769809222323
+Best round: 33
+
+Round time: 227.92712926864624
+
+Round number: 37 of 50
+
+Server Test Results:
+              value
+Accuracy     0.1821
+Precision  0.092563
+Recall       0.1821
+f1-score   0.072889
+Server Test Loss: 2.09120512008667
+
+Training started
+
+[tensor(0.0049), tensor(0.0001), tensor(0.0079), tensor(0.0021), tensor(0.0048), tensor(0.0111), tensor(0.0014), tensor(0.0094), tensor(0.0102), tensor(0.0048)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(8), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.5009119510650635
+Client 1 finished in 5.414557456970215
+Current batch of clients is [2, 3]
+Client 2 finished in 3.248217821121216
+Client 3 finished in 2.2687268257141113
+Current batch of clients is [4, 5]
+Client 4 finished in 4.404097318649292
+Client 5 finished in 6.0337605476379395
+Current batch of clients is [6, 7]
+Client 6 finished in 4.444517374038696
+Client 7 finished in 8.797067165374756
+Current batch of clients is [8, 9]
+Client 8 finished in 3.1687333583831787
+Client 9 finished in 3.264955759048462
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.621347665786743
+Client 1 finished in 4.659417390823364
+Current batch of clients is [2, 3]
+Client 2 finished in 3.3999416828155518
+Client 3 finished in 2.0791006088256836
+Current batch of clients is [4, 5]
+Client 4 finished in 4.769209384918213
+Client 5 finished in 5.973971605300903
+Current batch of clients is [6, 7]
+Client 6 finished in 4.350572347640991
+Client 7 finished in 9.557752132415771
+Current batch of clients is [8, 9]
+Client 8 finished in 2.9093902111053467
+Client 9 finished in 3.211707592010498
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.5040459632873535
+Client 1 finished in 4.845187664031982
+Current batch of clients is [2, 3]
+Client 2 finished in 3.217880964279175
+Client 3 finished in 2.4930179119110107
+Current batch of clients is [4, 5]
+Client 4 finished in 4.068071603775024
+Client 5 finished in 5.669747591018677
+Current batch of clients is [6, 7]
+Client 6 finished in 5.128177165985107
+Client 7 finished in 8.557548522949219
+Current batch of clients is [8, 9]
+Client 8 finished in 5.5233776569366455
+Client 9 finished in 4.77978515625
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.323780
+Precision  0.204145
+Recall     0.182609
+f1-score   0.143399
+Server Valid Loss: 1.8419255229946856
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.8419255229946856
+Best loss: 1.8419255229946856
+Best round: 37
+
+Round time: 191.66253662109375
+
+Round number: 38 of 50
+
+Server Test Results:
+              value
+Accuracy   0.241933
+Precision  0.221622
+Recall     0.241933
+f1-score    0.15858
+Server Test Loss: 1.9646011590957642
+
+Training started
+
+[tensor(0.0051), tensor(0.0048), tensor(0.0038), tensor(0.0025), tensor(0.0062), tensor(0.0090), tensor(0.0070), tensor(0.0041), tensor(0.0012), tensor(0.0023)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(4), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.9883553981781006
+Client 1 finished in 5.291994571685791
+Current batch of clients is [2, 3]
+Client 2 finished in 4.532698392868042
+Client 3 finished in 3.967496395111084
+Current batch of clients is [4, 5]
+Client 4 finished in 5.313729524612427
+Client 5 finished in 7.1886255741119385
+Current batch of clients is [6, 7]
+Client 6 finished in 6.155654668807983
+Client 7 finished in 10.41437029838562
+Current batch of clients is [8, 9]
+Client 8 finished in 5.271690607070923
+Client 9 finished in 5.86471700668335
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(4)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.3629512786865234
+Client 1 finished in 5.178850173950195
+Current batch of clients is [2, 3]
+Client 2 finished in 4.777768135070801
+Client 3 finished in 3.1121606826782227
+Current batch of clients is [4, 5]
+Client 4 finished in 4.953982591629028
+Client 5 finished in 7.532012224197388
+Current batch of clients is [6, 7]
+Client 6 finished in 5.5966267585754395
+Client 7 finished in 9.093635559082031
+Current batch of clients is [8, 9]
+Client 8 finished in 3.5358898639678955
+Client 9 finished in 3.5765507221221924
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.818023443222046
+Client 1 finished in 4.709172964096069
+Current batch of clients is [2, 3]
+Client 2 finished in 4.524996995925903
+Client 3 finished in 2.6373555660247803
+Current batch of clients is [4, 5]
+Client 4 finished in 4.17249608039856
+Client 5 finished in 6.576791286468506
+Current batch of clients is [6, 7]
+Client 6 finished in 4.373239040374756
+Client 7 finished in 9.208329439163208
+Current batch of clients is [8, 9]
+Client 8 finished in 4.003787040710449
+Client 9 finished in 3.8900022506713867
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.336128
+Precision  0.179281
+Recall     0.234271
+f1-score   0.158392
+Server Valid Loss: 1.8736341319558942
+
+Criterion metrics:
+Current loss: 1.8736341319558942
+Best loss: 1.8419255229946856
+Best round: 37
+
+Round time: 206.69233059883118
+
+Round number: 39 of 50
+
+Server Test Results:
+              value
+Accuracy    0.23575
+Precision  0.187226
+Recall      0.23575
+f1-score   0.143797
+Server Test Loss: 1.9757393598556519
+
+Training started
+
+[tensor(0.0046), tensor(0.0064), tensor(0.0036), tensor(0.0026), tensor(0.0044), tensor(0.0079), tensor(0.0108), tensor(0.0036), tensor(0.0014), tensor(0.0031)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(1), tensor(6), tensor(5)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.8404321670532227
+Client 1 finished in 5.886358976364136
+Current batch of clients is [2, 3]
+Client 2 finished in 4.549082517623901
+Client 3 finished in 2.811708688735962
+Current batch of clients is [4, 5]
+Client 4 finished in 4.704294919967651
+Client 5 finished in 7.080289840698242
+Current batch of clients is [6, 7]
+Client 6 finished in 4.881917476654053
+Client 7 finished in 9.050305604934692
+Current batch of clients is [8, 9]
+Client 8 finished in 3.6526412963867188
+Client 9 finished in 3.867598295211792
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(1)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.6291985511779785
+Client 1 finished in 4.855261325836182
+Current batch of clients is [2, 3]
+Client 2 finished in 4.164236545562744
+Client 3 finished in 1.9793617725372314
+Current batch of clients is [4, 5]
+Client 4 finished in 4.065643310546875
+Client 5 finished in 5.497481346130371
+Current batch of clients is [6, 7]
+Client 6 finished in 4.183345556259155
+Client 7 finished in 8.835696935653687
+Current batch of clients is [8, 9]
+Client 8 finished in 3.847929000854492
+Client 9 finished in 3.8417606353759766
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(1), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.9693918228149414
+Client 1 finished in 4.685438632965088
+Current batch of clients is [2, 3]
+Client 2 finished in 4.266628742218018
+Client 3 finished in 2.473842144012451
+Current batch of clients is [4, 5]
+Client 4 finished in 3.9772789478302
+Client 5 finished in 6.131785154342651
+Current batch of clients is [6, 7]
+Client 6 finished in 4.25854754447937
+Client 7 finished in 8.389564990997314
+Current batch of clients is [8, 9]
+Client 8 finished in 3.035984992980957
+Client 9 finished in 3.451051712036133
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.333416
+Precision  0.174738
+Recall     0.223199
+f1-score   0.148895
+Server Valid Loss: 1.9044867998077755
+
+Criterion metrics:
+Current loss: 1.9044867998077755
+Best loss: 1.8419255229946856
+Best round: 37
+
+Round time: 182.0701129436493
+
+Round number: 40 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2631
+Precision  0.249562
+Recall       0.2631
+f1-score   0.222108
+Server Test Loss: 1.9464962482452393
+
+Training started
+
+[tensor(0.0042), tensor(0.0027), tensor(0.0039), tensor(0.0020), tensor(0.0044), tensor(0.0078), tensor(0.0080), tensor(0.0070), tensor(0.0019), tensor(0.0055)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.7415854930877686
+Client 1 finished in 4.7318274974823
+Current batch of clients is [2, 3]
+Client 2 finished in 3.9845216274261475
+Client 3 finished in 2.3878931999206543
+Current batch of clients is [4, 5]
+Client 4 finished in 4.339576244354248
+Client 5 finished in 6.27335786819458
+Current batch of clients is [6, 7]
+Client 6 finished in 4.2831785678863525
+Client 7 finished in 9.350612878799438
+Current batch of clients is [8, 9]
+Client 8 finished in 3.4866206645965576
+Client 9 finished in 3.6820058822631836
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.0413060188293457
+Client 1 finished in 5.037214994430542
+Current batch of clients is [2, 3]
+Client 2 finished in 4.4699461460113525
+Client 3 finished in 2.0763278007507324
+Current batch of clients is [4, 5]
+Client 4 finished in 4.436424970626831
+Client 5 finished in 6.329181432723999
+Current batch of clients is [6, 7]
+Client 6 finished in 4.385819911956787
+Client 7 finished in 8.993151664733887
+Current batch of clients is [8, 9]
+Client 8 finished in 4.194378137588501
+Client 9 finished in 3.7274935245513916
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.8300201892852783
+Client 1 finished in 4.106684684753418
+Current batch of clients is [2, 3]
+Client 2 finished in 4.288965463638306
+Client 3 finished in 1.9892311096191406
+Current batch of clients is [4, 5]
+Client 4 finished in 3.978592872619629
+Client 5 finished in 6.746660947799683
+Current batch of clients is [6, 7]
+Client 6 finished in 4.418843746185303
+Client 7 finished in 9.089102506637573
+Current batch of clients is [8, 9]
+Client 8 finished in 3.8890159130096436
+Client 9 finished in 3.7640562057495117
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.184330
+Precision  0.137271
+Recall     0.106180
+f1-score   0.068718
+Server Valid Loss: 2.0077707215563043
+
+Criterion metrics:
+Current loss: 2.0077707215563043
+Best loss: 1.8419255229946856
+Best round: 37
+
+all errors for 6 client are equals to zeros
+Round time: 182.15998101234436
+
+Round number: 41 of 50
+
+Server Test Results:
+              value
+Accuracy    0.18555
+Precision  0.142281
+Recall      0.18555
+f1-score   0.082887
+Server Test Loss: 2.0892086029052734
+
+Training started
+
+[tensor(0.0049), tensor(0.0005), tensor(0.0118), tensor(0.0021), tensor(0.0043), tensor(0.0124), tensor(0.0006), tensor(0.0130), tensor(0.0148), tensor(0.0103)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.1000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(8), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.8907289505004883
+Client 1 finished in 4.862083435058594
+Current batch of clients is [2, 3]
+Client 2 finished in 3.7306463718414307
+Client 3 finished in 2.2645456790924072
+Current batch of clients is [4, 5]
+Client 4 finished in 3.896984338760376
+Client 5 finished in 6.49046778678894
+Current batch of clients is [6, 7]
+Client 6 finished in 4.287762880325317
+Client 7 finished in 9.06895637512207
+Current batch of clients is [8, 9]
+Client 8 finished in 3.764117479324341
+Client 9 finished in 3.4208359718322754
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(8), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.71335506439209
+Client 1 finished in 5.267209768295288
+Current batch of clients is [2, 3]
+Client 2 finished in 3.3975625038146973
+Client 3 finished in 2.404184103012085
+Current batch of clients is [4, 5]
+Client 4 finished in 4.142030239105225
+Client 5 finished in 5.4399192333221436
+Current batch of clients is [6, 7]
+Client 6 finished in 4.457275629043579
+Client 7 finished in 8.86424446105957
+Current batch of clients is [8, 9]
+Client 8 finished in 4.938462257385254
+Client 9 finished in 4.453043222427368
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(8), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.3375630378723145
+Client 1 finished in 5.3324971199035645
+Current batch of clients is [2, 3]
+Client 2 finished in 4.481187582015991
+Client 3 finished in 3.226747512817383
+Current batch of clients is [4, 5]
+Client 4 finished in 5.20226526260376
+Client 5 finished in 8.314941167831421
+Current batch of clients is [6, 7]
+Client 6 finished in 6.185250759124756
+Client 7 finished in 9.451010465621948
+Current batch of clients is [8, 9]
+Client 8 finished in 5.9818525314331055
+Client 9 finished in 5.184346914291382
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.331633
+Precision  0.187464
+Recall     0.182693
+f1-score   0.137041
+Server Valid Loss: 1.8174835826153362
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.8174835826153362
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 211.87207007408142
+
+Round number: 42 of 50
+
+Server Test Results:
+              value
+Accuracy   0.288683
+Precision  0.206692
+Recall     0.288683
+f1-score   0.217795
+Server Test Loss: 1.9173989295959473
+
+Training started
+
+[tensor(0.0054), tensor(0.0049), tensor(0.0044), tensor(0.0027), tensor(0.0062), tensor(0.0086), tensor(0.0057), tensor(0.0047), tensor(0.0010), tensor(0.0022)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(4), tensor(5), tensor(6)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 4.00176215171814
+Client 1 finished in 5.1933043003082275
+Current batch of clients is [2, 3]
+Client 2 finished in 5.492217540740967
+Client 3 finished in 2.917083740234375
+Current batch of clients is [4, 5]
+Client 4 finished in 5.296349287033081
+Client 5 finished in 9.104457378387451
+Current batch of clients is [6, 7]
+Client 6 finished in 5.324207067489624
+Client 7 finished in 10.338314294815063
+Current batch of clients is [8, 9]
+Client 8 finished in 4.8078248500823975
+Client 9 finished in 4.9741926193237305
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(6), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.6677331924438477
+Client 1 finished in 5.605679750442505
+Current batch of clients is [2, 3]
+Client 2 finished in 3.75620174407959
+Client 3 finished in 2.2004153728485107
+Current batch of clients is [4, 5]
+Client 4 finished in 4.10748815536499
+Client 5 finished in 6.408087968826294
+Current batch of clients is [6, 7]
+Client 6 finished in 4.115567445755005
+Client 7 finished in 8.717312574386597
+Current batch of clients is [8, 9]
+Client 8 finished in 3.6229934692382812
+Client 9 finished in 3.5251193046569824
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(4)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.9162490367889404
+Client 1 finished in 5.385124921798706
+Current batch of clients is [2, 3]
+Client 2 finished in 4.243903160095215
+Client 3 finished in 2.443911075592041
+Current batch of clients is [4, 5]
+Client 4 finished in 4.277476787567139
+Client 5 finished in 6.037813901901245
+Current batch of clients is [6, 7]
+Client 6 finished in 4.164768934249878
+Client 7 finished in 9.20567774772644
+Current batch of clients is [8, 9]
+Client 8 finished in 3.7416176795959473
+Client 9 finished in 3.7116434574127197
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.327684
+Precision  0.169124
+Recall     0.176641
+f1-score   0.117680
+Server Valid Loss: 1.827284802115841
+
+Criterion metrics:
+Current loss: 1.827284802115841
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 203.34593749046326
+
+Round number: 43 of 50
+
+Server Test Results:
+              value
+Accuracy   0.270017
+Precision  0.205243
+Recall     0.270017
+f1-score   0.179001
+Server Test Loss: 1.9456560611724854
+
+Training started
+
+[tensor(-0.0014), tensor(0.0049), tensor(0.0052), tensor(0.0001), tensor(-0.0011), tensor(0.0108), tensor(0.0076), tensor(0.0097), tensor(0.0053), tensor(0.0071)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.8975436687469482
+Client 1 finished in 4.858127117156982
+Current batch of clients is [2, 3]
+Client 2 finished in 4.153797149658203
+Client 3 finished in 2.178083896636963
+Current batch of clients is [4, 5]
+Client 4 finished in 4.246650218963623
+Client 5 finished in 6.453751087188721
+Current batch of clients is [6, 7]
+Client 6 finished in 3.986772298812866
+Client 7 finished in 9.057538509368896
+Current batch of clients is [8, 9]
+Client 8 finished in 4.291160821914673
+Client 9 finished in 3.2189300060272217
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(6), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.732374906539917
+Client 1 finished in 4.991138935089111
+Current batch of clients is [2, 3]
+Client 2 finished in 3.8567354679107666
+Client 3 finished in 2.2068727016448975
+Current batch of clients is [4, 5]
+Client 4 finished in 4.209690570831299
+Client 5 finished in 6.401676893234253
+Current batch of clients is [6, 7]
+Client 6 finished in 3.2875728607177734
+Client 7 finished in 9.55824327468872
+Current batch of clients is [8, 9]
+Client 8 finished in 4.24397611618042
+Client 9 finished in 3.2292184829711914
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.6331982612609863
+Client 1 finished in 5.054581880569458
+Current batch of clients is [2, 3]
+Client 2 finished in 3.8087520599365234
+Client 3 finished in 2.764089345932007
+Current batch of clients is [4, 5]
+Client 4 finished in 4.224254131317139
+Client 5 finished in 6.084685325622559
+Current batch of clients is [6, 7]
+Client 6 finished in 3.3165717124938965
+Client 7 finished in 9.07073187828064
+Current batch of clients is [8, 9]
+Client 8 finished in 3.5384085178375244
+Client 9 finished in 3.5999255180358887
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.239161
+Precision  0.181263
+Recall     0.182831
+f1-score   0.130368
+Server Valid Loss: 1.9122693053055635
+
+Criterion metrics:
+Current loss: 1.9122693053055635
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 172.87174820899963
+
+Round number: 44 of 50
+
+Server Test Results:
+              value
+Accuracy   0.263317
+Precision   0.22856
+Recall     0.263317
+f1-score   0.219405
+Server Test Loss: 1.963327169418335
+
+Training started
+
+[tensor(0.0043), tensor(0.0048), tensor(0.0023), tensor(0.0020), tensor(0.0050), tensor(0.0063), tensor(0.0044), tensor(0.0071), tensor(0.0019), tensor(0.0033)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(4), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.686007499694824
+Client 1 finished in 5.415416240692139
+Current batch of clients is [2, 3]
+Client 2 finished in 3.6664605140686035
+Client 3 finished in 2.320338726043701
+Current batch of clients is [4, 5]
+Client 4 finished in 4.262288331985474
+Client 5 finished in 5.970895051956177
+Current batch of clients is [6, 7]
+Client 6 finished in 4.374438762664795
+Client 7 finished in 8.0908842086792
+Current batch of clients is [8, 9]
+Client 8 finished in 3.9356038570404053
+Client 9 finished in 3.8971705436706543
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(4), tensor(5), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.659041166305542
+Client 1 finished in 4.34586763381958
+Current batch of clients is [2, 3]
+Client 2 finished in 3.7957937717437744
+Client 3 finished in 2.084592342376709
+Current batch of clients is [4, 5]
+Client 4 finished in 3.7788305282592773
+Client 5 finished in 5.591697692871094
+Current batch of clients is [6, 7]
+Client 6 finished in 4.476938009262085
+Client 7 finished in 8.38869309425354
+Current batch of clients is [8, 9]
+Client 8 finished in 3.3828938007354736
+Client 9 finished in 3.7847518920898438
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(4), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.688612937927246
+Client 1 finished in 4.694863796234131
+Current batch of clients is [2, 3]
+Client 2 finished in 3.9186038970947266
+Client 3 finished in 1.9063770771026611
+Current batch of clients is [4, 5]
+Client 4 finished in 4.297595262527466
+Client 5 finished in 6.869492292404175
+Current batch of clients is [6, 7]
+Client 6 finished in 4.563553810119629
+Client 7 finished in 9.630247116088867
+Current batch of clients is [8, 9]
+Client 8 finished in 3.0204782485961914
+Client 9 finished in 3.446333169937134
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.332449
+Precision  0.155700
+Recall     0.193767
+f1-score   0.130660
+Server Valid Loss: 1.883291687103577
+
+Criterion metrics:
+Current loss: 1.883291687103577
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 178.84027647972107
+
+Round number: 45 of 50
+
+Server Test Results:
+              value
+Accuracy   0.218267
+Precision  0.235608
+Recall     0.218267
+f1-score   0.122794
+Server Test Loss: 1.9549602270126343
+
+Training started
+
+[tensor(-0.0028), tensor(0.0028), tensor(0.0081), tensor(-0.0003), tensor(-0.0025), tensor(0.0106), tensor(0.0038), tensor(0.0085), tensor(0.0112), tensor(0.0100)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000,
+        0.1000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(8), tensor(9), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.6398353576660156
+Client 1 finished in 5.297691822052002
+Current batch of clients is [2, 3]
+Client 2 finished in 4.952478885650635
+Client 3 finished in 3.8538506031036377
+Current batch of clients is [4, 5]
+Client 4 finished in 4.089310169219971
+Client 5 finished in 6.500304698944092
+Current batch of clients is [6, 7]
+Client 6 finished in 4.821799039840698
+Client 7 finished in 9.701756000518799
+Current batch of clients is [8, 9]
+Client 8 finished in 3.027794122695923
+Client 9 finished in 3.6476409435272217
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(5), tensor(8), tensor(9)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.5970652103424072
+Client 1 finished in 4.789776563644409
+Current batch of clients is [2, 3]
+Client 2 finished in 3.7063586711883545
+Client 3 finished in 1.910597801208496
+Current batch of clients is [4, 5]
+Client 4 finished in 4.221890211105347
+Client 5 finished in 6.211564779281616
+Current batch of clients is [6, 7]
+Client 6 finished in 4.221721887588501
+Client 7 finished in 8.394031763076782
+Current batch of clients is [8, 9]
+Client 8 finished in 3.8735690116882324
+Client 9 finished in 3.680100202560425
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(9), tensor(5), tensor(8)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.1000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.5271050930023193
+Client 1 finished in 5.007504463195801
+Current batch of clients is [2, 3]
+Client 2 finished in 4.023014783859253
+Client 3 finished in 1.8804662227630615
+Current batch of clients is [4, 5]
+Client 4 finished in 4.477721691131592
+Client 5 finished in 6.364235877990723
+Current batch of clients is [6, 7]
+Client 6 finished in 4.323914289474487
+Client 7 finished in 9.064278364181519
+Current batch of clients is [8, 9]
+Client 8 finished in 3.760221481323242
+Client 9 finished in 3.566897392272949
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.303767
+Precision  0.184886
+Recall     0.265693
+f1-score   0.155901
+Server Valid Loss: 1.903229033805075
+
+Criterion metrics:
+Current loss: 1.903229033805075
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 193.98954010009766
+
+Round number: 46 of 50
+
+Server Test Results:
+              value
+Accuracy     0.2783
+Precision  0.159313
+Recall       0.2783
+f1-score   0.184026
+Server Test Loss: 1.932827115058899
+
+Training started
+
+[tensor(0.0063), tensor(0.0067), tensor(0.0020), tensor(0.0034), tensor(0.0074), tensor(0.0060), tensor(0.0097), tensor(0.0052), tensor(-0.0017), tensor(0.0025)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(6), tensor(4), tensor(1)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.9094316959381104
+Client 1 finished in 4.496041297912598
+Current batch of clients is [2, 3]
+Client 2 finished in 4.680521011352539
+Client 3 finished in 2.133960723876953
+Current batch of clients is [4, 5]
+Client 4 finished in 4.085370063781738
+Client 5 finished in 6.455042839050293
+Current batch of clients is [6, 7]
+Client 6 finished in 4.505632638931274
+Client 7 finished in 8.756812334060669
+Current batch of clients is [8, 9]
+Client 8 finished in 3.2907333374023438
+Client 9 finished in 4.033189535140991
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(1), tensor(4), tensor(6)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.957817554473877
+Client 1 finished in 5.2346978187561035
+Current batch of clients is [2, 3]
+Client 2 finished in 3.6934945583343506
+Client 3 finished in 2.322106122970581
+Current batch of clients is [4, 5]
+Client 4 finished in 4.272412061691284
+Client 5 finished in 6.12701416015625
+Current batch of clients is [6, 7]
+Client 6 finished in 4.617103099822998
+Client 7 finished in 9.231887102127075
+Current batch of clients is [8, 9]
+Client 8 finished in 3.320399761199951
+Client 9 finished in 3.626528024673462
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(6), tensor(4), tensor(1)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.0739424228668213
+Client 1 finished in 5.083955764770508
+Current batch of clients is [2, 3]
+Client 2 finished in 3.8557305335998535
+Client 3 finished in 2.3674283027648926
+Current batch of clients is [4, 5]
+Client 4 finished in 4.014464378356934
+Client 5 finished in 5.622484922409058
+Current batch of clients is [6, 7]
+Client 6 finished in 4.296576976776123
+Client 7 finished in 8.602561235427856
+Current batch of clients is [8, 9]
+Client 8 finished in 3.146228790283203
+Client 9 finished in 3.546168565750122
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.259426
+Precision  0.210900
+Recall     0.153859
+f1-score   0.130862
+Server Valid Loss: 1.863272584671582
+
+Criterion metrics:
+Current loss: 1.863272584671582
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 185.2028148174286
+
+Round number: 47 of 50
+
+Server Test Results:
+              value
+Accuracy   0.209617
+Precision  0.294907
+Recall     0.209617
+f1-score   0.125344
+Server Test Loss: 1.9625235795974731
+
+Training started
+
+[tensor(0.0026), tensor(-0.0007), tensor(0.0059), tensor(0.0020), tensor(0.0041), tensor(0.0085), tensor(0.0024), tensor(0.0083), tensor(0.0051), tensor(0.0042)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(2), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 3.0826351642608643
+Client 1 finished in 4.658562898635864
+Current batch of clients is [2, 3]
+Client 2 finished in 4.259222507476807
+Client 3 finished in 2.4115240573883057
+Current batch of clients is [4, 5]
+Client 4 finished in 4.051140546798706
+Client 5 finished in 6.150956869125366
+Current batch of clients is [6, 7]
+Client 6 finished in 4.393768548965454
+Client 7 finished in 9.184015274047852
+Current batch of clients is [8, 9]
+Client 8 finished in 3.2962284088134766
+Client 9 finished in 4.107693910598755
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.66031813621521
+Client 1 finished in 4.995929002761841
+Current batch of clients is [2, 3]
+Client 2 finished in 3.7846553325653076
+Client 3 finished in 2.4979188442230225
+Current batch of clients is [4, 5]
+Client 4 finished in 4.37707781791687
+Client 5 finished in 6.849776744842529
+Current batch of clients is [6, 7]
+Client 6 finished in 4.666935682296753
+Client 7 finished in 9.193027973175049
+Current batch of clients is [8, 9]
+Client 8 finished in 3.3556997776031494
+Client 9 finished in 3.4097161293029785
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(2), tensor(7), tensor(5)] tensor([0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.77767276763916
+Client 1 finished in 5.01423716545105
+Current batch of clients is [2, 3]
+Client 2 finished in 4.059282064437866
+Client 3 finished in 2.192521810531616
+Current batch of clients is [4, 5]
+Client 4 finished in 4.329024314880371
+Client 5 finished in 6.518786191940308
+Current batch of clients is [6, 7]
+Client 6 finished in 4.788563966751099
+Client 7 finished in 9.53832221031189
+Current batch of clients is [8, 9]
+Client 8 finished in 3.878972053527832
+Client 9 finished in 3.7746551036834717
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.213919
+Precision  0.173947
+Recall     0.161597
+f1-score   0.096653
+Server Valid Loss: 1.9786477119633645
+
+Criterion metrics:
+Current loss: 1.9786477119633645
+Best loss: 1.8174835826153362
+Best round: 41
+
+all errors for 2 client are equals to zeros
+Round time: 190.09689784049988
+
+Round number: 48 of 50
+
+Server Test Results:
+              value
+Accuracy   0.221317
+Precision  0.206638
+Recall     0.221317
+f1-score   0.127294
+Server Test Loss: 2.0734686851501465
+
+Training started
+
+[tensor(0.0076), tensor(0.0089), tensor(-0.0033), tensor(0.0037), tensor(0.0086), tensor(0.0088), tensor(0.0069), tensor(0.0108), tensor(0.0013), tensor(0.0029)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(5), tensor(1), tensor(7)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.7364907264709473
+Client 1 finished in 4.730388641357422
+Current batch of clients is [2, 3]
+Client 2 finished in 3.79215669631958
+Client 3 finished in 2.0919578075408936
+Current batch of clients is [4, 5]
+Client 4 finished in 4.380810499191284
+Client 5 finished in 6.048396348953247
+Current batch of clients is [6, 7]
+Client 6 finished in 4.470670461654663
+Client 7 finished in 8.67520546913147
+Current batch of clients is [8, 9]
+Client 8 finished in 3.9316298961639404
+Client 9 finished in 3.9011788368225098
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(1), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.955296039581299
+Client 1 finished in 4.922464847564697
+Current batch of clients is [2, 3]
+Client 2 finished in 3.8794491291046143
+Client 3 finished in 1.9188578128814697
+Current batch of clients is [4, 5]
+Client 4 finished in 4.588088512420654
+Client 5 finished in 6.131289958953857
+Current batch of clients is [6, 7]
+Client 6 finished in 4.416436672210693
+Client 7 finished in 9.010180234909058
+Current batch of clients is [8, 9]
+Client 8 finished in 3.588263750076294
+Client 9 finished in 3.8408148288726807
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(7), tensor(1), tensor(5)] tensor([0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.1000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.951202869415283
+Client 1 finished in 5.088322877883911
+Current batch of clients is [2, 3]
+Client 2 finished in 4.316409111022949
+Client 3 finished in 2.2031970024108887
+Current batch of clients is [4, 5]
+Client 4 finished in 4.239746570587158
+Client 5 finished in 6.398289680480957
+Current batch of clients is [6, 7]
+Client 6 finished in 5.1154091358184814
+Client 7 finished in 9.177558898925781
+Current batch of clients is [8, 9]
+Client 8 finished in 3.453477144241333
+Client 9 finished in 3.5930752754211426
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.327409
+Precision  0.197981
+Recall     0.237290
+f1-score   0.158927
+Server Valid Loss: 1.8545248937942251
+
+Criterion metrics:
+Current loss: 1.8545248937942251
+Best loss: 1.8174835826153362
+Best round: 41
+
+Round time: 180.10024857521057
+
+Round number: 49 of 50
+
+Server Test Results:
+              value
+Accuracy    0.26205
+Precision   0.22263
+Recall      0.26205
+f1-score   0.189997
+Server Test Loss: 1.9142574071884155
+
+Training started
+
+[tensor(0.0050), tensor(0.0067), tensor(0.0014), tensor(0.0032), tensor(0.0059), tensor(0.0076), tensor(0.0080), tensor(0.0037), tensor(0.0009), tensor(0.0021)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.1000, 0.1000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') trust scores via angle of clients and politic for epoch
+now we have selected clients: tensor([1., 1., 1., 1., 1., 1., 1., 1., 1., 1.])
+[tensor(1), tensor(5), tensor(6)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 0 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.596003293991089
+Client 1 finished in 5.226251125335693
+Current batch of clients is [2, 3]
+Client 2 finished in 4.397478342056274
+Client 3 finished in 2.340214490890503
+Current batch of clients is [4, 5]
+Client 4 finished in 4.628319978713989
+Client 5 finished in 6.1490092277526855
+Current batch of clients is [6, 7]
+Client 6 finished in 4.479795694351196
+Client 7 finished in 8.941944360733032
+Current batch of clients is [8, 9]
+Client 8 finished in 2.897426128387451
+Client 9 finished in 3.389676094055176
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(1), tensor(6), tensor(5)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 1 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.866635799407959
+Client 1 finished in 4.371264219284058
+Current batch of clients is [2, 3]
+Client 2 finished in 4.497966051101685
+Client 3 finished in 2.6264917850494385
+Current batch of clients is [4, 5]
+Client 4 finished in 4.08173680305481
+Client 5 finished in 6.451024055480957
+Current batch of clients is [6, 7]
+Client 6 finished in 4.475633382797241
+Client 7 finished in 8.394460439682007
+Current batch of clients is [8, 9]
+Client 8 finished in 3.581804037094116
+Client 9 finished in 3.618159532546997
+now we use 4750.0 objects from dataset
+random method does not requires trust scores
+processing is done
+[tensor(1), tensor(6), tensor(5)] tensor([0.0000, 0.1000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000, 0.0000,
+        0.0000], device='cuda:1') perm of clients and politic for iter
+start the 2 iteration
+Current batch of clients is [0, 1]
+Client 0 finished in 2.924722909927368
+Client 1 finished in 4.920470237731934
+Current batch of clients is [2, 3]
+Client 2 finished in 3.973010301589966
+Client 3 finished in 2.3849620819091797
+Current batch of clients is [4, 5]
+Client 4 finished in 4.351392507553101
+Client 5 finished in 6.089792728424072
+Current batch of clients is [6, 7]
+Client 6 finished in 4.134964942932129
+Client 7 finished in 9.19377875328064
+Current batch of clients is [8, 9]
+Client 8 finished in 3.695380449295044
+Client 9 finished in 3.2831547260284424
+now we use 4750.0 objects from dataset
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+final errors saved!
+random method does not requires trust scores
+processing is done
+
+Server Valid Results:
+              value
+Accuracy   0.303874
+Precision  0.191967
+Recall     0.157503
+f1-score   0.130153
+Server Valid Loss: 1.8446357825230724
+
+Criterion metrics:
+Current loss: 1.8446357825230724
+Best loss: 1.8174835826153362
+Best round: 41
+
+all errors for 1 client are equals to zeros
+Round time: 178.64646291732788
+Exit child 1 process
+Exit child 0 process
