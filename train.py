@@ -1,7 +1,20 @@
+# Cap BLAS/OpenMP thread pools before numpy/torch/transformers load native libs.
+_CPU_THREADS = "2"
+for _env_var in (
+    "OMP_NUM_THREADS",
+    "MKL_NUM_THREADS",
+    "OPENBLAS_NUM_THREADS",
+    "NUMEXPR_NUM_THREADS",
+    "VECLIB_MAXIMUM_THREADS",
+):
+    os.environ.setdefault(_env_var, _CPU_THREADS)
+
+
 import os
 import hydra
 import random
 import signal
+import torch
 from functools import partial
 from omegaconf import DictConfig
 from hydra.utils import instantiate
@@ -10,6 +23,9 @@ from utils.data_utils import prepare_df_for_federated_training, set_up_base_dir
 from utils.utils import handle_main_process_sigterm
 from utils.logging_utils import redirect_stdout_to_log
 from utils.dirichlet import DirichletDistribution
+
+torch.set_num_threads(_NUM_CPU_THREADS)
+torch.set_num_interop_threads(1)
 
 # Make print with flush=True by default
 print = partial(print, flush=True)
