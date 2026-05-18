@@ -1,4 +1,5 @@
 # Cap BLAS/OpenMP thread pools before numpy/torch/transformers load native libs.
+import os
 _CPU_THREADS = "2"
 for _env_var in (
     "OMP_NUM_THREADS",
@@ -10,7 +11,6 @@ for _env_var in (
     os.environ.setdefault(_env_var, _CPU_THREADS)
 
 
-import os
 import hydra
 import random
 import signal
