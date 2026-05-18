@@ -24,7 +24,7 @@ from utils.utils import handle_main_process_sigterm
 from utils.logging_utils import redirect_stdout_to_log
 from utils.dirichlet import DirichletDistribution
 
-torch.set_num_threads(_NUM_CPU_THREADS)
+torch.set_num_threads(_CPU_THREADS)
 torch.set_num_interop_threads(1)
 
 # Make print with flush=True by default
