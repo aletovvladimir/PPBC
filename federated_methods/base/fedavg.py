@@ -6,6 +6,7 @@ from .client import Client, multiprocess_client
 from utils.manager_utils import Manager
 
 from utils.model_utils import get_model
+from utils.data_utils import read_dataframe_from_cfg, get_stratified_subsample
 
 
 class FedAvg:
@@ -27,7 +28,14 @@ class FedAvg:
         self._init_manager()
 
     def _init_server(self, cfg):
-        self.server = Server(cfg)
+        trust_df = read_dataframe_from_cfg(cfg, "train_directories", "trust_df")
+        _, trust_df = get_stratified_subsample(
+            df=trust_df,
+            num_samples=len(trust_df),
+            random_state=cfg.random_state,
+        )
+
+        self.server = Server(cfg, trust_df)
 
     def _init_client_cls(self):
         self.client_cls = Client
@@ -50,11 +58,11 @@ class FedAvg:
                         self.server.device
                     ) * (1 / len(self.server.client_gradients))
         else:
-            for i in range(len(self.server.client_compressed_gradients)):
-                for key, weights in self.server.client_compressed_gradients[i].items():
+            for i in range(len(self.server.client_approx_gradients)):
+                for key, weights in self.server.client_approx_gradients[i].items():
                     aggregated_weights[key] = aggregated_weights[key] + weights.to(
                         self.server.device
-                    ) * (1 / len(self.server.client_compressed_gradients))
+                    ) * (1 / len(self.server.client_approx_gradients))
         return aggregated_weights
 
     def create_clients(self):

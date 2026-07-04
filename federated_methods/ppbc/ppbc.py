@@ -1,4 +1,3 @@
-from ..ts_momentum.ts_momentum_server import TSMomentumServer
 from ..base.fedavg import FedAvg
 
 from collections import OrderedDict
@@ -10,8 +9,6 @@ from utils.model_utils import get_model
 from utils.utils import softmax
 
 import time
-
-from utils.data_utils import read_dataframe_from_cfg, get_stratified_subsample
 from .ppbc_client import ScaffoldClient
 import copy
 
@@ -59,6 +56,10 @@ class PPBC(FedAvg):
 
     def _init_federated(self, cfg, df):
         super()._init_federated(cfg, df)
+        self.num_clients = cfg.federated_params.amount_of_clients
+        self.epoch_prev_trust_scores = [1 / self.num_clients] * self.num_clients
+        self.iter_prev_trust_scores = [1 / self.num_clients] * self.num_clients
+
         print(f"grads sent per round: {self.iter_k * self.iterations + self.num_clients * ('pp' in self.method)}")
 
         self.current_errors_from_clients = {
@@ -75,20 +76,6 @@ class PPBC(FedAvg):
             self.distribution = np.load(self.cfg.dataset.distribution_info)
         else:
             self.distribution = [len(self.df) // self.num_clients] * self.num_clients
-
-    def _init_server(self, cfg):
-        trust_df = read_dataframe_from_cfg(cfg, "train_directories", "trust_df")
-        _, trust_df = get_stratified_subsample(
-            df=trust_df,
-            num_samples=self.trust_sample_amount,
-            random_state=cfg.random_state,
-        )
-
-        self.server = TSMomentumServer(cfg, trust_df)
-
-        self.num_clients = cfg.federated_params.amount_of_clients
-        self.epoch_prev_trust_scores = [1 / self.num_clients] * self.num_clients
-        self.iter_prev_trust_scores = [1 / self.num_clients] * self.num_clients
 
     # =========================================================================#
     #                           SCAFFOLD Utilities                            #
@@ -332,8 +319,6 @@ class PPBC(FedAvg):
 
         if self.server.error_feedback:
             content["do_update_error"] = (self.iter_compress_politic[rank] > 0) 
-            if (self.current_iter == self.iterations - 1) and ("pp" in self.method) and (self.server.error_feedback == "EF"):
-                content["drop_error"] = True
         return content
 
     # =========================================================================#
@@ -482,6 +467,7 @@ class PPBC(FedAvg):
             for key, _ in aggregated_weights.items():
                 aggregated_weights[key] = _ + client_errors[key] * self.factor
 
+        #self.server.restore_bn_stats(self.bn_stats)
         self.server.global_model.load_state_dict(aggregated_weights)
 
     def get_data_size(self):
@@ -567,6 +553,7 @@ class PPBC(FedAvg):
                         f"client {rank}"
                     ] = self.current_errors_from_clients[f"client {rank}"]
                     print("final errors saved!")
+        #self.server.restore_bn_stats(self.bn_stats)
         return aggregated_weights
 
     def init_errors(self):
@@ -640,11 +627,18 @@ class PPBC(FedAvg):
         if self.method == "scaffold":
             self._init_controls()
 
+        #Run for statistics
+        # 1) run eavluation on trust dataset
+        self.server.eval_trust_fn()
+        # 2) save running stats
+        self.bn_stats = self.server.save_bn_stats()
+        # 3) now on each round we rewrite stats on round
         for round in range(self.rounds):
-            self.round = round
-            print(f"\nRound number: {round} of {self.rounds}")
             begin_round_time = time.time()
             self.cur_round = round
+            print(f"\nRound number: {round} of {self.rounds}")
+
+            #self.server.restore_bn_stats(self.bn_stats)
 
             _ = self.server.test_global_model()
 

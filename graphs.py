@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import itertools
 from sklearn.linear_model import LinearRegression
+import os
 
 # --- Smoothing Functions ---
 def exponential_moving_average(data, alpha=0.1):
@@ -30,9 +31,12 @@ def compute_lower_envelope(data, window_size=100):
 def unpack(pathes:dict):
     logs = {}
     for key, value in pathes.items():
-        with open(value, 'r') as f:
-            log = f.readlines()
-        logs[key] = log
+        try:
+            with open(value, 'r') as f:
+                log = f.readlines()
+            logs[key] = log
+        except:
+            print(f"!Failed to read file {value}")
         
     return logs
 
@@ -235,16 +239,17 @@ def do_magic(graphs, dataset='homo', smooth=True, title="", replace_nans="linear
         print(min(new_loss), new_loss[-1])"""
     fig = make_plots_epochs_time(methods=loss, xlim=1500, key='loss', dataset=dataset, smooth=smooth, title=title)
 
-def gather_acc_loss(graphs, comms=1000):
+def gather_acc_loss(graphs, comms=1500):
     logs = unpack(graphs)
     res = get_res(logs, dataset="Test")
     acc, f1, loss = get_metrics(res)
     acc_best = 0
+    output = {}
     for i in range(len(acc)):
         for a,t in zip(acc[i]["test_acc"], acc[i]["time"]):
             acc_best = max(acc_best, a)
             if t >= comms:
-                print(f"{acc[i]['label']} Test Acc : {a}")
+                output[acc[i]['label'] + "_acc"] = a
                 break
     res = get_res(logs, dataset="Valid")
     acc, f1, loss = get_metrics(res)
@@ -253,29 +258,50 @@ def gather_acc_loss(graphs, comms=1000):
         for l,t in zip(loss[i]["loss"], loss[i]["time"]):
             loss_best = min(loss_best, l)
             if t >= comms:
-                print(f"{loss[i]['label']} Loss : {l}")
+                output[loss[i]['label'] + "_loss"] = l
                 break
+    return output
 
 # ================
-compression = "top10"
-dataset = "hetero"
+compression = "top5"
+dataset = "pathology"
 metric = "loss"
 graphs = {
     'FedAvg' : f'./log/{dataset}/{compression}/fedavg/{metric}_top1.txt',
     'FedProx' : f'./log/{dataset}/{compression}/fedprox/{metric}_top1.txt',
-    #'S-Dane' : f'./log/{dataset}/{compression}/s-dane/loss_top1.txt',
-    r'PPEF $\theta$=0.15' : f'./log/{dataset}/{compression}/pp/{metric}_top1_t0.15.txt',
+    'S-Dane' : f'./log/{dataset}/{compression}/s-dane/{metric}_top1_weird.txt',
+    r'PPEF' : f'./log/{dataset}/{compression}/pp/{metric}_top1_t0.15.txt',
 }
 
-do_magic(graphs, dataset=dataset, smooth=False, title=f"{compression}_loss", replace_nans="last")
+#do_magic(graphs, dataset=dataset, smooth=False, title=f"{compression}_loss", replace_nans="last")
+# ================
 
-graphs = {}
-for dataset in ["homo", "pathology", "hetero"]:
+data = {}
+for dataset in ["homo", "pathology", "hetero",]:
     for compression in ["top1", "top5", "top10"]:
-        for method in ["fedavg", "fedprox", "pp"]:
+        for method in ["pp", "s-dane"]:
             for metric in ["loss", "angle"]:
-                graphs[f"{dataset}_{compression}_{method}_{metric}"] = (
-                    f"./log/{dataset}/{compression}/{method}/{metric}_top1{'_t0.15' * int(method=='pp')}.txt"
-                )
+                    if os.path.exists(f"./log/{dataset}/{compression}/{method}/{metric}_top1{'_t0.15' * int(method=='pp')}_rep1.txt"):
 
-#gather_acc_loss(graphs, comms=1500)
+                            data[f"{dataset}_{compression}_{method}_{metric}_1"] = (
+                                    f"./log/{dataset}/{compression}/{method}/{metric}_top1{'_t0.15' * int(method=='pp')}_rep1.txt"
+                                )
+                            data[f"{dataset}_{compression}_{method}_{metric}_0"] = (
+                                f"./log/{dataset}/{compression}/{method}/{metric}_top1{'_t0.15' * int(method=='pp')}.txt"
+                            )
+
+output = gather_acc_loss(data, comms=1485)
+std = {}
+for dataset in ["homo", "pathology", "hetero",]:
+    for compression in ["top1", "top5", "top10"]:
+        for method in ["pp", "s-dane"]:
+                for metric in ["loss", "angle"]:
+                    for thing in ["acc", "loss"]:
+                        try:
+                            std[f"{dataset}_{compression}_{method}_{metric}_{thing}"] = abs(
+                                output[f"{dataset}_{compression}_{method}_{metric}_1_{thing}"] 
+                                - output[f"{dataset}_{compression}_{method}_{metric}_0_{thing}"] 
+                            ) / 2
+                            print(f"{dataset}_{compression}_{method}_{metric}_{thing} : {std[f'{dataset}_{compression}_{method}_{metric}_{thing}']}")
+                        except:
+                            pass

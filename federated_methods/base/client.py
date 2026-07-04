@@ -76,41 +76,32 @@ class Client:
         self.pipe_commands_map = self.create_pipe_commands()
 
         self.grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
-        self.compressed_grad = OrderedDict()
-        self.approx_grad = OrderedDict()
-        self.error_feedback = cfg.training_params.error_feedback
         self.method = cfg.federated_method.method
+        self.update_error = True
         if self.method == "s-dane":
             self.prox_center = copy.deepcopy(self.model)
             self.server_prox_center = copy.deepcopy(self.model)
             self.prox_center_grad = OrderedDict()
-            self.approx_prox_center_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
             self.prox_optimizer = instantiate(self.cfg.optimizer, params=self.prox_center.parameters())    
         self.lr = cfg.optimizer.lr
         self.init_error_feedback(cfg)
 
     def init_error_feedback(self, cfg):
-        if self.error_feedback == "EF21":
-            self.approx_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
-            self.update_error = True
-            compressor_name = cfg.training_params.compressor
-            if "top" in compressor_name:
-                self.compressor = Top_K(int(compressor_name[3:]), updated_params=self.model.state_dict().keys())
-            else:
-                print(f"Compressor {compressor_name} is not supported")
-        elif self.error_feedback:
-            self.error = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
-            self.update_error = True
-            self.compressed_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
-            compressor_name = cfg.training_params.compressor
-            if "top" in compressor_name:
-                self.compressor = Top_K(int(compressor_name[3:]), updated_params=self.model.state_dict().keys())
-            else:
-                print(f"Compressor {compressor_name} is not supported")
-        
+        self.error_feedback = cfg.training_params.error_feedback
+        if not self.error_feedback:
+            return
+        self.approx_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
+        compressor_name = cfg.training_params.compressor
+        if "top" in compressor_name:
+            self.compressor = Top_K(int(compressor_name[3:]), updated_params=self.model.state_dict().keys())
+        else:
+            print(f"Compressor {compressor_name} is not supported")
+        if  self.method == "s-dane":
+            self.approx_prox_center_grad = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
         
     def set_update_error(self, to_update_error):
         self.update_error = to_update_error
+        print(f"client {self.rank} update_error: {self.update_error}")
 
     def _init_optimizer(self):
         self.optimizer = instantiate(self.cfg.optimizer, params=self.model.parameters())
@@ -156,7 +147,6 @@ class Client:
                 sys.exit(0),
             ),
             "reinit": lambda new_rank: self.reinit_self(new_rank),
-            "drop_error": lambda drop_error: self.drop_error(drop_error),
             "do_update_error": lambda d_u_e: self.set_update_error(d_u_e,),
             "update_prox_center": lambda v: self.set_prox_center(v)
         }
@@ -250,7 +240,7 @@ class Client:
 
     def get_grad(self):
         self.model.eval()
-        if self.error_feedback == "EF21":
+        if self.error_feedback:
             for key, _ in self.model.state_dict().items():
                 self.grad[key] = self.model.state_dict()[key].to("cpu") - self.server_model_state[key].to("cpu")
             if self.update_error:
@@ -259,16 +249,6 @@ class Client:
                 })
                 for key, _ in self.model.state_dict().items():
                     self.approx_grad[key] = self.approx_grad[key].to("cpu") + error[key]
-                            
-        elif self.error_feedback:
-            for key, _ in self.model.state_dict().items():
-                self.grad[key] = self.model.state_dict()[key].to("cpu") - self.server_model_state[key].to("cpu")
-            if self.update_error:
-                self.compressed_grad = self.compressor({
-                    key: self.grad[key] + self.error[key].to("cpu") for key, _ in self.model.state_dict().items()
-                })
-                for key, _ in self.model.state_dict().items():
-                    self.error[key] = self.error[key].to("cpu") + self.grad[key].to("cpu") - self.compressed_grad[key].to("cpu")
         else:
             for key, _ in self.model.state_dict().items():
                 self.grad[key] = self.model.state_dict()[key].to(
@@ -293,9 +273,6 @@ class Client:
                 ) - self.server_prox_center[key].to("cpu")
         
                 
-    def drop_error(self, drop_error):
-        if drop_error:
-            self.error = OrderedDict({key: torch.zeros_like(param) for key, param in self.model.state_dict().items()})
     def set_prox_center(self, prox_center): # reference point for for s-dane method
         self.prox_center.load_state_dict(prox_center)
         self.server_prox_center = prox_center
@@ -330,7 +307,6 @@ class Client:
         # In fedavg_client we need to send only result of local learning
         result_dict = {
             "grad": self.grad,
-            "compressed_grad": self.compressed_grad,
             "approx_grad": self.approx_grad,
             "rank": self.rank,
             "time": self.result_time,
