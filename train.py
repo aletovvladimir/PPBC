@@ -33,7 +33,7 @@ print = partial(print, flush=True)
 
 @hydra.main(version_base=None, config_path="configs", config_name="config")
 def train(cfg: DictConfig):
-    redirect_stdout_to_log()
+    # redirect_stdout_to_log()
     cfg = set_up_base_dir(cfg)
     df, cfg = prepare_df_for_federated_training(cfg, "train_directories")
 
