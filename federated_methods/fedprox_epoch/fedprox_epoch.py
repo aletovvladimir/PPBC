@@ -1,13 +1,18 @@
 from ..base.fedavg import FedAvg
 from ..fedprox.fedprox_client import FedProxClient
 
-import copy
-import random
-import time
 from collections import OrderedDict
 
 import numpy as np
+import random
 import torch
+from utils.model_utils import get_model
+
+import time
+
+from utils.data_utils import read_dataframe_from_cfg, get_stratified_subsample
+from .ppbc_client import ScaffoldClient
+import copy
 
 class FedProx_epoch(FedAvg):
     def __init__(self, fed_prox_lambda, num_fedavg_rounds, **method_args):
