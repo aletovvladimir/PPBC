@@ -11,7 +11,6 @@ from utils.model_utils import get_model
 import time
 
 from utils.data_utils import read_dataframe_from_cfg, get_stratified_subsample
-from .ppbc_client import ScaffoldClient
 import copy
 
 class FedProx_epoch(FedAvg):
