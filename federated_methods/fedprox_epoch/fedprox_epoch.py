@@ -1,5 +1,5 @@
 from ..base.fedavg import FedAvg
-from ..fedprx.fedprox_client import FedProxClient
+from ..fedprox.fedprox_client import FedProxClient
 
 class FedProx_epoch(FedAvg):
     def __init__(self, fed_prox_lambda, num_fedavg_rounds, **method_args):
