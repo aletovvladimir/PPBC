@@ -68,7 +68,13 @@ colors = (
     "magenta", "chartreuse", "blueviolet", "darkgrey",
 )
 
-# Background color (light blue-ish, matching the reference screenshot).
+# Marker palette, paired up with `colors` (same length / index) so every
+# combination line gets both a distinct color and a distinct marker shape.
+markers = ("o", "s", "*", "^", "D", "v", "P", "X")
+
+# Background color of the PLOT AREA ONLY (light blue-ish, matching the
+# reference screenshot) -- the figure background outside the axes stays
+# white, like in the reference image.
 BACKGROUND_COLOR = "#EAF1FB"
 
 # --------------------------------------------------------------------------- #
@@ -148,29 +154,52 @@ def build_combinations(a, b, c, d):
     return list(itertools.product(as_list(a), as_list(b), as_list(c), as_list(d)))
 
 
+def varying_dims(a, b, c, d):
+    """Indices (0=A,1=B,2=C,3=D) of the parameters that were given as a list
+    with more than one element -- i.e. the ones that actually vary across
+    combinations."""
+    originals = (a, b, c, d)
+    return [i for i, orig in enumerate(originals) if isinstance(orig, (list, tuple)) and len(orig) > 1]
+
+
+def build_label(combo, dims):
+    """Legend label for one combination: only the parts of A/B/C/D that
+    vary (i.e. were passed in as multi-element lists) are shown. If nothing
+    varies (all of A/B/C/D are single values), fall back to showing the
+    full combination so the legend isn't empty."""
+    if dims:
+        parts = [str(combo[i]) for i in dims]
+    else:
+        parts = [str(x) for x in combo]
+    return " ".join(parts)
+
+
 # --------------------------------------------------------------------------- #
 # 4) PLOTTING
 # --------------------------------------------------------------------------- #
 
-def plot_all(base_dir, a, b, c, d, colors, output_path=None):
+def plot_all(base_dir, a, b, c, d, colors, markers, output_path=None):
     combos = build_combinations(a, b, c, d)
+    dims = varying_dims(a, b, c, d)
 
     fig, ax = plt.subplots(figsize=(9, 6))
-    fig.patch.set_facecolor(BACKGROUND_COLOR)
+    # Figure background stays white; only the plot area itself is blue,
+    # matching the reference screenshot.
+    fig.patch.set_facecolor("white")
     ax.set_facecolor(BACKGROUND_COLOR)
 
-    color_cycle = itertools.cycle(colors)
+    style_cycle = itertools.cycle(zip(colors, markers))
     any_plotted = False
 
     for combo in combos:
-        color = next(color_cycle)
+        color, marker = next(style_cycle)
         result = collect_combo_stats(base_dir, *combo)
         if result is None:
             print(f"[skip] no exp_*.txt files found for {combo}", file=sys.stderr)
             continue
 
         rounds, means, mins, maxs, n_files = result
-        label = "/".join(str(x) for x in combo)
+        label = build_label(combo, dims)
 
         # shaded band between min and max
         ax.fill_between(rounds, mins, maxs, color=color, alpha=0.15, linewidth=0)
@@ -180,8 +209,9 @@ def plot_all(base_dir, a, b, c, d, colors, output_path=None):
         ax.plot(rounds, maxs, linestyle="--", color=color, alpha=0.4, linewidth=1)
 
         # solid mean line
-        ax.plot(rounds, means, linestyle="-", color=color, linewidth=2,
-                 marker="o", markersize=3, label=f"{label} (n={n_files})")
+        ax.plot(rounds, means, linestyle="-", color=color, linewidth=1.8,
+                 marker=marker, markersize=6, markevery=max(1, len(rounds) // 10),
+                 markeredgecolor="black", markeredgewidth=0.4, label=label)
 
         any_plotted = True
 
@@ -190,13 +220,20 @@ def plot_all(base_dir, a, b, c, d, colors, output_path=None):
               "current working directory.", file=sys.stderr)
         return
 
-    ax.set_xlabel("# communication rounds", fontsize=14)
-    ax.set_ylabel("Accuracy", fontsize=14)
+    ax.set_xlabel("# communication rounds", fontsize=16, style="italic")
+    ax.set_ylabel("Accuracy", fontsize=18)
+
+    # White grid lines on top of the blue plot-area background, and a thin
+    # dark border box around the whole axes -- as in the reference image.
     ax.grid(True, color="white", linewidth=1.2)
     ax.set_axisbelow(True)
     for spine in ax.spines.values():
-        spine.set_visible(False)
-    ax.legend(loc="lower right", fontsize=8, framealpha=0.9)
+        spine.set_visible(True)
+        spine.set_color("black")
+        spine.set_linewidth(0.8)
+
+    ax.legend(loc="lower right", fontsize=9, framealpha=0.95,
+               facecolor="white", edgecolor="black")
 
     fig.tight_layout()
 
@@ -228,4 +265,4 @@ def parse_args():
 
 if __name__ == "__main__":
     args = parse_args()
-    plot_all(BASE_DIR, A, B, C, D, colors, output_path=args.output_path)
+    plot_all(BASE_DIR, A, B, C, D, colors, markers, output_path=args.output_path)
