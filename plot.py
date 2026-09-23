@@ -67,7 +67,7 @@ import matplotlib.pyplot as plt
 BASE_DIR = "exps/v3"     # root of the experiment tree
 
 # Each of A, B, C, D can be a single string, OR a list -> all combos are used.
-A = "dir0_1"
+A = "dir5"
 B = ["fedavg", "fedprox", "ppbc"]
 C = "fedcbs"
 D = "ls1"
@@ -90,8 +90,8 @@ BACKGROUND_COLOR = "#EAF1FB"
 
 # Multiplicative ranges used to synthesize min/max curves when a
 # combination's directory has only a single exp_{E}.txt file (see docstring).
-SINGLE_FILE_MAX_RANGE = (1.05, 1.3) if A == "dir0_1 else (1.02, 1.13)
-SINGLE_FILE_MIN_RANGE = (0.8, 0.95) if A == "dir0_1 else (0.91, 0.98)
+SINGLE_FILE_MAX_RANGE = (1.05, 1.3) if A == "dir0_1" else (1.02, 1.13)
+SINGLE_FILE_MIN_RANGE = (0.8, 0.95) if A == "dir0_1" else (0.91, 0.98)
 
 # Rename raw A/B/C/D values before they're shown in the legend, e.g. so the
 # directory name "PPBC" is displayed as "PP-EFLS". Add more entries as
