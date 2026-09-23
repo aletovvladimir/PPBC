@@ -71,10 +71,6 @@ A = "dir0_1"
 B = ["fedavg", "fedprox", "ppbc"]
 C = "fedcbs"
 D = "ls1"
-
-# Maximum number of epochs/rounds to use from each file: only the first N
-# rounds encountered in each exp_{E}.txt are kept. Set to None for no limit
-# (use every round found in the file).
 N = 100
 
 # Color palette to cycle through, one color per A/B/C/D combination line.
@@ -96,6 +92,15 @@ BACKGROUND_COLOR = "#EAF1FB"
 # combination's directory has only a single exp_{E}.txt file (see docstring).
 SINGLE_FILE_MAX_RANGE = (1.05, 1.3)
 SINGLE_FILE_MIN_RANGE = (0.8, 0.95)
+
+# Rename raw A/B/C/D values before they're shown in the legend, e.g. so the
+# directory name "PPBC" is displayed as "PP-EFLS". Add more entries as
+# needed -- keys are matched against str(value) exactly.
+LABEL_ALIASES = {
+    "ppbc": "PP-EFLS",
+    "fedavg": "FedAvg",
+    "fedprox": "FedProx"
+}
 
 # --------------------------------------------------------------------------- #
 # 2) PARSING
@@ -212,11 +217,16 @@ def build_label(combo, dims):
     """Legend label for one combination: only the parts of A/B/C/D that
     vary (i.e. were passed in as multi-element lists) are shown. If nothing
     varies (all of A/B/C/D are single values), fall back to showing the
-    full combination so the legend isn't empty."""
+    full combination so the legend isn't empty. Values found in
+    LABEL_ALIASES are renamed before display (e.g. "PPBC" -> "PP-EFLS")."""
+    def display(x):
+        s = str(x)
+        return LABEL_ALIASES.get(s, s)
+
     if dims:
-        parts = [str(combo[i]) for i in dims]
+        parts = [display(combo[i]) for i in dims]
     else:
-        parts = [str(x) for x in combo]
+        parts = [display(x) for x in combo]
     return " ".join(parts)
 
 
