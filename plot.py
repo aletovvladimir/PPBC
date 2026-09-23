@@ -67,15 +67,15 @@ import matplotlib.pyplot as plt
 BASE_DIR = "exps/v3"     # root of the experiment tree
 
 # Each of A, B, C, D can be a single string, OR a list -> all combos are used.
-A = "some_A_value"
-B = ["FedAvg", "PPBC"]
-C = "some_C_value"
-D = ["dirichlet=0.5", "dirichlet=1", "dirichlet=10", "dirichlet=100"]
+A = "dir0_1"
+B = ["fedavg", "fedprox", "ppbc"]
+C = "fedcbs"
+D = "ls1"
 
 # Maximum number of epochs/rounds to use from each file: only the first N
 # rounds encountered in each exp_{E}.txt are kept. Set to None for no limit
 # (use every round found in the file).
-N = None
+N = 100
 
 # Color palette to cycle through, one color per A/B/C/D combination line.
 colors = (
