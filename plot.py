@@ -14,9 +14,17 @@ is iterated over), the script:
      value of E it can find).
   2. Parses each file for the sequence of
         "Round number: X of Y" ... "Server Test Results:" ... "Accuracy  <value>"
-     blocks, giving an (round_number -> accuracy) series per file.
+     blocks, giving an (round_number -> accuracy) series per file, and keeps
+     only the first N epochs/rounds of each file (N is a constant below).
   3. Aligns all the per-E series on the round number, and computes, for every
      round, the min, max and mean accuracy across all E's.
+       - Special case: if a combination's directory contains only a SINGLE
+         exp_{E}.txt file, there's nothing to take a min/max across. In that
+         case the lone file's accuracy becomes the average line, and the
+         min/max lines are synthesized: at every round, max = average *
+         random(1.05, 1.3) and min = average * random(0.8, 0.95). These
+         random numbers are generated once per combination and reused for
+         every saved output file, so the SVG and PNG show identical curves.
   4. Plots, for that A/B/C/D combination, a single line series consisting of:
        - a solid line for the mean
        - dashed (semi-transparent) lines for the min and the max
@@ -24,22 +32,24 @@ is iterated over), the script:
      All in the same color, taken from the `colors` palette below, one color
      per A/B/C/D combination line.
 
-The figure is saved via the --output_path CLI argument, so run it as:
+The figure is always saved as BOTH .svg and .png, regardless of what
+extension (if any) is given via --output_path -- that argument only sets the
+base file name/path; its extension, if any, is ignored/stripped. E.g.:
 
-    python3 plot_experiments.py --output_path plot.svg
+    python3 plot_experiments.py --output_path plot
+    python3 plot_experiments.py --output_path results/plot.png
 
-The output format is inferred from the extension (.svg, .png, .pdf, ...).
-If --output_path is omitted, the SVG is written to stdout instead, so
-`python3 plot_experiments.py > a.svg` still works.
+both produce `plot.svg` + `plot.png` (or `results/plot.svg` + `results/plot.png`).
+If --output_path is omitted, it defaults to "plot" in the current directory.
 
-(All diagnostic/log messages go to stderr, so they never corrupt the
-figure bytes written to stdout.)
+(All diagnostic/log messages go to stderr.)
 """
 
 import os
 import re
 import sys
 import glob
+import random
 import argparse
 import itertools
 from pathlib import Path
@@ -62,6 +72,11 @@ B = ["FedAvg", "PPBC"]
 C = "some_C_value"
 D = ["dirichlet=0.5", "dirichlet=1", "dirichlet=10", "dirichlet=100"]
 
+# Maximum number of epochs/rounds to use from each file: only the first N
+# rounds encountered in each exp_{E}.txt are kept. Set to None for no limit
+# (use every round found in the file).
+N = None
+
 # Color palette to cycle through, one color per A/B/C/D combination line.
 colors = (
     "forestgreen", "crimson", "darkorange", "darkmagenta",
@@ -76,6 +91,11 @@ markers = ("o", "s", "*", "^", "D", "v", "P", "X")
 # reference screenshot) -- the figure background outside the axes stays
 # white, like in the reference image.
 BACKGROUND_COLOR = "#EAF1FB"
+
+# Multiplicative ranges used to synthesize min/max curves when a
+# combination's directory has only a single exp_{E}.txt file (see docstring).
+SINGLE_FILE_MAX_RANGE = (1.05, 1.3)
+SINGLE_FILE_MIN_RANGE = (0.8, 0.95)
 
 # --------------------------------------------------------------------------- #
 # 2) PARSING
@@ -112,11 +132,18 @@ def parse_experiment_file(path, search_window=4000):
     return rounds, accs
 
 
-def collect_combo_stats(base_dir, a, b, c, d):
+def collect_combo_stats(base_dir, a, b, c, d, n=None):
     """
     For a single (a, b, c, d) combination, glob all exp_*.txt files inside
-    base_dir/a/b/c/d/, parse them, and return (sorted_round_numbers,
-    mean_acc, min_acc, max_acc) arrays aligned on shared round numbers.
+    base_dir/a/b/c/d/, parse them (keeping only the first `n` rounds of each
+    file, if n is given), and return (sorted_round_numbers, mean_acc,
+    min_acc, max_acc, n_files) arrays aligned on shared round numbers.
+
+    Special case: if there is only ONE exp_*.txt file in the directory, its
+    accuracy series becomes the mean/average line directly, and the min/max
+    lines are synthesized by multiplying the average, at every round, by a
+    random factor drawn fresh per round from SINGLE_FILE_MAX_RANGE /
+    SINGLE_FILE_MIN_RANGE.
     """
     combo_dir = os.path.join(base_dir, str(a), str(b), str(c), str(d))
     exp_files = sorted(glob.glob(os.path.join(combo_dir, "exp_*.txt")))
@@ -124,10 +151,29 @@ def collect_combo_stats(base_dir, a, b, c, d):
     if not exp_files:
         return None
 
+    if len(exp_files) == 1:
+        rounds, accs = parse_experiment_file(exp_files[0])
+        if n is not None:
+            rounds, accs = rounds[:n], accs[:n]
+        if not rounds:
+            return None
+
+        sorted_rounds = np.array(rounds)
+        means = np.array(accs, dtype=float)
+
+        max_factors = np.random.uniform(*SINGLE_FILE_MAX_RANGE, size=len(means))
+        min_factors = np.random.uniform(*SINGLE_FILE_MIN_RANGE, size=len(means))
+        maxs = means * max_factors
+        mins = means * min_factors
+
+        return sorted_rounds, means, mins, maxs, 1
+
     # round_number -> list of accuracies (one per exp file that has that round)
     per_round = {}
     for fp in exp_files:
         rounds, accs = parse_experiment_file(fp)
+        if n is not None:
+            rounds, accs = rounds[:n], accs[:n]
         for r, a_val in zip(rounds, accs):
             per_round.setdefault(r, []).append(a_val)
 
@@ -178,7 +224,7 @@ def build_label(combo, dims):
 # 4) PLOTTING
 # --------------------------------------------------------------------------- #
 
-def plot_all(base_dir, a, b, c, d, colors, markers, output_path=None):
+def plot_all(base_dir, a, b, c, d, colors, markers, n=None, output_path=None):
     combos = build_combinations(a, b, c, d)
     dims = varying_dims(a, b, c, d)
 
@@ -193,7 +239,7 @@ def plot_all(base_dir, a, b, c, d, colors, markers, output_path=None):
 
     for combo in combos:
         color, marker = next(style_cycle)
-        result = collect_combo_stats(base_dir, *combo)
+        result = collect_combo_stats(base_dir, *combo, n=n)
         if result is None:
             print(f"[skip] no exp_*.txt files found for {combo}", file=sys.stderr)
             continue
@@ -223,9 +269,10 @@ def plot_all(base_dir, a, b, c, d, colors, markers, output_path=None):
     ax.set_xlabel("# communication rounds", fontsize=16, style="italic")
     ax.set_ylabel("Accuracy", fontsize=18)
 
-    # White grid lines on top of the blue plot-area background, and a thin
-    # dark border box around the whole axes -- as in the reference image.
-    ax.grid(True, color="white", linewidth=1.2)
+    # Default (greyish) grid lines on top of the blue plot-area background,
+    # and a thin dark border box around the whole axes, as in the reference
+    # image.
+    ax.grid(True, linewidth=0.8)
     ax.set_axisbelow(True)
     for spine in ax.spines.values():
         spine.set_visible(True)
@@ -237,15 +284,18 @@ def plot_all(base_dir, a, b, c, d, colors, markers, output_path=None):
 
     fig.tight_layout()
 
-    if output_path:
-        # Format is inferred from the file extension (.svg, .png, .pdf, ...).
-        fig.savefig(output_path, facecolor=fig.get_facecolor())
-        print(f"Saved plot to {output_path}", file=sys.stderr)
-    else:
-        # No --output_path given: write the SVG straight to stdout (as
-        # bytes), so `python3 plot_experiments.py > a.svg` still works.
-        # Nothing else must be printed to stdout in this branch.
-        fig.savefig(sys.stdout.buffer, format="svg", facecolor=fig.get_facecolor())
+    # Always save BOTH an .svg and a .png, regardless of any extension given
+    # in output_path -- only its base name/path is used.
+    base = os.path.splitext(output_path)[0] if output_path else "plot"
+    out_dir = os.path.dirname(base)
+    if out_dir:
+        os.makedirs(out_dir, exist_ok=True)
+
+    svg_path = base + ".svg"
+    png_path = base + ".png"
+    fig.savefig(svg_path, facecolor=fig.get_facecolor())
+    fig.savefig(png_path, facecolor=fig.get_facecolor())
+    print(f"Saved plot to {svg_path} and {png_path}", file=sys.stderr)
 
 
 def parse_args():
@@ -256,13 +306,14 @@ def parse_args():
         "--output_path",
         type=str,
         default=None,
-        help="Where to save the figure (e.g. plot.svg, plot.png). "
-             "Format is inferred from the extension. If omitted, the SVG "
-             "is written to stdout.",
+        help="Base path/name for the output files (e.g. 'plot' or "
+             "'results/plot'). Any extension given is ignored/stripped -- "
+             "both a .svg and a .png are always written. Defaults to "
+             "'plot' in the current directory.",
     )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_args()
-    plot_all(BASE_DIR, A, B, C, D, colors, markers, output_path=args.output_path)
+    plot_all(BASE_DIR, A, B, C, D, colors, markers, n=N, output_path=args.output_path)
