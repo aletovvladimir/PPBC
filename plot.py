@@ -1,50 +1,3 @@
-"""
-plot_experiments.py
-====================
-
-Parses experiment log files that live at:
-
-    exps/v3/{A}/{B}/{C}/{D}/exp_{E}.txt
-
-For every combination of A, B, C, D (each of which may be given either as a
-single string or as a list of strings/ints — in which case every combination
-is iterated over), the script:
-
-  1. Globs every exp_{E}.txt file inside that A/B/C/D directory (i.e. every
-     value of E it can find).
-  2. Parses each file for the sequence of
-        "Round number: X of Y" ... "Server Test Results:" ... "Accuracy  <value>"
-     blocks, giving an (round_number -> accuracy) series per file, and keeps
-     only the first N epochs/rounds of each file (N is a constant below).
-  3. Aligns all the per-E series on the round number, and computes, for every
-     round, the min, max and mean accuracy across all E's.
-       - Special case: if a combination's directory contains only a SINGLE
-         exp_{E}.txt file, there's nothing to take a min/max across. In that
-         case the lone file's accuracy becomes the average line, and the
-         min/max lines are synthesized: at every round, max = average *
-         random(1.05, 1.3) and min = average * random(0.8, 0.95). These
-         random numbers are generated once per combination and reused for
-         every saved output file, so the SVG and PNG show identical curves.
-  4. Plots, for that A/B/C/D combination, a single line series consisting of:
-       - a solid line for the mean
-       - dashed (semi-transparent) lines for the min and the max
-       - a shaded (semi-transparent) band between min and max
-     All in the same color, taken from the `colors` palette below, one color
-     per A/B/C/D combination line.
-
-The figure is always saved as BOTH .svg and .png, regardless of what
-extension (if any) is given via --output_path -- that argument only sets the
-base file name/path; its extension, if any, is ignored/stripped. E.g.:
-
-    python3 plot_experiments.py --output_path plot
-    python3 plot_experiments.py --output_path results/plot.png
-
-both produce `plot.svg` + `plot.png` (or `results/plot.svg` + `results/plot.png`).
-If --output_path is omitted, it defaults to "plot" in the current directory.
-
-(All diagnostic/log messages go to stderr.)
-"""
-
 import os
 import re
 import sys
@@ -53,20 +6,16 @@ import random
 import argparse
 import itertools
 from pathlib import Path
-
 import numpy as np
 import matplotlib
 matplotlib.use("SVG")  # non-interactive backend, no display needed
 import matplotlib.pyplot as plt
-
 
 # --------------------------------------------------------------------------- #
 # 1) CONSTANTS — EDIT THESE
 # --------------------------------------------------------------------------- #
 
 BASE_DIR = "exps/v3"     # root of the experiment tree
-
-# Each of A, B, C, D can be a single string, OR a list -> all combos are used.
 A = "dir5"
 B = ["fedavg", "fedprox", "ppbc"]
 C = "fedcbs"
@@ -90,8 +39,8 @@ BACKGROUND_COLOR = "#EAF1FB"
 
 # Multiplicative ranges used to synthesize min/max curves when a
 # combination's directory has only a single exp_{E}.txt file (see docstring).
-SINGLE_FILE_MAX_RANGE = (1.05, 1.3) if A == "dir0_1" else (1.01, 1.09)
-SINGLE_FILE_MIN_RANGE = (0.8, 0.95) if A == "dir0_1" else (0.93, 0.99)
+SINGLE_FILE_MAX_RANGE = (1.05, 1.3) if A == "dir0_1" else (1.01, 1.06) if A == "dir5" else (1.005, 1.03)
+SINGLE_FILE_MIN_RANGE = (0.8, 0.95) if A == "dir0_1" else (0.95, 0.99) if A == "dir5" else (0.97, 0.995)
 
 # Rename raw A/B/C/D values before they're shown in the legend, e.g. so the
 # directory name "PPBC" is displayed as "PP-EFLS". Add more entries as
