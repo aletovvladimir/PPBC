@@ -130,9 +130,16 @@ def collect_combo_stats(base_dir, path_parts, n, max_range, min_range, smooth):
     synthesizing min/max (mirrors the old "D in ('ls10','ls5')" check,
     generalized to whatever the last path component of this combo is)."""
     combo_dir = os.path.join(base_dir, *[str(p) for p in path_parts])
-    exp_files = sorted(glob.glob(os.path.join(combo_dir, "exp_*.txt")))
+    glob_pattern = os.path.join(combo_dir, "exp_*.txt")
+    exp_files = sorted(glob.glob(glob_pattern))
 
     if not exp_files:
+        print(
+            f"[skip] no exp_*.txt files found for {path_parts} "
+            f"-- looked in resolved path: {os.path.abspath(glob_pattern)} "
+            f"(cwd: {os.getcwd()})",
+            file=sys.stderr,
+        )
         return None
 
     if len(exp_files) == 1:
@@ -255,7 +262,6 @@ def plot_all(base_dir, lines_spec, colors, markers, output_path=None):
                 base_dir, combo, n, max_range, min_range, smooth
             )
             if result is None:
-                print(f"[skip] no exp_*.txt files found for {combo}", file=sys.stderr)
                 continue
 
             rounds, means, mins, maxs, n_files = result
