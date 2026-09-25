@@ -147,6 +147,12 @@ def collect_combo_stats(base_dir, path_parts, n, max_range, min_range, smooth):
         if n is not None:
             rounds, accs = rounds[:n], accs[:n]
         if not rounds:
+            print(
+                f"[skip] found {exp_files[0]!r} but parsed 0 rounds from it "
+                f"for {path_parts} -- check ROUND_RE / TEST_RESULTS_RE "
+                f"against that file's actual format",
+                file=sys.stderr,
+            )
             return None
 
         sorted_rounds = np.array(rounds)
@@ -172,6 +178,12 @@ def collect_combo_stats(base_dir, path_parts, n, max_range, min_range, smooth):
             per_round.setdefault(r, []).append(a_val)
 
     if not per_round:
+        print(
+            f"[skip] found {len(exp_files)} file(s) for {path_parts} but "
+            f"parsed 0 rounds from any of them -- check ROUND_RE / "
+            f"TEST_RESULTS_RE against those files' actual format",
+            file=sys.stderr,
+        )
         return None
 
     sorted_rounds = sorted(per_round.keys())
