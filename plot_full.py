@@ -70,7 +70,7 @@ LABEL_ALIASES = {
 # 2) PARSING
 # --------------------------------------------------------------------------- #
 
-ROUND_RE = re.compile(r"Round number:\s*(\d+)\s*of\s*\d+")
+ROUND_RE = re.compile(r"Round number:\s*(\d+)(?:\s*of\s*\d+)?")
 # After a "Round number" marker, look for the following Server Test Results
 # block and grab the Accuracy value out of it.
 TEST_RESULTS_RE = re.compile(
