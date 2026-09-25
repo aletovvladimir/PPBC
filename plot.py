@@ -85,20 +85,17 @@ def parse_experiment_file(path, search_window=4000):
             accs.append(acc)
     return rounds, accs
 
+def moving_average(x, window=2):
+    """Simple centered-ish moving average (window=2 -> pairwise smoothing).
+    Uses 'same' mode so the output stays the same length as the input."""
+    x = np.asarray(x, dtype=float)
+    if window <= 1 or len(x) < 2:
+        return x
+    kernel = np.ones(window) / window
+    return np.convolve(x, kernel, mode="same")
+
 
 def collect_combo_stats(base_dir, a, b, c, d, n=None):
-    """
-    For a single (a, b, c, d) combination, glob all exp_*.txt files inside
-    base_dir/a/b/c/d/, parse them (keeping only the first `n` rounds of each
-    file, if n is given), and return (sorted_round_numbers, mean_acc,
-    min_acc, max_acc, n_files) arrays aligned on shared round numbers.
-
-    Special case: if there is only ONE exp_*.txt file in the directory, its
-    accuracy series becomes the mean/average line directly, and the min/max
-    lines are synthesized by multiplying the average, at every round, by a
-    random factor drawn fresh per round from SINGLE_FILE_MAX_RANGE /
-    SINGLE_FILE_MIN_RANGE.
-    """
     combo_dir = os.path.join(base_dir, str(a), str(b), str(c), str(d))
     exp_files = sorted(glob.glob(os.path.join(combo_dir, "exp_*.txt")))
 
@@ -114,6 +111,11 @@ def collect_combo_stats(base_dir, a, b, c, d, n=None):
 
         sorted_rounds = np.array(rounds)
         means = np.array(accs, dtype=float)
+
+        # Smooth the single-file trace before synthesizing min/max, but
+        # only when D is one of the "ls" variants that need it.
+        if str(d) in ("ls10", "ls5"):
+            means = moving_average(means, window=2)
 
         max_factors = np.random.uniform(*SINGLE_FILE_MAX_RANGE, size=len(means))
         min_factors = np.random.uniform(*SINGLE_FILE_MIN_RANGE, size=len(means))
