@@ -1,0 +1,5790 @@
+ ====== dataset ======
+{'data_name': 'cifar10_pathology', 'data_sources': {'test_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_test_map_file.csv'], 'train_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_pathology_map_file.csv']}, 'distribution_info': '/home/Jetmind/PPBC/cifar10/image_data/pathology_additional_info.npy'}
+test_directories
+train_directories
+ ====== server_test ======
+{'data_name': 'cifar10_pathology', 'data_sources': {'test_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_test_map_file.csv'], 'train_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_pathology_map_file.csv']}, 'distribution_info': '/home/Jetmind/PPBC/cifar10/image_data/pathology_additional_info.npy'}
+test_directories
+train_directories
+ ====== trust_df ======
+{'data_name': 'cifar10_trust', 'data_sources': {'train_directories': ['/home/Jetmind/PPBC/cifar10/image_data/cifar10_trust_map_file.csv']}}
+train_directories
+Preprocess successfull
+
+Total usage data: 47500
+Client   0 |   482   475   470   471   475   475   480   466   475   474 |  4743
+Client   1 |   472   471   476   475   479   480   472   481   475   469 |  4750
+Client   2 |   474   473   477   476   478   474   472   470   475   473 |  4742
+Client   3 |   469   481   471   477   467   473   480   480   473   471 |  4742
+Client   4 |   483   480   476   474   475   473   478   469   472   477 |  4757
+Client   5 |   471   472   472   471   478   477   471   478   477   475 |  4742
+Client   6 |   482   474   476   477   473   472   477   479   476   485 |  4771
+Client   7 |   465   478   478   479   473   480   469   472   482   466 |  4742
+Client   8 |   480   472   477   482   475   469   477   479   473   486 |  4770
+Client   9 |   472   474   477   468   477   477   474   476   472   474 |  4741
+
+Checking: All clients have the correct distribution of targets.
+
+server has device cuda:3
+start federfated
+
+Round number: 0
+
+Server Test Results:
+              value
+Accuracy        0.1
+Precision      0.01
+Recall          0.1
+f1-score   0.018182
+Server Test Loss: 2.459824562072754
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 43.43278503417969
+Client 1 finished in 43.10288333892822
+Current batch of clients is [2, 3]
+Client 2 finished in 56.319984674453735
+Client 3 finished in 56.6601984500885
+Current batch of clients is [4, 5]
+Client 4 finished in 52.647019147872925
+Client 5 finished in 53.961817264556885
+Current batch of clients is [6, 7]
+Client 6 finished in 59.23941779136658
+Client 7 finished in 57.8792085647583
+Current batch of clients is [8, 9]
+Client 8 finished in 56.78227877616882
+Client 9 finished in 58.13543510437012
+
+Server Valid Results:
+              value
+Accuracy   0.098904
+Precision  0.009890
+Recall     0.100000
+f1-score   0.017988
+Server Valid Loss: 2.46532164812088
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 2.46532164812088
+Best loss: 2.46532164812088
+Best round: 0
+
+Round time: 313.22245955467224
+
+Round number: 1
+
+Server Test Results:
+              value
+Accuracy     0.3171
+Precision  0.315903
+Recall       0.3171
+f1-score   0.298662
+Server Test Loss: 1.9093117713928223
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.32154893875122
+Client 1 finished in 52.67796015739441
+Current batch of clients is [2, 3]
+Client 2 finished in 50.80248665809631
+Client 3 finished in 50.81389832496643
+Current batch of clients is [4, 5]
+Client 4 finished in 54.25476264953613
+Client 5 finished in 55.083821296691895
+Current batch of clients is [6, 7]
+Client 6 finished in 59.0610089302063
+Client 7 finished in 59.37677049636841
+Current batch of clients is [8, 9]
+Client 8 finished in 57.860520362854004
+Client 9 finished in 57.78453874588013
+
+Server Valid Results:
+              value
+Accuracy   0.312679
+Precision  0.316370
+Recall     0.313033
+f1-score   0.295054
+Server Valid Loss: 1.9129096537828445
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.9129096537828445
+Best loss: 1.9129096537828445
+Best round: 1
+
+Round time: 321.9591746330261
+
+Round number: 2
+
+Server Test Results:
+              value
+Accuracy   0.338217
+Precision  0.346672
+Recall     0.338217
+f1-score   0.328346
+Server Test Loss: 1.8306052684783936
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.44351506233215
+Client 1 finished in 54.45592451095581
+Current batch of clients is [2, 3]
+Client 2 finished in 44.003902435302734
+Client 3 finished in 43.81950259208679
+Current batch of clients is [4, 5]
+Client 4 finished in 49.05140542984009
+Client 5 finished in 47.9471640586853
+Current batch of clients is [6, 7]
+Client 6 finished in 52.74751543998718
+Client 7 finished in 52.82394051551819
+Current batch of clients is [8, 9]
+Client 8 finished in 52.070579290390015
+Client 9 finished in 54.18309164047241
+
+Server Valid Results:
+              value
+Accuracy   0.330790
+Precision  0.341807
+Recall     0.331996
+f1-score   0.321412
+Server Valid Loss: 1.8366325139999389
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.8366325139999389
+Best loss: 1.8366325139999389
+Best round: 2
+
+Round time: 300.83044171333313
+
+Round number: 3
+
+Server Test Results:
+              value
+Accuracy   0.371467
+Precision  0.374865
+Recall     0.371467
+f1-score   0.362396
+Server Test Loss: 1.748439908027649
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 54.3170428276062
+Client 1 finished in 56.0576810836792
+Current batch of clients is [2, 3]
+Client 2 finished in 53.69444298744202
+Client 3 finished in 53.36571192741394
+Current batch of clients is [4, 5]
+Client 4 finished in 41.07721209526062
+Client 5 finished in 41.62449264526367
+Current batch of clients is [6, 7]
+Client 6 finished in 51.8266658782959
+Client 7 finished in 53.86288547515869
+Current batch of clients is [8, 9]
+Client 8 finished in 48.813496828079224
+Client 9 finished in 49.661158084869385
+
+Server Valid Results:
+              value
+Accuracy   0.367290
+Precision  0.372862
+Recall     0.368664
+f1-score   0.358778
+Server Valid Loss: 1.7563875764608383
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.7563875764608383
+Best loss: 1.7563875764608383
+Best round: 3
+
+Round time: 293.667608499527
+
+Round number: 4
+
+Server Test Results:
+              value
+Accuracy   0.403767
+Precision    0.3995
+Recall     0.403767
+f1-score   0.397068
+Server Test Loss: 1.662369728088379
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.74783706665039
+Client 1 finished in 48.92599582672119
+Current batch of clients is [2, 3]
+Client 2 finished in 48.00567674636841
+Client 3 finished in 48.51838254928589
+Current batch of clients is [4, 5]
+Client 4 finished in 39.55943584442139
+Client 5 finished in 40.77862358093262
+Current batch of clients is [6, 7]
+Client 6 finished in 44.648640155792236
+Client 7 finished in 47.46486282348633
+Current batch of clients is [8, 9]
+Client 8 finished in 48.898606300354004
+Client 9 finished in 49.42860198020935
+
+Server Valid Results:
+              value
+Accuracy   0.400741
+Precision  0.394921
+Recall     0.401597
+f1-score   0.392867
+Server Valid Loss: 1.671595138311386
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.671595138311386
+Best loss: 1.671595138311386
+Best round: 4
+
+Round time: 273.4361960887909
+
+Round number: 5
+
+Server Test Results:
+              value
+Accuracy   0.418417
+Precision  0.413631
+Recall     0.418417
+f1-score   0.411216
+Server Test Loss: 1.6194696426391602
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.85805535316467
+Client 1 finished in 51.5906503200531
+Current batch of clients is [2, 3]
+Client 2 finished in 53.662034034729004
+Client 3 finished in 55.09195280075073
+Current batch of clients is [4, 5]
+Client 4 finished in 46.432554483413696
+Client 5 finished in 46.615148305892944
+Current batch of clients is [6, 7]
+Client 6 finished in 37.15844964981079
+Client 7 finished in 39.92244911193848
+Current batch of clients is [8, 9]
+Client 8 finished in 50.062976121902466
+Client 9 finished in 51.31787967681885
+
+Server Valid Results:
+              value
+Accuracy   0.414310
+Precision  0.408727
+Recall     0.415134
+f1-score   0.406031
+Server Valid Loss: 1.6284902006387711
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.6284902006387711
+Best loss: 1.6284902006387711
+Best round: 5
+
+Round time: 279.37394762039185
+
+Round number: 6
+
+Server Test Results:
+              value
+Accuracy    0.43685
+Precision  0.432901
+Recall      0.43685
+f1-score   0.432334
+Server Test Loss: 1.5755926370620728
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.744770765304565
+Client 1 finished in 50.49660587310791
+Current batch of clients is [2, 3]
+Client 2 finished in 48.43234705924988
+Client 3 finished in 49.32837772369385
+Current batch of clients is [4, 5]
+Client 4 finished in 44.25294232368469
+Client 5 finished in 45.49431371688843
+Current batch of clients is [6, 7]
+Client 6 finished in 49.54127359390259
+Client 7 finished in 50.27693772315979
+Current batch of clients is [8, 9]
+Client 8 finished in 43.91521883010864
+Client 9 finished in 45.42517805099487
+
+Server Valid Results:
+              value
+Accuracy   0.433563
+Precision  0.429291
+Recall     0.434597
+f1-score   0.428854
+Server Valid Loss: 1.586513414978981
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.586513414978981
+Best loss: 1.586513414978981
+Best round: 6
+
+Round time: 279.93186259269714
+
+Round number: 7
+
+Server Test Results:
+              value
+Accuracy   0.449817
+Precision  0.445899
+Recall     0.449817
+f1-score   0.444107
+Server Test Loss: 1.5357942581176758
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.625999450683594
+Client 1 finished in 48.178011655807495
+Current batch of clients is [2, 3]
+Client 2 finished in 47.8544807434082
+Client 3 finished in 48.30022644996643
+Current batch of clients is [4, 5]
+Client 4 finished in 41.93930220603943
+Client 5 finished in 42.58290886878967
+Current batch of clients is [6, 7]
+Client 6 finished in 46.980292081832886
+Client 7 finished in 47.32688903808594
+Current batch of clients is [8, 9]
+Client 8 finished in 40.48141622543335
+Client 9 finished in 41.113346338272095
+
+Server Valid Results:
+              value
+Accuracy   0.443029
+Precision  0.440444
+Recall     0.444456
+f1-score   0.437904
+Server Valid Loss: 1.5478962063789368
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.5478962063789368
+Best loss: 1.5478962063789368
+Best round: 7
+
+Round time: 262.7373275756836
+
+Round number: 8
+
+Server Test Results:
+              value
+Accuracy   0.460033
+Precision  0.456533
+Recall     0.460033
+f1-score    0.45543
+Server Test Loss: 1.508955717086792
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.29846739768982
+Client 1 finished in 48.36477017402649
+Current batch of clients is [2, 3]
+Client 2 finished in 47.717042207717896
+Client 3 finished in 47.77092266082764
+Current batch of clients is [4, 5]
+Client 4 finished in 46.44046068191528
+Client 5 finished in 47.28088116645813
+Current batch of clients is [6, 7]
+Client 6 finished in 51.50110363960266
+Client 7 finished in 52.900182247161865
+Current batch of clients is [8, 9]
+Client 8 finished in 48.954306840896606
+Client 9 finished in 50.00868344306946
+
+Server Valid Results:
+              value
+Accuracy   0.455556
+Precision  0.451846
+Recall     0.456682
+f1-score   0.450576
+Server Valid Loss: 1.5205113768577576
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.5205113768577576
+Best loss: 1.5205113768577576
+Best round: 8
+
+Round time: 278.6879241466522
+
+Round number: 9
+
+Server Test Results:
+              value
+Accuracy   0.465867
+Precision  0.465203
+Recall     0.465867
+f1-score   0.460565
+Server Test Loss: 1.4895732402801514
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 44.906899213790894
+Client 1 finished in 45.88667321205139
+Current batch of clients is [2, 3]
+Client 2 finished in 49.34733557701111
+Client 3 finished in 49.94518852233887
+Current batch of clients is [4, 5]
+Client 4 finished in 46.54358744621277
+Client 5 finished in 47.297024965286255
+Current batch of clients is [6, 7]
+Client 6 finished in 47.9092378616333
+Client 7 finished in 48.43356800079346
+Current batch of clients is [8, 9]
+Client 8 finished in 50.78656482696533
+Client 9 finished in 49.54227805137634
+
+Server Valid Results:
+              value
+Accuracy   0.462191
+Precision  0.461905
+Recall     0.463121
+f1-score   0.456578
+Server Valid Loss: 1.5024833798408508
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.5024833798408508
+Best loss: 1.5024833798408508
+Best round: 9
+
+Round time: 273.5353240966797
+
+Round number: 10
+
+Server Test Results:
+              value
+Accuracy     0.4856
+Precision  0.486533
+Recall       0.4856
+f1-score   0.482108
+Server Test Loss: 1.4319814443588257
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 36.50097942352295
+Client 1 finished in 38.941614389419556
+Current batch of clients is [2, 3]
+Client 2 finished in 47.4311420917511
+Client 3 finished in 47.309853315353394
+Current batch of clients is [4, 5]
+Client 4 finished in 43.94010281562805
+Client 5 finished in 47.240569829940796
+Current batch of clients is [6, 7]
+Client 6 finished in 47.039355993270874
+Client 7 finished in 47.235835790634155
+Current batch of clients is [8, 9]
+Client 8 finished in 47.673346757888794
+Client 9 finished in 47.66355633735657
+
+Server Valid Results:
+              value
+Accuracy   0.477445
+Precision  0.478738
+Recall     0.479024
+f1-score   0.474034
+Server Valid Loss: 1.446492400765419
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.446492400765419
+Best loss: 1.446492400765419
+Best round: 10
+
+Round time: 266.0147669315338
+
+Round number: 11
+
+Server Test Results:
+              value
+Accuracy     0.4988
+Precision  0.495072
+Recall       0.4988
+f1-score   0.494393
+Server Test Loss: 1.3999857902526855
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 45.820627212524414
+Client 1 finished in 47.17185187339783
+Current batch of clients is [2, 3]
+Client 2 finished in 40.6792356967926
+Client 3 finished in 42.1567018032074
+Current batch of clients is [4, 5]
+Client 4 finished in 47.327935218811035
+Client 5 finished in 47.754730463027954
+Current batch of clients is [6, 7]
+Client 6 finished in 49.332366704940796
+Client 7 finished in 49.29544734954834
+Current batch of clients is [8, 9]
+Client 8 finished in 51.20780634880066
+Client 9 finished in 51.12758755683899
+
+Server Valid Results:
+              value
+Accuracy   0.489016
+Precision  0.485909
+Recall     0.490212
+f1-score   0.484656
+Server Valid Loss: 1.4163537085056306
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.4163537085056306
+Best loss: 1.4163537085056306
+Best round: 11
+
+Round time: 272.58725214004517
+
+Round number: 12
+
+Server Test Results:
+              value
+Accuracy     0.5047
+Precision  0.503324
+Recall       0.5047
+f1-score    0.49892
+Server Test Loss: 1.3868504762649536
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 51.23552918434143
+Client 1 finished in 51.813227891922
+Current batch of clients is [2, 3]
+Client 2 finished in 41.61727285385132
+Client 3 finished in 43.202123165130615
+Current batch of clients is [4, 5]
+Client 4 finished in 45.2578558921814
+Client 5 finished in 47.100735664367676
+Current batch of clients is [6, 7]
+Client 6 finished in 49.159879207611084
+Client 7 finished in 49.088799715042114
+Current batch of clients is [8, 9]
+Client 8 finished in 51.51775527000427
+Client 9 finished in 52.31258583068848
+
+Server Valid Results:
+              value
+Accuracy   0.498793
+Precision  0.495478
+Recall     0.499646
+f1-score   0.491797
+Server Valid Loss: 1.4035870790481568
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.4035870790481568
+Best loss: 1.4035870790481568
+Best round: 12
+
+Round time: 283.7112123966217
+
+Round number: 13
+
+Server Test Results:
+              value
+Accuracy   0.520483
+Precision  0.522685
+Recall     0.520483
+f1-score   0.519467
+Server Test Loss: 1.342634677886963
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.990325689315796
+Client 1 finished in 45.82791328430176
+Current batch of clients is [2, 3]
+Client 2 finished in 50.31176829338074
+Client 3 finished in 48.731741428375244
+Current batch of clients is [4, 5]
+Client 4 finished in 38.14269781112671
+Client 5 finished in 38.98869323730469
+Current batch of clients is [6, 7]
+Client 6 finished in 42.31267714500427
+Client 7 finished in 43.7046263217926
+Current batch of clients is [8, 9]
+Client 8 finished in 45.37811350822449
+Client 9 finished in 47.216334104537964
+
+Server Valid Results:
+              value
+Accuracy   0.515101
+Precision  0.517483
+Recall     0.515658
+f1-score   0.513648
+Server Valid Loss: 1.3609140247106553
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.3609140247106553
+Best loss: 1.3609140247106553
+Best round: 13
+
+Round time: 267.8784394264221
+
+Round number: 14
+
+Server Test Results:
+              value
+Accuracy   0.526217
+Precision  0.523768
+Recall     0.526217
+f1-score   0.522022
+Server Test Loss: 1.327826976776123
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.162158727645874
+Client 1 finished in 49.07040286064148
+Current batch of clients is [2, 3]
+Client 2 finished in 52.09152698516846
+Client 3 finished in 51.99361062049866
+Current batch of clients is [4, 5]
+Client 4 finished in 46.412556171417236
+Client 5 finished in 46.56544780731201
+Current batch of clients is [6, 7]
+Client 6 finished in 39.24354672431946
+Client 7 finished in 41.09676432609558
+Current batch of clients is [8, 9]
+Client 8 finished in 50.511086225509644
+Client 9 finished in 50.78100538253784
+
+Server Valid Results:
+              value
+Accuracy   0.521101
+Precision  0.519496
+Recall     0.521464
+f1-score   0.516377
+Server Valid Loss: 1.346852496266365
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.346852496266365
+Best loss: 1.346852496266365
+Best round: 14
+
+Round time: 275.35126280784607
+
+Round number: 15
+
+Server Test Results:
+              value
+Accuracy   0.542333
+Precision  0.540855
+Recall     0.542333
+f1-score   0.539403
+Server Test Loss: 1.2864471673965454
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.43830680847168
+Client 1 finished in 50.081260442733765
+Current batch of clients is [2, 3]
+Client 2 finished in 50.945706844329834
+Client 3 finished in 51.01267695426941
+Current batch of clients is [4, 5]
+Client 4 finished in 49.63962507247925
+Client 5 finished in 51.82087588310242
+Current batch of clients is [6, 7]
+Client 6 finished in 39.67047643661499
+Client 7 finished in 40.81881356239319
+Current batch of clients is [8, 9]
+Client 8 finished in 45.82953596115112
+Client 9 finished in 46.607640743255615
+
+Server Valid Results:
+              value
+Accuracy   0.535089
+Precision  0.532657
+Recall     0.535853
+f1-score   0.531413
+Server Valid Loss: 1.3072422981262206
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.3072422981262206
+Best loss: 1.3072422981262206
+Best round: 15
+
+Round time: 277.92295813560486
+
+Round number: 16
+
+Server Test Results:
+              value
+Accuracy   0.547983
+Precision  0.543826
+Recall     0.547983
+f1-score   0.541359
+Server Test Loss: 1.2715648412704468
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.69061017036438
+Client 1 finished in 49.84495949745178
+Current batch of clients is [2, 3]
+Client 2 finished in 49.045764207839966
+Client 3 finished in 49.29305386543274
+Current batch of clients is [4, 5]
+Client 4 finished in 45.89458990097046
+Client 5 finished in 46.97957801818848
+Current batch of clients is [6, 7]
+Client 6 finished in 42.00867700576782
+Client 7 finished in 41.499104499816895
+Current batch of clients is [8, 9]
+Client 8 finished in 40.994624614715576
+Client 9 finished in 41.94785451889038
+
+Server Valid Results:
+              value
+Accuracy   0.538244
+Precision  0.534252
+Recall     0.539361
+f1-score   0.531207
+Server Valid Loss: 1.2937369227409363
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.2937369227409363
+Best loss: 1.2937369227409363
+Best round: 16
+
+Round time: 265.26310634613037
+
+Round number: 17
+
+Server Test Results:
+              value
+Accuracy    0.55965
+Precision  0.554819
+Recall      0.55965
+f1-score   0.554408
+Server Test Loss: 1.236292839050293
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.95610952377319
+Client 1 finished in 48.59933257102966
+Current batch of clients is [2, 3]
+Client 2 finished in 47.59039235115051
+Client 3 finished in 49.110984325408936
+Current batch of clients is [4, 5]
+Client 4 finished in 48.230536222457886
+Client 5 finished in 48.284435987472534
+Current batch of clients is [6, 7]
+Client 6 finished in 44.63194489479065
+Client 7 finished in 47.33108401298523
+Current batch of clients is [8, 9]
+Client 8 finished in 42.24521231651306
+Client 9 finished in 43.21066641807556
+
+Server Valid Results:
+              value
+Accuracy   0.551288
+Precision  0.547215
+Recall     0.552376
+f1-score   0.546181
+Server Valid Loss: 1.260169181227684
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.260169181227684
+Best loss: 1.260169181227684
+Best round: 17
+
+Round time: 268.6138219833374
+
+Round number: 18
+
+Server Test Results:
+              value
+Accuracy    0.56835
+Precision   0.56706
+Recall      0.56835
+f1-score   0.565055
+Server Test Loss: 1.2119563817977905
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.05818033218384
+Client 1 finished in 47.95946264266968
+Current batch of clients is [2, 3]
+Client 2 finished in 51.32662224769592
+Client 3 finished in 50.88270139694214
+Current batch of clients is [4, 5]
+Client 4 finished in 50.69386005401611
+Client 5 finished in 52.275416135787964
+Current batch of clients is [6, 7]
+Client 6 finished in 51.6199004650116
+Client 7 finished in 51.12064552307129
+Current batch of clients is [8, 9]
+Client 8 finished in 53.17025303840637
+Client 9 finished in 51.55184078216553
+
+Server Valid Results:
+              value
+Accuracy   0.556867
+Precision  0.555415
+Recall     0.557810
+f1-score   0.553368
+Server Valid Loss: 1.2372295051813125
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.2372295051813125
+Best loss: 1.2372295051813125
+Best round: 18
+
+Round time: 288.2826566696167
+
+Round number: 19
+
+Server Test Results:
+              value
+Accuracy    0.57355
+Precision   0.57144
+Recall      0.57355
+f1-score   0.567874
+Server Test Loss: 1.2008252143859863
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.10642743110657
+Client 1 finished in 47.504570960998535
+Current batch of clients is [2, 3]
+Client 2 finished in 49.2887704372406
+Client 3 finished in 49.40095806121826
+Current batch of clients is [4, 5]
+Client 4 finished in 50.65439248085022
+Client 5 finished in 51.17528295516968
+Current batch of clients is [6, 7]
+Client 6 finished in 46.45001721382141
+Client 7 finished in 47.754366874694824
+Current batch of clients is [8, 9]
+Client 8 finished in 47.71182703971863
+Client 9 finished in 48.90143847465515
+
+Server Valid Results:
+              value
+Accuracy   0.561814
+Precision  0.558690
+Recall     0.562912
+f1-score   0.555526
+Server Valid Loss: 1.227335226535797
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.227335226535797
+Best loss: 1.227335226535797
+Best round: 19
+
+Round time: 284.33125042915344
+
+Round number: 20
+
+Server Test Results:
+              value
+Accuracy     0.5847
+Precision  0.582171
+Recall       0.5847
+f1-score   0.579434
+Server Test Loss: 1.1691067218780518
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 46.229079484939575
+Client 1 finished in 44.942453145980835
+Current batch of clients is [2, 3]
+Client 2 finished in 45.3087375164032
+Client 3 finished in 41.895758867263794
+Current batch of clients is [4, 5]
+Client 4 finished in 47.65547823905945
+Client 5 finished in 46.577404737472534
+Current batch of clients is [6, 7]
+Client 6 finished in 48.32114934921265
+Client 7 finished in 49.11626410484314
+Current batch of clients is [8, 9]
+Client 8 finished in 46.96595907211304
+Client 9 finished in 46.994138956069946
+
+Server Valid Results:
+              value
+Accuracy   0.574443
+Precision  0.571694
+Recall     0.575514
+f1-score   0.568895
+Server Valid Loss: 1.1968062758445739
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.1968062758445739
+Best loss: 1.1968062758445739
+Best round: 20
+
+Round time: 271.5376772880554
+
+Round number: 21
+
+Server Test Results:
+              value
+Accuracy   0.591683
+Precision  0.586151
+Recall     0.591683
+f1-score   0.584127
+Server Test Loss: 1.1516435146331787
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 44.91117286682129
+Client 1 finished in 45.536165952682495
+Current batch of clients is [2, 3]
+Client 2 finished in 45.04625129699707
+Client 3 finished in 43.879526138305664
+Current batch of clients is [4, 5]
+Client 4 finished in 41.97986388206482
+Client 5 finished in 42.664244413375854
+Current batch of clients is [6, 7]
+Client 6 finished in 47.44214057922363
+Client 7 finished in 47.904744386672974
+Current batch of clients is [8, 9]
+Client 8 finished in 42.78601360321045
+Client 9 finished in 44.936487913131714
+
+Server Valid Results:
+              value
+Accuracy   0.577494
+Precision  0.570701
+Recall     0.577965
+f1-score   0.568993
+Server Valid Loss: 1.1811233401298522
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.1811233401298522
+Best loss: 1.1811233401298522
+Best round: 21
+
+Round time: 261.95745301246643
+
+Round number: 22
+
+Server Test Results:
+              value
+Accuracy   0.601783
+Precision  0.596095
+Recall     0.601783
+f1-score    0.59728
+Server Test Loss: 1.1284812688827515
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.41621470451355
+Client 1 finished in 51.886826515197754
+Current batch of clients is [2, 3]
+Client 2 finished in 45.36608815193176
+Client 3 finished in 47.00679349899292
+Current batch of clients is [4, 5]
+Client 4 finished in 47.33288383483887
+Client 5 finished in 48.29974389076233
+Current batch of clients is [6, 7]
+Client 6 finished in 47.407822608947754
+Client 7 finished in 47.788482904434204
+Current batch of clients is [8, 9]
+Client 8 finished in 45.69150972366333
+Client 9 finished in 46.295812129974365
+
+Server Valid Results:
+              value
+Accuracy   0.589899
+Precision  0.582859
+Recall     0.589982
+f1-score   0.583676
+Server Valid Loss: 1.1592619508504867
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.1592619508504867
+Best loss: 1.1592619508504867
+Best round: 22
+
+Round time: 281.8381154537201
+
+Round number: 23
+
+Server Test Results:
+              value
+Accuracy   0.608433
+Precision  0.604588
+Recall     0.608433
+f1-score   0.604764
+Server Test Loss: 1.1046319007873535
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 51.07592034339905
+Client 1 finished in 52.61049771308899
+Current batch of clients is [2, 3]
+Client 2 finished in 51.06836533546448
+Client 3 finished in 52.9082190990448
+Current batch of clients is [4, 5]
+Client 4 finished in 47.49001598358154
+Client 5 finished in 48.32460403442383
+Current batch of clients is [6, 7]
+Client 6 finished in 48.420883893966675
+Client 7 finished in 48.37283682823181
+Current batch of clients is [8, 9]
+Client 8 finished in 44.07309913635254
+Client 9 finished in 45.86875009536743
+
+Server Valid Results:
+              value
+Accuracy   0.594953
+Precision  0.591104
+Recall     0.595427
+f1-score   0.590332
+Server Valid Loss: 1.1369181081652642
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.1369181081652642
+Best loss: 1.1369181081652642
+Best round: 23
+
+Round time: 284.07779335975647
+
+Round number: 24
+
+Server Test Results:
+              value
+Accuracy    0.60955
+Precision  0.609458
+Recall      0.60955
+f1-score   0.603928
+Server Test Loss: 1.099252700805664
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.0388503074646
+Client 1 finished in 50.01691484451294
+Current batch of clients is [2, 3]
+Client 2 finished in 45.42344856262207
+Client 3 finished in 47.274383783340454
+Current batch of clients is [4, 5]
+Client 4 finished in 46.90445303916931
+Client 5 finished in 48.45106315612793
+Current batch of clients is [6, 7]
+Client 6 finished in 43.83263945579529
+Client 7 finished in 45.07903528213501
+Current batch of clients is [8, 9]
+Client 8 finished in 36.94716668128967
+Client 9 finished in 37.947988748550415
+
+Server Valid Results:
+              value
+Accuracy   0.598107
+Precision  0.596486
+Recall     0.598915
+f1-score   0.591156
+Server Valid Loss: 1.1330123007297517
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.1330123007297517
+Best loss: 1.1330123007297517
+Best round: 24
+
+Round time: 259.54134154319763
+
+Round number: 25
+
+Server Test Results:
+              value
+Accuracy   0.619117
+Precision  0.610621
+Recall     0.619117
+f1-score   0.611573
+Server Test Loss: 1.079210638999939
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.696045875549316
+Client 1 finished in 48.115843296051025
+Current batch of clients is [2, 3]
+Client 2 finished in 44.96217584609985
+Client 3 finished in 46.735788106918335
+Current batch of clients is [4, 5]
+Client 4 finished in 47.726775884628296
+Client 5 finished in 48.34834361076355
+Current batch of clients is [6, 7]
+Client 6 finished in 43.32548546791077
+Client 7 finished in 44.22574186325073
+Current batch of clients is [8, 9]
+Client 8 finished in 44.92391228675842
+Client 9 finished in 45.46904444694519
+
+Server Valid Results:
+              value
+Accuracy   0.604004
+Precision  0.595097
+Recall     0.604408
+f1-score   0.595163
+Server Valid Loss: 1.1135234206914901
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.1135234206914901
+Best loss: 1.1135234206914901
+Best round: 25
+
+Round time: 266.2497217655182
+
+Round number: 26
+
+Server Test Results:
+              value
+Accuracy    0.62435
+Precision  0.626798
+Recall      0.62435
+f1-score   0.619785
+Server Test Loss: 1.0631736516952515
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 45.86159586906433
+Client 1 finished in 47.85149931907654
+Current batch of clients is [2, 3]
+Client 2 finished in 48.99585032463074
+Client 3 finished in 50.697168827056885
+Current batch of clients is [4, 5]
+Client 4 finished in 52.301530838012695
+Client 5 finished in 52.57519245147705
+Current batch of clients is [6, 7]
+Client 6 finished in 51.08915114402771
+Client 7 finished in 51.23937439918518
+Current batch of clients is [8, 9]
+Client 8 finished in 43.259669065475464
+Client 9 finished in 44.22720646858215
+
+Server Valid Results:
+              value
+Accuracy   0.607895
+Precision  0.610584
+Recall     0.608694
+f1-score   0.602898
+Server Valid Loss: 1.0982120901346206
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.0982120901346206
+Best loss: 1.0982120901346206
+Best round: 26
+
+Round time: 275.6317422389984
+
+Round number: 27
+
+Server Test Results:
+              value
+Accuracy   0.628183
+Precision  0.625655
+Recall     0.628183
+f1-score   0.622903
+Server Test Loss: 1.0504144430160522
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 44.361263275146484
+Client 1 finished in 44.17772626876831
+Current batch of clients is [2, 3]
+Client 2 finished in 52.02729630470276
+Client 3 finished in 52.15854835510254
+Current batch of clients is [4, 5]
+Client 4 finished in 52.239306926727295
+Client 5 finished in 52.12312316894531
+Current batch of clients is [6, 7]
+Client 6 finished in 51.72484230995178
+Client 7 finished in 52.37415909767151
+Current batch of clients is [8, 9]
+Client 8 finished in 49.919304847717285
+Client 9 finished in 51.14474844932556
+
+Server Valid Results:
+              value
+Accuracy   0.613371
+Precision  0.609466
+Recall     0.614228
+f1-score   0.606492
+Server Valid Loss: 1.0867248997092247
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.0867248997092247
+Best loss: 1.0867248997092247
+Best round: 27
+
+Round time: 284.5834758281708
+
+Round number: 28
+
+Server Test Results:
+              value
+Accuracy    0.63305
+Precision  0.634059
+Recall      0.63305
+f1-score   0.628343
+Server Test Loss: 1.0344332456588745
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.776676177978516
+Client 1 finished in 51.067139625549316
+Current batch of clients is [2, 3]
+Client 2 finished in 48.685758113861084
+Client 3 finished in 49.42379570007324
+Current batch of clients is [4, 5]
+Client 4 finished in 57.079893589019775
+Client 5 finished in 57.663023471832275
+Current batch of clients is [6, 7]
+Client 6 finished in 58.76752257347107
+Client 7 finished in 60.26323485374451
+Current batch of clients is [8, 9]
+Client 8 finished in 56.79733991622925
+Client 9 finished in 59.40045428276062
+
+Server Valid Results:
+              value
+Accuracy   0.618524
+Precision  0.619341
+Recall     0.619556
+f1-score   0.612286
+Server Valid Loss: 1.0741282656788826
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.0741282656788826
+Best loss: 1.0741282656788826
+Best round: 28
+
+Round time: 312.8468701839447
+
+Round number: 29
+
+Server Test Results:
+              value
+Accuracy     0.6433
+Precision  0.641592
+Recall       0.6433
+f1-score   0.638617
+Server Test Loss: 1.0037761926651
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 51.68378496170044
+Client 1 finished in 52.72673773765564
+Current batch of clients is [2, 3]
+Client 2 finished in 52.86126780509949
+Client 3 finished in 55.04403877258301
+Current batch of clients is [4, 5]
+Client 4 finished in 51.63951134681702
+Client 5 finished in 51.774675607681274
+Current batch of clients is [6, 7]
+Client 6 finished in 56.00954747200012
+Client 7 finished in 56.887959241867065
+Current batch of clients is [8, 9]
+Client 8 finished in 61.44697833061218
+Client 9 finished in 57.945725202560425
+
+Server Valid Results:
+              value
+Accuracy   0.627260
+Precision  0.624969
+Recall     0.627332
+f1-score   0.621071
+Server Valid Loss: 1.0441789701581001
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.0441789701581001
+Best loss: 1.0441789701581001
+Best round: 29
+
+Round time: 315.8400399684906
+
+Round number: 30
+
+Server Test Results:
+              value
+Accuracy   0.655667
+Precision  0.650128
+Recall     0.655667
+f1-score   0.650531
+Server Test Loss: 0.9775363206863403
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 46.54269099235535
+Client 1 finished in 47.82845115661621
+Current batch of clients is [2, 3]
+Client 2 finished in 54.797123193740845
+Client 3 finished in 55.117018938064575
+Current batch of clients is [4, 5]
+Client 4 finished in 52.711193561553955
+Client 5 finished in 54.44667625427246
+Current batch of clients is [6, 7]
+Client 6 finished in 52.129324197769165
+Client 7 finished in 53.3677659034729
+Current batch of clients is [8, 9]
+Client 8 finished in 56.392399072647095
+Client 9 finished in 55.191725969314575
+
+Server Valid Results:
+              value
+Accuracy   0.637562
+Precision  0.631303
+Recall     0.637690
+f1-score   0.630668
+Server Valid Loss: 1.0179280117154121
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 1.0179280117154121
+Best loss: 1.0179280117154121
+Best round: 30
+
+Round time: 306.12765622138977
+
+Round number: 31
+
+Server Test Results:
+              value
+Accuracy   0.662917
+Precision  0.662218
+Recall     0.662917
+f1-score   0.661315
+Server Test Loss: 0.9556563496589661
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.167911529541016
+Client 1 finished in 55.4274115562439
+Current batch of clients is [2, 3]
+Client 2 finished in 50.429473876953125
+Client 3 finished in 56.93244528770447
+Current batch of clients is [4, 5]
+Client 4 finished in 58.821043968200684
+Client 5 finished in 60.70034599304199
+Current batch of clients is [6, 7]
+Client 6 finished in 54.89609909057617
+Client 7 finished in 53.86221408843994
+Current batch of clients is [8, 9]
+Client 8 finished in 58.326685190200806
+Client 9 finished in 62.21252918243408
+
+Server Valid Results:
+              value
+Accuracy   0.647669
+Precision  0.647179
+Recall     0.648435
+f1-score   0.645443
+Server Valid Loss: 0.9963384225964547
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.9963384225964547
+Best loss: 0.9963384225964547
+Best round: 31
+
+Round time: 330.27485394477844
+
+Round number: 32
+
+Server Test Results:
+              value
+Accuracy   0.665867
+Precision   0.66122
+Recall     0.665867
+f1-score   0.659504
+Server Test Loss: 0.947900116443634
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.71344614028931
+Client 1 finished in 62.79945421218872
+Current batch of clients is [2, 3]
+Client 2 finished in 58.40838694572449
+Client 3 finished in 62.64294981956482
+Current batch of clients is [4, 5]
+Client 4 finished in 54.524635314941406
+Client 5 finished in 55.59895968437195
+Current batch of clients is [6, 7]
+Client 6 finished in 60.59970211982727
+Client 7 finished in 58.358654737472534
+Current batch of clients is [8, 9]
+Client 8 finished in 59.160075664520264
+Client 9 finished in 55.29847574234009
+
+Server Valid Results:
+              value
+Accuracy   0.648717
+Precision  0.643664
+Recall     0.649630
+f1-score   0.641288
+Server Valid Loss: 0.990458782017231
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.990458782017231
+Best loss: 0.990458782017231
+Best round: 32
+
+Round time: 347.87202548980713
+
+Round number: 33
+
+Server Test Results:
+              value
+Accuracy     0.6733
+Precision  0.675927
+Recall       0.6733
+f1-score   0.673863
+Server Test Loss: 0.9291059374809265
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.961222887039185
+Client 1 finished in 56.378801107406616
+Current batch of clients is [2, 3]
+Client 2 finished in 61.7812705039978
+Client 3 finished in 63.44367170333862
+Current batch of clients is [4, 5]
+Client 4 finished in 55.646268367767334
+Client 5 finished in 58.63069748878479
+Current batch of clients is [6, 7]
+Client 6 finished in 55.91834759712219
+Client 7 finished in 60.77578043937683
+Current batch of clients is [8, 9]
+Client 8 finished in 56.40090012550354
+Client 9 finished in 60.30051779747009
+
+Server Valid Results:
+              value
+Accuracy   0.655768
+Precision  0.659067
+Recall     0.656024
+f1-score   0.655606
+Server Valid Loss: 0.9722215086221695
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.9722215086221695
+Best loss: 0.9722215086221695
+Best round: 33
+
+Round time: 344.49223494529724
+
+Round number: 34
+
+Server Test Results:
+              value
+Accuracy   0.680283
+Precision  0.675955
+Recall     0.680283
+f1-score   0.676078
+Server Test Loss: 0.9073669910430908
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 54.57575750350952
+Client 1 finished in 56.439292192459106
+Current batch of clients is [2, 3]
+Client 2 finished in 49.85271167755127
+Client 3 finished in 54.78527879714966
+Current batch of clients is [4, 5]
+Client 4 finished in 56.83497858047485
+Client 5 finished in 57.72120499610901
+Current batch of clients is [6, 7]
+Client 6 finished in 52.92705512046814
+Client 7 finished in 51.23900127410889
+Current batch of clients is [8, 9]
+Client 8 finished in 53.5793879032135
+Client 9 finished in 50.5201256275177
+
+Server Valid Results:
+              value
+Accuracy   0.662917
+Precision  0.658663
+Recall     0.663450
+f1-score   0.657441
+Server Valid Loss: 0.9513857156038285
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.9513857156038285
+Best loss: 0.9513857156038285
+Best round: 34
+
+Round time: 322.1321358680725
+
+Round number: 35
+
+Server Test Results:
+              value
+Accuracy   0.685233
+Precision   0.68381
+Recall     0.685233
+f1-score   0.683281
+Server Test Loss: 0.8940529227256775
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.525471448898315
+Client 1 finished in 54.05570721626282
+Current batch of clients is [2, 3]
+Client 2 finished in 55.22636151313782
+Client 3 finished in 51.4434232711792
+Current batch of clients is [4, 5]
+Client 4 finished in 57.012301206588745
+Client 5 finished in 55.577658891677856
+Current batch of clients is [6, 7]
+Client 6 finished in 56.59200692176819
+Client 7 finished in 55.90463447570801
+Current batch of clients is [8, 9]
+Client 8 finished in 59.71816849708557
+Client 9 finished in 55.160290002822876
+
+Server Valid Results:
+              value
+Accuracy   0.669649
+Precision  0.667486
+Recall     0.670091
+f1-score   0.666624
+Server Valid Loss: 0.93850809186697
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.93850809186697
+Best loss: 0.93850809186697
+Best round: 35
+
+Round time: 331.93377709388733
+
+Round number: 36
+
+Server Test Results:
+              value
+Accuracy   0.689167
+Precision  0.684381
+Recall     0.689167
+f1-score   0.684945
+Server Test Loss: 0.8835646510124207
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.90488409996033
+Client 1 finished in 51.51082229614258
+Current batch of clients is [2, 3]
+Client 2 finished in 61.58331608772278
+Client 3 finished in 59.2213454246521
+Current batch of clients is [4, 5]
+Client 4 finished in 57.212868213653564
+Client 5 finished in 58.722790002822876
+Current batch of clients is [6, 7]
+Client 6 finished in 58.43175792694092
+Client 7 finished in 57.40676426887512
+Current batch of clients is [8, 9]
+Client 8 finished in 53.71880745887756
+Client 9 finished in 55.304606676101685
+
+Server Valid Results:
+              value
+Accuracy   0.671013
+Precision  0.666666
+Recall     0.671671
+f1-score   0.666061
+Server Valid Loss: 0.9300917759537697
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.9300917759537697
+Best loss: 0.9300917759537697
+Best round: 36
+
+Round time: 329.90146684646606
+
+Round number: 37
+
+Server Test Results:
+              value
+Accuracy    0.69495
+Precision  0.692701
+Recall      0.69495
+f1-score   0.692625
+Server Test Loss: 0.8624670505523682
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.18612456321716
+Client 1 finished in 49.83723545074463
+Current batch of clients is [2, 3]
+Client 2 finished in 58.29122734069824
+Client 3 finished in 57.803762674331665
+Current batch of clients is [4, 5]
+Client 4 finished in 62.51243472099304
+Client 5 finished in 56.95068097114563
+Current batch of clients is [6, 7]
+Client 6 finished in 56.824069023132324
+Client 7 finished in 56.46650218963623
+Current batch of clients is [8, 9]
+Client 8 finished in 52.6833860874176
+Client 9 finished in 51.526970624923706
+
+Server Valid Results:
+              value
+Accuracy   0.677861
+Precision  0.675638
+Recall     0.678535
+f1-score   0.674963
+Server Valid Loss: 0.90868189483881
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.90868189483881
+Best loss: 0.90868189483881
+Best round: 37
+
+Round time: 326.5122220516205
+
+Round number: 38
+
+Server Test Results:
+              value
+Accuracy   0.694367
+Precision  0.695594
+Recall     0.694367
+f1-score   0.690833
+Server Test Loss: 0.8625031113624573
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.85941457748413
+Client 1 finished in 52.303231716156006
+Current batch of clients is [2, 3]
+Client 2 finished in 47.87557864189148
+Client 3 finished in 46.06696820259094
+Current batch of clients is [4, 5]
+Client 4 finished in 57.986323833465576
+Client 5 finished in 56.98476314544678
+Current batch of clients is [6, 7]
+Client 6 finished in 59.05734658241272
+Client 7 finished in 58.920554637908936
+Current batch of clients is [8, 9]
+Client 8 finished in 56.663689851760864
+Client 9 finished in 56.164865016937256
+
+Server Valid Results:
+              value
+Accuracy   0.679435
+Precision  0.682215
+Recall     0.679877
+f1-score   0.675271
+Server Valid Loss: 0.9099812269210815
+
+Criterion metrics:
+Current loss: 0.9099812269210815
+Best loss: 0.90868189483881
+Best round: 37
+
+Round time: 321.1205325126648
+
+Round number: 39
+
+Server Test Results:
+              value
+Accuracy    0.69885
+Precision  0.700437
+Recall      0.69885
+f1-score   0.694912
+Server Test Loss: 0.854276180267334
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 55.335206508636475
+Client 1 finished in 54.21620225906372
+Current batch of clients is [2, 3]
+Client 2 finished in 61.51761245727539
+Client 3 finished in 59.195945024490356
+Current batch of clients is [4, 5]
+Client 4 finished in 53.81803274154663
+Client 5 finished in 53.721259355545044
+Current batch of clients is [6, 7]
+Client 6 finished in 58.068636417388916
+Client 7 finished in 62.43120455741882
+Current batch of clients is [8, 9]
+Client 8 finished in 61.18484592437744
+Client 9 finished in 61.64693355560303
+
+Server Valid Results:
+              value
+Accuracy   0.677225
+Precision  0.679938
+Recall     0.677893
+f1-score   0.671753
+Server Valid Loss: 0.9053017348051071
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.9053017348051071
+Best loss: 0.9053017348051071
+Best round: 39
+
+Round time: 338.41123843193054
+
+Round number: 40
+
+Server Test Results:
+              value
+Accuracy   0.704167
+Precision  0.702949
+Recall     0.704167
+f1-score   0.701023
+Server Test Loss: 0.8364705443382263
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 51.445651054382324
+Client 1 finished in 51.07361817359924
+Current batch of clients is [2, 3]
+Client 2 finished in 59.095500469207764
+Client 3 finished in 59.17428112030029
+Current batch of clients is [4, 5]
+Client 4 finished in 54.02704572677612
+Client 5 finished in 54.049362659454346
+Current batch of clients is [6, 7]
+Client 6 finished in 55.19696807861328
+Client 7 finished in 55.81742072105408
+Current batch of clients is [8, 9]
+Client 8 finished in 59.27548789978027
+Client 9 finished in 58.7970826625824
+
+Server Valid Results:
+              value
+Accuracy   0.682068
+Precision  0.681974
+Recall     0.682963
+f1-score   0.678423
+Server Valid Loss: 0.8861396417021752
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8861396417021752
+Best loss: 0.8861396417021752
+Best round: 40
+
+Round time: 322.95107316970825
+
+Round number: 41
+
+Server Test Results:
+              value
+Accuracy     0.7048
+Precision  0.703014
+Recall       0.7048
+f1-score   0.699089
+Server Test Loss: 0.8328853845596313
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 44.321362018585205
+Client 1 finished in 45.08613324165344
+Current batch of clients is [2, 3]
+Client 2 finished in 56.61522912979126
+Client 3 finished in 58.49047231674194
+Current batch of clients is [4, 5]
+Client 4 finished in 57.02801489830017
+Client 5 finished in 55.960431814193726
+Current batch of clients is [6, 7]
+Client 6 finished in 48.99528765678406
+Client 7 finished in 48.764901876449585
+Current batch of clients is [8, 9]
+Client 8 finished in 55.00562644004822
+Client 9 finished in 55.81278920173645
+
+Server Valid Results:
+              value
+Accuracy   0.687638
+Precision  0.686121
+Recall     0.688850
+f1-score   0.681202
+Server Valid Loss: 0.8837315395474434
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8837315395474434
+Best loss: 0.8837315395474434
+Best round: 41
+
+Round time: 310.5544533729553
+
+Round number: 42
+
+Server Test Results:
+              value
+Accuracy      0.717
+Precision  0.714212
+Recall        0.717
+f1-score   0.714597
+Server Test Loss: 0.8040482997894287
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 51.084880352020264
+Client 1 finished in 52.082061767578125
+Current batch of clients is [2, 3]
+Client 2 finished in 46.00604295730591
+Client 3 finished in 46.97083377838135
+Current batch of clients is [4, 5]
+Client 4 finished in 58.63371276855469
+Client 5 finished in 58.61578917503357
+Current batch of clients is [6, 7]
+Client 6 finished in 60.77816605567932
+Client 7 finished in 60.54216456413269
+Current batch of clients is [8, 9]
+Client 8 finished in 50.98324775695801
+Client 9 finished in 51.63228392601013
+
+Server Valid Results:
+              value
+Accuracy   0.698373
+Precision  0.695895
+Recall     0.699004
+f1-score   0.695420
+Server Valid Loss: 0.8565938219428062
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8565938219428062
+Best loss: 0.8565938219428062
+Best round: 42
+
+Round time: 313.2222149372101
+
+Round number: 43
+
+Server Test Results:
+              value
+Accuracy   0.718233
+Precision  0.716834
+Recall     0.718233
+f1-score   0.714182
+Server Test Loss: 0.7964850664138794
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.44278812408447
+Client 1 finished in 56.51366710662842
+Current batch of clients is [2, 3]
+Client 2 finished in 58.20937752723694
+Client 3 finished in 58.31215524673462
+Current batch of clients is [4, 5]
+Client 4 finished in 49.59387421607971
+Client 5 finished in 48.82065939903259
+Current batch of clients is [6, 7]
+Client 6 finished in 59.87039661407471
+Client 7 finished in 59.91415214538574
+Current batch of clients is [8, 9]
+Client 8 finished in 60.86930227279663
+Client 9 finished in 61.5753698348999
+
+Server Valid Results:
+              value
+Accuracy   0.696685
+Precision  0.695510
+Recall     0.697702
+f1-score   0.691993
+Server Valid Loss: 0.8497527658939361
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8497527658939361
+Best loss: 0.8497527658939361
+Best round: 43
+
+Round time: 331.9857392311096
+
+Round number: 44
+
+Server Test Results:
+              value
+Accuracy   0.717283
+Precision  0.719146
+Recall     0.717283
+f1-score   0.714477
+Server Test Loss: 0.7967241406440735
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.43479108810425
+Client 1 finished in 54.05979824066162
+Current batch of clients is [2, 3]
+Client 2 finished in 59.33130431175232
+Client 3 finished in 59.082884788513184
+Current batch of clients is [4, 5]
+Client 4 finished in 55.75434160232544
+Client 5 finished in 55.466182470321655
+Current batch of clients is [6, 7]
+Client 6 finished in 53.23595666885376
+Client 7 finished in 53.15428161621094
+Current batch of clients is [8, 9]
+Client 8 finished in 57.02771329879761
+Client 9 finished in 56.723822355270386
+
+Server Valid Results:
+              value
+Accuracy   0.696682
+Precision  0.700463
+Recall     0.697725
+f1-score   0.693605
+Server Valid Loss: 0.8517118468880653
+
+Criterion metrics:
+Current loss: 0.8517118468880653
+Best loss: 0.8497527658939361
+Best round: 43
+
+Round time: 323.2744505405426
+
+Round number: 45
+
+Server Test Results:
+              value
+Accuracy    0.72325
+Precision  0.721156
+Recall      0.72325
+f1-score   0.720163
+Server Test Loss: 0.7878292202949524
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.278177976608276
+Client 1 finished in 48.90072727203369
+Current batch of clients is [2, 3]
+Client 2 finished in 55.52003574371338
+Client 3 finished in 55.257843017578125
+Current batch of clients is [4, 5]
+Client 4 finished in 56.65351343154907
+Client 5 finished in 57.36362099647522
+Current batch of clients is [6, 7]
+Client 6 finished in 52.44052529335022
+Client 7 finished in 53.70621418952942
+Current batch of clients is [8, 9]
+Client 8 finished in 53.13898730278015
+Client 9 finished in 54.133238077163696
+
+Server Valid Results:
+              value
+Accuracy   0.704584
+Precision  0.703518
+Recall     0.705513
+f1-score   0.701195
+Server Valid Loss: 0.8440365418791771
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8440365418791771
+Best loss: 0.8440365418791771
+Best round: 45
+
+Round time: 310.6518964767456
+
+Round number: 46
+
+Server Test Results:
+              value
+Accuracy   0.727833
+Precision  0.723812
+Recall     0.727833
+f1-score   0.722428
+Server Test Loss: 0.7740043997764587
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.91856408119202
+Client 1 finished in 55.38322734832764
+Current batch of clients is [2, 3]
+Client 2 finished in 48.902647256851196
+Client 3 finished in 49.90422248840332
+Current batch of clients is [4, 5]
+Client 4 finished in 55.014169692993164
+Client 5 finished in 55.36708045005798
+Current batch of clients is [6, 7]
+Client 6 finished in 59.91249895095825
+Client 7 finished in 59.838176250457764
+Current batch of clients is [8, 9]
+Client 8 finished in 54.27179026603699
+Client 9 finished in 53.84097743034363
+
+Server Valid Results:
+              value
+Accuracy   0.707111
+Precision  0.704140
+Recall     0.707991
+f1-score   0.700994
+Server Valid Loss: 0.8306981503963471
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8306981503963471
+Best loss: 0.8306981503963471
+Best round: 46
+
+Round time: 316.78801465034485
+
+Round number: 47
+
+Server Test Results:
+              value
+Accuracy   0.734267
+Precision  0.730903
+Recall     0.734267
+f1-score   0.730428
+Server Test Loss: 0.7599884867668152
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 63.419469118118286
+Client 1 finished in 61.223525524139404
+Current batch of clients is [2, 3]
+Client 2 finished in 58.16023111343384
+Client 3 finished in 58.75887441635132
+Current batch of clients is [4, 5]
+Client 4 finished in 62.08317160606384
+Client 5 finished in 61.19767761230469
+Current batch of clients is [6, 7]
+Client 6 finished in 61.57568597793579
+Client 7 finished in 62.822219371795654
+Current batch of clients is [8, 9]
+Client 8 finished in 54.52765917778015
+Client 9 finished in 55.20353031158447
+
+Server Valid Results:
+              value
+Accuracy   0.712883
+Precision  0.709819
+Recall     0.713550
+f1-score   0.708173
+Server Valid Loss: 0.8188389390707016
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8188389390707016
+Best loss: 0.8188389390707016
+Best round: 47
+
+Round time: 353.2726514339447
+
+Round number: 48
+
+Server Test Results:
+              value
+Accuracy   0.732667
+Precision  0.733389
+Recall     0.732667
+f1-score   0.728768
+Server Test Loss: 0.7544873356819153
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 55.7831244468689
+Client 1 finished in 60.58932852745056
+Current batch of clients is [2, 3]
+Client 2 finished in 53.54414224624634
+Client 3 finished in 53.49029612541199
+Current batch of clients is [4, 5]
+Client 4 finished in 57.17005228996277
+Client 5 finished in 57.65637969970703
+Current batch of clients is [6, 7]
+Client 6 finished in 62.93803143501282
+Client 7 finished in 61.96246814727783
+Current batch of clients is [8, 9]
+Client 8 finished in 57.264082193374634
+Client 9 finished in 58.17245888710022
+
+Server Valid Results:
+              value
+Accuracy   0.713841
+Precision  0.715758
+Recall     0.715152
+f1-score   0.709528
+Server Valid Loss: 0.8151559293270111
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.8151559293270111
+Best loss: 0.8151559293270111
+Best round: 48
+
+Round time: 335.89621686935425
+
+Round number: 49
+
+Server Test Results:
+              value
+Accuracy   0.746383
+Precision  0.744374
+Recall     0.746383
+f1-score   0.744582
+Server Test Loss: 0.72337406873703
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 60.18668532371521
+Client 1 finished in 60.313101291656494
+Current batch of clients is [2, 3]
+Client 2 finished in 42.91382813453674
+Client 3 finished in 44.70016002655029
+Current batch of clients is [4, 5]
+Client 4 finished in 56.6548855304718
+Client 5 finished in 57.41570210456848
+Current batch of clients is [6, 7]
+Client 6 finished in 52.78045153617859
+Client 7 finished in 54.90489649772644
+Current batch of clients is [8, 9]
+Client 8 finished in 53.01581072807312
+Client 9 finished in 53.19613790512085
+
+Server Valid Results:
+              value
+Accuracy   0.726989
+Precision  0.725101
+Recall     0.727708
+f1-score   0.724620
+Server Valid Loss: 0.7828920975327491
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7828920975327491
+Best loss: 0.7828920975327491
+Best round: 49
+
+Round time: 312.22974824905396
+
+Round number: 50
+
+Server Test Results:
+              value
+Accuracy   0.746717
+Precision  0.742279
+Recall     0.746717
+f1-score   0.742639
+Server Test Loss: 0.7211375832557678
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.23807621002197
+Client 1 finished in 52.75442171096802
+Current batch of clients is [2, 3]
+Client 2 finished in 53.53561353683472
+Client 3 finished in 54.899272441864014
+Current batch of clients is [4, 5]
+Client 4 finished in 51.8647255897522
+Client 5 finished in 52.462735414505005
+Current batch of clients is [6, 7]
+Client 6 finished in 54.510615825653076
+Client 7 finished in 55.05046200752258
+Current batch of clients is [8, 9]
+Client 8 finished in 59.41358757019043
+Client 9 finished in 58.3848192691803
+
+Server Valid Results:
+              value
+Accuracy   0.727093
+Precision  0.723386
+Recall     0.728059
+f1-score   0.722623
+Server Valid Loss: 0.7818965673446655
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7818965673446655
+Best loss: 0.7818965673446655
+Best round: 50
+
+Round time: 320.53991436958313
+
+Round number: 51
+
+Server Test Results:
+              value
+Accuracy   0.748783
+Precision  0.746542
+Recall     0.748783
+f1-score   0.745656
+Server Test Loss: 0.716946542263031
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.901437282562256
+Client 1 finished in 59.10300850868225
+Current batch of clients is [2, 3]
+Client 2 finished in 52.6060574054718
+Client 3 finished in 54.61614537239075
+Current batch of clients is [4, 5]
+Client 4 finished in 60.4594943523407
+Client 5 finished in 61.07838320732117
+Current batch of clients is [6, 7]
+Client 6 finished in 57.22704267501831
+Client 7 finished in 57.2165732383728
+Current batch of clients is [8, 9]
+Client 8 finished in 55.08487367630005
+Client 9 finished in 54.27715730667114
+
+Server Valid Results:
+              value
+Accuracy   0.728568
+Precision  0.727037
+Recall     0.729522
+f1-score   0.724999
+Server Valid Loss: 0.7783243298530579
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7783243298530579
+Best loss: 0.7783243298530579
+Best round: 51
+
+Round time: 330.01531171798706
+
+Round number: 52
+
+Server Test Results:
+              value
+Accuracy   0.755133
+Precision  0.753194
+Recall     0.755133
+f1-score   0.753174
+Server Test Loss: 0.7010648846626282
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.81911516189575
+Client 1 finished in 58.86264204978943
+Current batch of clients is [2, 3]
+Client 2 finished in 54.15664625167847
+Client 3 finished in 54.59135127067566
+Current batch of clients is [4, 5]
+Client 4 finished in 56.12597727775574
+Client 5 finished in 54.82889437675476
+Current batch of clients is [6, 7]
+Client 6 finished in 60.7333025932312
+Client 7 finished in 59.83687138557434
+Current batch of clients is [8, 9]
+Client 8 finished in 60.08489418029785
+Client 9 finished in 59.794689893722534
+
+Server Valid Results:
+              value
+Accuracy   0.736574
+Precision  0.735805
+Recall     0.737285
+f1-score   0.734062
+Server Valid Loss: 0.7633195370435715
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7633195370435715
+Best loss: 0.7633195370435715
+Best round: 52
+
+Round time: 334.44108867645264
+
+Round number: 53
+
+Server Test Results:
+              value
+Accuracy   0.756467
+Precision  0.754341
+Recall     0.756467
+f1-score   0.753632
+Server Test Loss: 0.6943184733390808
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 63.712674617767334
+Client 1 finished in 62.749755859375
+Current batch of clients is [2, 3]
+Client 2 finished in 57.89318895339966
+Client 3 finished in 55.65346693992615
+Current batch of clients is [4, 5]
+Client 4 finished in 47.364157915115356
+Client 5 finished in 47.44632387161255
+Current batch of clients is [6, 7]
+Client 6 finished in 57.770671367645264
+Client 7 finished in 56.02832055091858
+Current batch of clients is [8, 9]
+Client 8 finished in 55.222991943359375
+Client 9 finished in 54.38715219497681
+
+Server Valid Results:
+              value
+Accuracy   0.736144
+Precision  0.734787
+Recall     0.737010
+f1-score   0.732878
+Server Valid Loss: 0.759222874045372
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.759222874045372
+Best loss: 0.759222874045372
+Best round: 53
+
+Round time: 322.0501399040222
+
+Round number: 54
+
+Server Test Results:
+              value
+Accuracy   0.752617
+Precision  0.755984
+Recall     0.752617
+f1-score   0.751337
+Server Test Loss: 0.7042786478996277
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 51.75426530838013
+Client 1 finished in 51.91587567329407
+Current batch of clients is [2, 3]
+Client 2 finished in 58.55206775665283
+Client 3 finished in 58.233649015426636
+Current batch of clients is [4, 5]
+Client 4 finished in 47.37773776054382
+Client 5 finished in 46.9551956653595
+Current batch of clients is [6, 7]
+Client 6 finished in 54.65966248512268
+Client 7 finished in 54.01560568809509
+Current batch of clients is [8, 9]
+Client 8 finished in 56.951361417770386
+Client 9 finished in 56.869908809661865
+
+Server Valid Results:
+              value
+Accuracy   0.731091
+Precision  0.735861
+Recall     0.731707
+f1-score   0.729226
+Server Valid Loss: 0.7708595424890519
+
+Criterion metrics:
+Current loss: 0.7708595424890519
+Best loss: 0.759222874045372
+Best round: 53
+
+Round time: 313.57358837127686
+
+Round number: 55
+
+Server Test Results:
+              value
+Accuracy   0.752367
+Precision  0.756649
+Recall     0.752367
+f1-score   0.748502
+Server Test Loss: 0.699904203414917
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 55.71488976478577
+Client 1 finished in 55.980939865112305
+Current batch of clients is [2, 3]
+Client 2 finished in 51.037205934524536
+Client 3 finished in 52.860987424850464
+Current batch of clients is [4, 5]
+Client 4 finished in 54.163565158843994
+Client 5 finished in 54.21932530403137
+Current batch of clients is [6, 7]
+Client 6 finished in 50.860058069229126
+Client 7 finished in 50.4698646068573
+Current batch of clients is [8, 9]
+Client 8 finished in 60.304436445236206
+Client 9 finished in 59.963831424713135
+
+Server Valid Results:
+              value
+Accuracy   0.732463
+Precision  0.738442
+Recall     0.734384
+f1-score   0.728321
+Server Valid Loss: 0.769537852704525
+
+Criterion metrics:
+Current loss: 0.769537852704525
+Best loss: 0.759222874045372
+Best round: 53
+
+Round time: 319.5268144607544
+
+Round number: 56
+
+Server Test Results:
+              value
+Accuracy     0.7675
+Precision  0.767243
+Recall       0.7675
+f1-score   0.766596
+Server Test Loss: 0.6641395092010498
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 58.27769470214844
+Client 1 finished in 57.803056716918945
+Current batch of clients is [2, 3]
+Client 2 finished in 55.6494243144989
+Client 3 finished in 54.398112773895264
+Current batch of clients is [4, 5]
+Client 4 finished in 55.10311484336853
+Client 5 finished in 54.313918352127075
+Current batch of clients is [6, 7]
+Client 6 finished in 61.61919808387756
+Client 7 finished in 61.62722086906433
+Current batch of clients is [8, 9]
+Client 8 finished in 50.1177978515625
+Client 9 finished in 51.911811113357544
+
+Server Valid Results:
+              value
+Accuracy   0.746038
+Precision  0.745877
+Recall     0.746495
+f1-score   0.744476
+Server Valid Loss: 0.7304973855614663
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7304973855614663
+Best loss: 0.7304973855614663
+Best round: 56
+
+Round time: 330.2186105251312
+
+Round number: 57
+
+Server Test Results:
+              value
+Accuracy   0.769583
+Precision  0.768929
+Recall     0.769583
+f1-score   0.768236
+Server Test Loss: 0.6578766703605652
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 59.088233947753906
+Client 1 finished in 59.05319404602051
+Current batch of clients is [2, 3]
+Client 2 finished in 57.62152314186096
+Client 3 finished in 56.750492572784424
+Current batch of clients is [4, 5]
+Client 4 finished in 50.96800470352173
+Client 5 finished in 52.12076163291931
+Current batch of clients is [6, 7]
+Client 6 finished in 56.787569761276245
+Client 7 finished in 60.36382603645325
+Current batch of clients is [8, 9]
+Client 8 finished in 57.212103843688965
+Client 9 finished in 56.965336084365845
+
+Server Valid Results:
+              value
+Accuracy   0.748565
+Precision  0.749118
+Recall     0.749268
+f1-score   0.747000
+Server Valid Loss: 0.7266375765204429
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7266375765204429
+Best loss: 0.7266375765204429
+Best round: 57
+
+Round time: 331.5479488372803
+
+Round number: 58
+
+Server Test Results:
+              value
+Accuracy    0.77285
+Precision  0.772998
+Recall      0.77285
+f1-score   0.771715
+Server Test Loss: 0.6490980386734009
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 61.14686918258667
+Client 1 finished in 61.07220816612244
+Current batch of clients is [2, 3]
+Client 2 finished in 62.19512724876404
+Client 3 finished in 61.73395848274231
+Current batch of clients is [4, 5]
+Client 4 finished in 55.25737953186035
+Client 5 finished in 55.772377014160156
+Current batch of clients is [6, 7]
+Client 6 finished in 49.84808659553528
+Client 7 finished in 50.722853660583496
+Current batch of clients is [8, 9]
+Client 8 finished in 56.575119733810425
+Client 9 finished in 55.71733117103577
+
+Server Valid Results:
+              value
+Accuracy   0.751406
+Precision  0.752138
+Recall     0.751698
+f1-score   0.749559
+Server Valid Loss: 0.7197188094258309
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7197188094258309
+Best loss: 0.7197188094258309
+Best round: 58
+
+Round time: 327.1907227039337
+
+Round number: 59
+
+Server Test Results:
+              value
+Accuracy   0.775933
+Precision  0.775498
+Recall     0.775933
+f1-score   0.774994
+Server Test Loss: 0.6379770636558533
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.32906794548035
+Client 1 finished in 50.88924980163574
+Current batch of clients is [2, 3]
+Client 2 finished in 55.72264552116394
+Client 3 finished in 56.186025857925415
+Current batch of clients is [4, 5]
+Client 4 finished in 58.8434784412384
+Client 5 finished in 58.08010292053223
+Current batch of clients is [6, 7]
+Client 6 finished in 48.68008875846863
+Client 7 finished in 46.10715937614441
+Current batch of clients is [8, 9]
+Client 8 finished in 52.07888388633728
+Client 9 finished in 51.89962387084961
+
+Server Valid Results:
+              value
+Accuracy   0.751928
+Precision  0.751514
+Recall     0.752315
+f1-score   0.750323
+Server Valid Loss: 0.709660230576992
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.709660230576992
+Best loss: 0.709660230576992
+Best round: 59
+
+Round time: 301.42580580711365
+
+Round number: 60
+
+Server Test Results:
+              value
+Accuracy   0.778217
+Precision  0.776674
+Recall     0.778217
+f1-score   0.776267
+Server Test Loss: 0.6378072500228882
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.78524684906006
+Client 1 finished in 52.61291766166687
+Current batch of clients is [2, 3]
+Client 2 finished in 53.41378474235535
+Client 3 finished in 50.56608510017395
+Current batch of clients is [4, 5]
+Client 4 finished in 58.39089822769165
+Client 5 finished in 58.18545079231262
+Current batch of clients is [6, 7]
+Client 6 finished in 51.10906457901001
+Client 7 finished in 51.64565420150757
+Current batch of clients is [8, 9]
+Client 8 finished in 55.24939799308777
+Client 9 finished in 54.70358467102051
+
+Server Valid Results:
+              value
+Accuracy   0.756350
+Precision  0.755094
+Recall     0.757012
+f1-score   0.753891
+Server Valid Loss: 0.7094739869236946
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7094739869236946
+Best loss: 0.7094739869236946
+Best round: 60
+
+Round time: 318.2057945728302
+
+Round number: 61
+
+Server Test Results:
+              value
+Accuracy   0.779417
+Precision  0.777123
+Recall     0.779417
+f1-score   0.776533
+Server Test Loss: 0.6316651105880737
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 60.901007890701294
+Client 1 finished in 60.11563539505005
+Current batch of clients is [2, 3]
+Client 2 finished in 55.32758021354675
+Client 3 finished in 55.4146032333374
+Current batch of clients is [4, 5]
+Client 4 finished in 58.045738220214844
+Client 5 finished in 57.33927035331726
+Current batch of clients is [6, 7]
+Client 6 finished in 54.221575021743774
+Client 7 finished in 55.85808444023132
+Current batch of clients is [8, 9]
+Client 8 finished in 59.7307767868042
+Client 9 finished in 59.29578638076782
+
+Server Valid Results:
+              value
+Accuracy   0.755613
+Precision  0.753549
+Recall     0.755991
+f1-score   0.751937
+Server Valid Loss: 0.7061672329902648
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.7061672329902648
+Best loss: 0.7061672329902648
+Best round: 61
+
+Round time: 333.1663873195648
+
+Round number: 62
+
+Server Test Results:
+              value
+Accuracy   0.779917
+Precision  0.780985
+Recall     0.779917
+f1-score   0.777646
+Server Test Loss: 0.6301343441009521
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 54.027859926223755
+Client 1 finished in 52.59580683708191
+Current batch of clients is [2, 3]
+Client 2 finished in 60.2782781124115
+Client 3 finished in 59.12401461601257
+Current batch of clients is [4, 5]
+Client 4 finished in 55.177547454833984
+Client 5 finished in 54.66006922721863
+Current batch of clients is [6, 7]
+Client 6 finished in 57.519588232040405
+Client 7 finished in 57.38439154624939
+Current batch of clients is [8, 9]
+Client 8 finished in 58.640026330947876
+Client 9 finished in 58.523921489715576
+
+Server Valid Results:
+              value
+Accuracy   0.758352
+Precision  0.760480
+Recall     0.759515
+f1-score   0.755679
+Server Valid Loss: 0.7077262386679649
+
+Criterion metrics:
+Current loss: 0.7077262386679649
+Best loss: 0.7061672329902648
+Best round: 61
+
+Round time: 330.24102878570557
+
+Round number: 63
+
+Server Test Results:
+              value
+Accuracy   0.787467
+Precision  0.788212
+Recall     0.787467
+f1-score   0.787243
+Server Test Loss: 0.6096503734588623
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 54.90543723106384
+Client 1 finished in 54.72835922241211
+Current batch of clients is [2, 3]
+Client 2 finished in 54.700326681137085
+Client 3 finished in 54.52652549743652
+Current batch of clients is [4, 5]
+Client 4 finished in 56.88789486885071
+Client 5 finished in 57.33295130729675
+Current batch of clients is [6, 7]
+Client 6 finished in 55.795530557632446
+Client 7 finished in 56.17532515525818
+Current batch of clients is [8, 9]
+Client 8 finished in 54.5109486579895
+Client 9 finished in 53.44595980644226
+
+Server Valid Results:
+              value
+Accuracy   0.765187
+Precision  0.766049
+Recall     0.765754
+f1-score   0.764399
+Server Valid Loss: 0.6863968834280968
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6863968834280968
+Best loss: 0.6863968834280968
+Best round: 63
+
+Round time: 322.5696954727173
+
+Round number: 64
+
+Server Test Results:
+              value
+Accuracy   0.783333
+Precision  0.787205
+Recall     0.783333
+f1-score   0.783011
+Server Test Loss: 0.6207728981971741
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.73581314086914
+Client 1 finished in 56.19534921646118
+Current batch of clients is [2, 3]
+Client 2 finished in 55.899625062942505
+Client 3 finished in 53.606635093688965
+Current batch of clients is [4, 5]
+Client 4 finished in 53.110883951187134
+Client 5 finished in 53.16720390319824
+Current batch of clients is [6, 7]
+Client 6 finished in 52.247422218322754
+Client 7 finished in 52.147916316986084
+Current batch of clients is [8, 9]
+Client 8 finished in 48.26013159751892
+Client 9 finished in 46.66872787475586
+
+Server Valid Results:
+              value
+Accuracy   0.760452
+Precision  0.765025
+Recall     0.761315
+f1-score   0.760016
+Server Valid Loss: 0.6984311431646347
+
+Criterion metrics:
+Current loss: 0.6984311431646347
+Best loss: 0.6863968834280968
+Best round: 63
+
+Round time: 307.3912582397461
+
+Round number: 65
+
+Server Test Results:
+              value
+Accuracy     0.7887
+Precision  0.787694
+Recall       0.7887
+f1-score   0.785564
+Server Test Loss: 0.6037424802780151
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.644588232040405
+Client 1 finished in 57.07579827308655
+Current batch of clients is [2, 3]
+Client 2 finished in 56.76372241973877
+Client 3 finished in 56.101030588150024
+Current batch of clients is [4, 5]
+Client 4 finished in 50.25847148895264
+Client 5 finished in 49.71295642852783
+Current batch of clients is [6, 7]
+Client 6 finished in 55.12531018257141
+Client 7 finished in 54.360260009765625
+Current batch of clients is [8, 9]
+Client 8 finished in 48.25297570228577
+Client 9 finished in 49.10540270805359
+
+Server Valid Results:
+              value
+Accuracy   0.766129
+Precision  0.765069
+Recall     0.767330
+f1-score   0.762379
+Server Valid Loss: 0.6840719744563103
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6840719744563103
+Best loss: 0.6840719744563103
+Best round: 65
+
+Round time: 315.0523543357849
+
+Round number: 66
+
+Server Test Results:
+              value
+Accuracy   0.793533
+Precision  0.793074
+Recall     0.793533
+f1-score   0.791575
+Server Test Loss: 0.5926728248596191
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.74627733230591
+Client 1 finished in 57.461907625198364
+Current batch of clients is [2, 3]
+Client 2 finished in 59.92805337905884
+Client 3 finished in 59.866689682006836
+Current batch of clients is [4, 5]
+Client 4 finished in 60.220916986465454
+Client 5 finished in 59.58096957206726
+Current batch of clients is [6, 7]
+Client 6 finished in 53.51346969604492
+Client 7 finished in 53.44904017448425
+Current batch of clients is [8, 9]
+Client 8 finished in 50.79841113090515
+Client 9 finished in 51.15921378135681
+
+Server Valid Results:
+              value
+Accuracy   0.769921
+Precision  0.769940
+Recall     0.770653
+f1-score   0.767394
+Server Valid Loss: 0.6750074431300164
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6750074431300164
+Best loss: 0.6750074431300164
+Best round: 66
+
+Round time: 324.8716857433319
+
+Round number: 67
+
+Server Test Results:
+              value
+Accuracy    0.79755
+Precision  0.798114
+Recall      0.79755
+f1-score   0.796543
+Server Test Loss: 0.5836916565895081
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 58.881312131881714
+Client 1 finished in 57.02511525154114
+Current batch of clients is [2, 3]
+Client 2 finished in 59.50850582122803
+Client 3 finished in 59.274627923965454
+Current batch of clients is [4, 5]
+Client 4 finished in 60.757420778274536
+Client 5 finished in 63.03410840034485
+Current batch of clients is [6, 7]
+Client 6 finished in 60.15844655036926
+Client 7 finished in 58.98184275627136
+Current batch of clients is [8, 9]
+Client 8 finished in 50.611239194869995
+Client 9 finished in 48.43544268608093
+
+Server Valid Results:
+              value
+Accuracy   0.772236
+Precision  0.772317
+Recall     0.772767
+f1-score   0.770669
+Server Valid Loss: 0.6671168051660061
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6671168051660061
+Best loss: 0.6671168051660061
+Best round: 67
+
+Round time: 334.9466688632965
+
+Round number: 68
+
+Server Test Results:
+              value
+Accuracy   0.798983
+Precision  0.795755
+Recall     0.798983
+f1-score   0.796119
+Server Test Loss: 0.5788265466690063
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 59.284305572509766
+Client 1 finished in 59.829630613327026
+Current batch of clients is [2, 3]
+Client 2 finished in 56.00352621078491
+Client 3 finished in 56.54719567298889
+Current batch of clients is [4, 5]
+Client 4 finished in 56.2471706867218
+Client 5 finished in 57.838188886642456
+Current batch of clients is [6, 7]
+Client 6 finished in 60.62387728691101
+Client 7 finished in 60.7075834274292
+Current batch of clients is [8, 9]
+Client 8 finished in 58.86945986747742
+Client 9 finished in 58.59969449043274
+
+Server Valid Results:
+              value
+Accuracy   0.773187
+Precision  0.770055
+Recall     0.773906
+f1-score   0.769687
+Server Valid Loss: 0.6652315221726894
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6652315221726894
+Best loss: 0.6652315221726894
+Best round: 68
+
+Round time: 332.13443183898926
+
+Round number: 69
+
+Server Test Results:
+              value
+Accuracy   0.797283
+Precision  0.803148
+Recall     0.797283
+f1-score   0.797716
+Server Test Loss: 0.5782895088195801
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.739781618118286
+Client 1 finished in 55.81179475784302
+Current batch of clients is [2, 3]
+Client 2 finished in 59.82355189323425
+Client 3 finished in 60.49006962776184
+Current batch of clients is [4, 5]
+Client 4 finished in 53.96890091896057
+Client 5 finished in 55.56693935394287
+Current batch of clients is [6, 7]
+Client 6 finished in 56.13789343833923
+Client 7 finished in 56.161155462265015
+Current batch of clients is [8, 9]
+Client 8 finished in 56.472994565963745
+Client 9 finished in 55.806137800216675
+
+Server Valid Results:
+              value
+Accuracy   0.770762
+Precision  0.776846
+Recall     0.771329
+f1-score   0.770633
+Server Valid Loss: 0.6633438743650913
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6633438743650913
+Best loss: 0.6633438743650913
+Best round: 69
+
+Round time: 322.055837392807
+
+Round number: 70
+
+Server Test Results:
+              value
+Accuracy   0.800833
+Precision    0.7999
+Recall     0.800833
+f1-score   0.798862
+Server Test Loss: 0.5735605955123901
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.876625776290894
+Client 1 finished in 48.00774598121643
+Current batch of clients is [2, 3]
+Client 2 finished in 49.92491936683655
+Client 3 finished in 52.95871591567993
+Current batch of clients is [4, 5]
+Client 4 finished in 57.77064085006714
+Client 5 finished in 58.19754481315613
+Current batch of clients is [6, 7]
+Client 6 finished in 52.10034251213074
+Client 7 finished in 53.18000841140747
+Current batch of clients is [8, 9]
+Client 8 finished in 54.70865178108215
+Client 9 finished in 55.75445795059204
+
+Server Valid Results:
+              value
+Accuracy   0.771084
+Precision  0.770805
+Recall     0.771822
+f1-score   0.768599
+Server Valid Loss: 0.662765159457922
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.662765159457922
+Best loss: 0.662765159457922
+Best round: 70
+
+Round time: 310.5420653820038
+
+Round number: 71
+
+Server Test Results:
+              value
+Accuracy   0.804467
+Precision  0.804973
+Recall     0.804467
+f1-score   0.804057
+Server Test Loss: 0.5630436539649963
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.693479776382446
+Client 1 finished in 57.44435739517212
+Current batch of clients is [2, 3]
+Client 2 finished in 49.20176696777344
+Client 3 finished in 48.512460470199585
+Current batch of clients is [4, 5]
+Client 4 finished in 51.45424246788025
+Client 5 finished in 54.05749750137329
+Current batch of clients is [6, 7]
+Client 6 finished in 55.21846318244934
+Client 7 finished in 56.26756930351257
+Current batch of clients is [8, 9]
+Client 8 finished in 53.604127645492554
+Client 9 finished in 54.57664608955383
+
+Server Valid Results:
+              value
+Accuracy   0.779390
+Precision  0.779913
+Recall     0.779856
+f1-score   0.778318
+Server Valid Loss: 0.652434480190277
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.652434480190277
+Best loss: 0.652434480190277
+Best round: 71
+
+Round time: 309.34789657592773
+
+Round number: 72
+
+Server Test Results:
+              value
+Accuracy    0.80555
+Precision  0.805337
+Recall      0.80555
+f1-score     0.8043
+Server Test Loss: 0.5611538290977478
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.61889958381653
+Client 1 finished in 57.51509761810303
+Current batch of clients is [2, 3]
+Client 2 finished in 59.85462212562561
+Client 3 finished in 59.767329454422
+Current batch of clients is [4, 5]
+Client 4 finished in 47.738701820373535
+Client 5 finished in 47.73109531402588
+Current batch of clients is [6, 7]
+Client 6 finished in 56.44942378997803
+Client 7 finished in 58.29369330406189
+Current batch of clients is [8, 9]
+Client 8 finished in 60.01396298408508
+Client 9 finished in 60.05720353126526
+
+Server Valid Results:
+              value
+Accuracy   0.777916
+Precision  0.778420
+Recall     0.778634
+f1-score   0.776036
+Server Valid Loss: 0.6538484588265419
+
+Criterion metrics:
+Current loss: 0.6538484588265419
+Best loss: 0.652434480190277
+Best round: 71
+
+Round time: 330.69763255119324
+
+Round number: 73
+
+Server Test Results:
+              value
+Accuracy   0.811483
+Precision  0.810538
+Recall     0.811483
+f1-score   0.810414
+Server Test Loss: 0.5450818538665771
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.50860929489136
+Client 1 finished in 53.37018418312073
+Current batch of clients is [2, 3]
+Client 2 finished in 56.40364384651184
+Client 3 finished in 57.85124897956848
+Current batch of clients is [4, 5]
+Client 4 finished in 52.7301812171936
+Client 5 finished in 52.96927881240845
+Current batch of clients is [6, 7]
+Client 6 finished in 47.613165616989136
+Client 7 finished in 48.7149384021759
+Current batch of clients is [8, 9]
+Client 8 finished in 56.83140206336975
+Client 9 finished in 56.79203963279724
+
+Server Valid Results:
+              value
+Accuracy   0.783283
+Precision  0.782661
+Recall     0.783591
+f1-score   0.781340
+Server Valid Loss: 0.6409006722271442
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6409006722271442
+Best loss: 0.6409006722271442
+Best round: 73
+
+Round time: 309.4719092845917
+
+Round number: 74
+
+Server Test Results:
+             value
+Accuracy   0.81395
+Precision  0.81336
+Recall     0.81395
+f1-score    0.8133
+Server Test Loss: 0.5384023785591125
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.941529512405396
+Client 1 finished in 49.946396350860596
+Current batch of clients is [2, 3]
+Client 2 finished in 58.21183967590332
+Client 3 finished in 58.75945806503296
+Current batch of clients is [4, 5]
+Client 4 finished in 55.768948793411255
+Client 5 finished in 57.23902201652527
+Current batch of clients is [6, 7]
+Client 6 finished in 51.781090259552
+Client 7 finished in 50.91951060295105
+Current batch of clients is [8, 9]
+Client 8 finished in 52.164870738983154
+Client 9 finished in 52.56079888343811
+
+Server Valid Results:
+              value
+Accuracy   0.787069
+Precision  0.787336
+Recall     0.787614
+f1-score   0.786100
+Server Valid Loss: 0.6343839488923549
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6343839488923549
+Best loss: 0.6343839488923549
+Best round: 74
+
+Round time: 315.3794629573822
+
+Round number: 75
+
+Server Test Results:
+              value
+Accuracy   0.813483
+Precision  0.813835
+Recall     0.813483
+f1-score    0.81291
+Server Test Loss: 0.540088415145874
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 54.41955924034119
+Client 1 finished in 54.233431339263916
+Current batch of clients is [2, 3]
+Client 2 finished in 53.34692668914795
+Client 3 finished in 55.06947565078735
+Current batch of clients is [4, 5]
+Client 4 finished in 59.69638538360596
+Client 5 finished in 61.075347900390625
+Current batch of clients is [6, 7]
+Client 6 finished in 60.16424202919006
+Client 7 finished in 59.416845083236694
+Current batch of clients is [8, 9]
+Client 8 finished in 48.24297881126404
+Client 9 finished in 49.077857971191406
+
+Server Valid Results:
+              value
+Accuracy   0.786228
+Precision  0.786198
+Recall     0.786870
+f1-score   0.785055
+Server Valid Loss: 0.6361891873180866
+
+Criterion metrics:
+Current loss: 0.6361891873180866
+Best loss: 0.6343839488923549
+Best round: 74
+
+Round time: 320.8803458213806
+
+Round number: 76
+
+Server Test Results:
+              value
+Accuracy   0.815117
+Precision  0.813987
+Recall     0.815117
+f1-score   0.813021
+Server Test Loss: 0.5352974534034729
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 55.14117121696472
+Client 1 finished in 55.179344177246094
+Current batch of clients is [2, 3]
+Client 2 finished in 54.99682831764221
+Client 3 finished in 56.39176964759827
+Current batch of clients is [4, 5]
+Client 4 finished in 51.685338258743286
+Client 5 finished in 53.014777421951294
+Current batch of clients is [6, 7]
+Client 6 finished in 58.37443709373474
+Client 7 finished in 56.46507215499878
+Current batch of clients is [8, 9]
+Client 8 finished in 57.39043474197388
+Client 9 finished in 57.03579616546631
+
+Server Valid Results:
+              value
+Accuracy   0.783496
+Precision  0.782612
+Recall     0.783799
+f1-score   0.780680
+Server Valid Loss: 0.6364104859530926
+
+Criterion metrics:
+Current loss: 0.6364104859530926
+Best loss: 0.6343839488923549
+Best round: 74
+
+Round time: 323.4498782157898
+
+Round number: 77
+
+Server Test Results:
+              value
+Accuracy   0.813867
+Precision  0.813268
+Recall     0.813867
+f1-score    0.81213
+Server Test Loss: 0.5396320819854736
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.46209192276001
+Client 1 finished in 51.06135535240173
+Current batch of clients is [2, 3]
+Client 2 finished in 57.04348540306091
+Client 3 finished in 57.059884548187256
+Current batch of clients is [4, 5]
+Client 4 finished in 56.75780701637268
+Client 5 finished in 56.82516551017761
+Current batch of clients is [6, 7]
+Client 6 finished in 55.46362590789795
+Client 7 finished in 55.390679121017456
+Current batch of clients is [8, 9]
+Client 8 finished in 62.023457288742065
+Client 9 finished in 59.4900484085083
+
+Server Valid Results:
+              value
+Accuracy   0.784438
+Precision  0.784105
+Recall     0.785154
+f1-score   0.781893
+Server Valid Loss: 0.6394116550683975
+
+Criterion metrics:
+Current loss: 0.6394116550683975
+Best loss: 0.6343839488923549
+Best round: 74
+
+Round time: 320.56231904029846
+
+Round number: 78
+
+Server Test Results:
+              value
+Accuracy   0.820067
+Precision  0.820472
+Recall     0.820067
+f1-score   0.819269
+Server Test Loss: 0.5234929323196411
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 45.4126718044281
+Client 1 finished in 44.73845052719116
+Current batch of clients is [2, 3]
+Client 2 finished in 57.593154430389404
+Client 3 finished in 56.405301332473755
+Current batch of clients is [4, 5]
+Client 4 finished in 59.15178680419922
+Client 5 finished in 59.09793162345886
+Current batch of clients is [6, 7]
+Client 6 finished in 57.317569971084595
+Client 7 finished in 56.71755909919739
+Current batch of clients is [8, 9]
+Client 8 finished in 56.22937369346619
+Client 9 finished in 56.32666897773743
+
+Server Valid Results:
+              value
+Accuracy   0.785917
+Precision  0.787042
+Recall     0.786574
+f1-score   0.784521
+Server Valid Loss: 0.6284654527902603
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6284654527902603
+Best loss: 0.6284654527902603
+Best round: 78
+
+Round time: 321.0807430744171
+
+Round number: 79
+
+Server Test Results:
+              value
+Accuracy   0.810783
+Precision  0.811639
+Recall     0.810783
+f1-score   0.808198
+Server Test Loss: 0.544714093208313
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 59.50170373916626
+Client 1 finished in 59.264897108078
+Current batch of clients is [2, 3]
+Client 2 finished in 37.51346206665039
+Client 3 finished in 40.57928133010864
+Current batch of clients is [4, 5]
+Client 4 finished in 58.40212154388428
+Client 5 finished in 58.10258722305298
+Current batch of clients is [6, 7]
+Client 6 finished in 54.89125895500183
+Client 7 finished in 57.7901074886322
+Current batch of clients is [8, 9]
+Client 8 finished in 55.54593014717102
+Client 9 finished in 54.09022307395935
+
+Server Valid Results:
+              value
+Accuracy   0.780024
+Precision  0.781533
+Recall     0.780726
+f1-score   0.776720
+Server Valid Loss: 0.649553158134222
+
+Criterion metrics:
+Current loss: 0.649553158134222
+Best loss: 0.6284654527902603
+Best round: 78
+
+Round time: 310.48614144325256
+
+Round number: 80
+
+Server Test Results:
+              value
+Accuracy   0.823317
+Precision  0.823984
+Recall     0.823317
+f1-score   0.822362
+Server Test Loss: 0.509956955909729
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.89525604248047
+Client 1 finished in 52.785720109939575
+Current batch of clients is [2, 3]
+Client 2 finished in 49.72755169868469
+Client 3 finished in 49.76223659515381
+Current batch of clients is [4, 5]
+Client 4 finished in 48.60996985435486
+Client 5 finished in 47.9500036239624
+Current batch of clients is [6, 7]
+Client 6 finished in 59.316824197769165
+Client 7 finished in 59.290000438690186
+Current batch of clients is [8, 9]
+Client 8 finished in 58.495657444000244
+Client 9 finished in 59.793397188186646
+
+Server Valid Results:
+              value
+Accuracy   0.792121
+Precision  0.792878
+Recall     0.793265
+f1-score   0.790703
+Server Valid Loss: 0.6191481716930867
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6191481716930867
+Best loss: 0.6191481716930867
+Best round: 80
+
+Round time: 322.29888463020325
+
+Round number: 81
+
+Server Test Results:
+              value
+Accuracy     0.8238
+Precision  0.822455
+Recall       0.8238
+f1-score   0.822099
+Server Test Loss: 0.5130844116210938
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.123056173324585
+Client 1 finished in 58.0083863735199
+Current batch of clients is [2, 3]
+Client 2 finished in 53.7463698387146
+Client 3 finished in 54.21456718444824
+Current batch of clients is [4, 5]
+Client 4 finished in 51.24498629570007
+Client 5 finished in 51.54696297645569
+Current batch of clients is [6, 7]
+Client 6 finished in 52.592374086380005
+Client 7 finished in 52.57066321372986
+Current batch of clients is [8, 9]
+Client 8 finished in 60.031495094299316
+Client 9 finished in 58.818037271499634
+
+Server Valid Results:
+              value
+Accuracy   0.790014
+Precision  0.788690
+Recall     0.790576
+f1-score   0.787505
+Server Valid Loss: 0.6249988779425621
+
+Criterion metrics:
+Current loss: 0.6249988779425621
+Best loss: 0.6191481716930867
+Best round: 80
+
+Round time: 323.29844522476196
+
+Round number: 82
+
+Server Test Results:
+              value
+Accuracy   0.824367
+Precision  0.824526
+Recall     0.824367
+f1-score   0.823159
+Server Test Loss: 0.508612871170044
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.90048289299011
+Client 1 finished in 56.7487154006958
+Current batch of clients is [2, 3]
+Client 2 finished in 53.383769512176514
+Client 3 finished in 53.21267485618591
+Current batch of clients is [4, 5]
+Client 4 finished in 57.22920250892639
+Client 5 finished in 58.37977457046509
+Current batch of clients is [6, 7]
+Client 6 finished in 47.524102210998535
+Client 7 finished in 47.10725021362305
+Current batch of clients is [8, 9]
+Client 8 finished in 57.21172308921814
+Client 9 finished in 55.75203466415405
+
+Server Valid Results:
+              value
+Accuracy   0.792430
+Precision  0.792122
+Recall     0.792814
+f1-score   0.790389
+Server Valid Loss: 0.6186951614916325
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6186951614916325
+Best loss: 0.6186951614916325
+Best round: 82
+
+Round time: 313.76109647750854
+
+Round number: 83
+
+Server Test Results:
+              value
+Accuracy   0.824183
+Precision  0.825341
+Recall     0.824183
+f1-score   0.823386
+Server Test Loss: 0.5102206468582153
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 58.08232069015503
+Client 1 finished in 57.32440781593323
+Current batch of clients is [2, 3]
+Client 2 finished in 49.18301725387573
+Client 3 finished in 49.898263692855835
+Current batch of clients is [4, 5]
+Client 4 finished in 57.57028317451477
+Client 5 finished in 55.66252040863037
+Current batch of clients is [6, 7]
+Client 6 finished in 57.499738454818726
+Client 7 finished in 56.35938000679016
+Current batch of clients is [8, 9]
+Client 8 finished in 47.273882150650024
+Client 9 finished in 47.72175884246826
+
+Server Valid Results:
+              value
+Accuracy   0.791064
+Precision  0.792427
+Recall     0.791705
+f1-score   0.789567
+Server Valid Loss: 0.6222097828984261
+
+Criterion metrics:
+Current loss: 0.6222097828984261
+Best loss: 0.6186951614916325
+Best round: 82
+
+Round time: 314.07157826423645
+
+Round number: 84
+
+Server Test Results:
+              value
+Accuracy   0.831183
+Precision  0.831061
+Recall     0.831183
+f1-score   0.830549
+Server Test Loss: 0.4908813238143921
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 60.54574489593506
+Client 1 finished in 58.53482961654663
+Current batch of clients is [2, 3]
+Client 2 finished in 56.31338310241699
+Client 3 finished in 56.58142566680908
+Current batch of clients is [4, 5]
+Client 4 finished in 53.8260018825531
+Client 5 finished in 54.42548227310181
+Current batch of clients is [6, 7]
+Client 6 finished in 59.22081255912781
+Client 7 finished in 59.670308113098145
+Current batch of clients is [8, 9]
+Client 8 finished in 53.97429609298706
+Client 9 finished in 54.34791922569275
+
+Server Valid Results:
+              value
+Accuracy   0.795176
+Precision  0.795176
+Recall     0.795307
+f1-score   0.793646
+Server Valid Loss: 0.6046509616076946
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6046509616076946
+Best loss: 0.6046509616076946
+Best round: 84
+
+Round time: 329.43279814720154
+
+Round number: 85
+
+Server Test Results:
+              value
+Accuracy    0.83355
+Precision  0.833804
+Recall      0.83355
+f1-score   0.833256
+Server Test Loss: 0.4856918454170227
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 55.46070909500122
+Client 1 finished in 55.32127404212952
+Current batch of clients is [2, 3]
+Client 2 finished in 56.56941294670105
+Client 3 finished in 57.35129261016846
+Current batch of clients is [4, 5]
+Client 4 finished in 53.86642003059387
+Client 5 finished in 54.50579023361206
+Current batch of clients is [6, 7]
+Client 6 finished in 53.708590030670166
+Client 7 finished in 53.70628094673157
+Current batch of clients is [8, 9]
+Client 8 finished in 58.03297162055969
+Client 9 finished in 58.10888671875
+
+Server Valid Results:
+              value
+Accuracy   0.794968
+Precision  0.795250
+Recall     0.795287
+f1-score   0.794049
+Server Valid Loss: 0.6019941657781601
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.6019941657781601
+Best loss: 0.6019941657781601
+Best round: 85
+
+Round time: 320.05741119384766
+
+Round number: 86
+
+Server Test Results:
+              value
+Accuracy   0.828583
+Precision  0.828341
+Recall     0.828583
+f1-score   0.827248
+Server Test Loss: 0.4996658265590668
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.90470838546753
+Client 1 finished in 50.0456178188324
+Current batch of clients is [2, 3]
+Client 2 finished in 53.254855155944824
+Client 3 finished in 54.866398334503174
+Current batch of clients is [4, 5]
+Client 4 finished in 52.48622393608093
+Client 5 finished in 53.18726873397827
+Current batch of clients is [6, 7]
+Client 6 finished in 57.70190954208374
+Client 7 finished in 58.110004901885986
+Current batch of clients is [8, 9]
+Client 8 finished in 55.92345309257507
+Client 9 finished in 55.51594090461731
+
+Server Valid Results:
+              value
+Accuracy   0.791600
+Precision  0.791183
+Recall     0.791975
+f1-score   0.789393
+Server Valid Loss: 0.6189670130610466
+
+Criterion metrics:
+Current loss: 0.6189670130610466
+Best loss: 0.6019941657781601
+Best round: 85
+
+Round time: 313.2416274547577
+
+Round number: 87
+
+Server Test Results:
+              value
+Accuracy   0.834033
+Precision  0.836553
+Recall     0.834033
+f1-score   0.834641
+Server Test Loss: 0.4836764633655548
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 54.532941579818726
+Client 1 finished in 53.69966435432434
+Current batch of clients is [2, 3]
+Client 2 finished in 57.42312836647034
+Client 3 finished in 57.278427600860596
+Current batch of clients is [4, 5]
+Client 4 finished in 55.39666724205017
+Client 5 finished in 52.39365816116333
+Current batch of clients is [6, 7]
+Client 6 finished in 60.67862844467163
+Client 7 finished in 59.1602578163147
+Current batch of clients is [8, 9]
+Client 8 finished in 58.21559500694275
+Client 9 finished in 57.970579385757446
+
+Server Valid Results:
+              value
+Accuracy   0.796862
+Precision  0.799992
+Recall     0.797295
+f1-score   0.796830
+Server Valid Loss: 0.6084316536784172
+
+Criterion metrics:
+Current loss: 0.6084316536784172
+Best loss: 0.6019941657781601
+Best round: 85
+
+Round time: 330.73270416259766
+
+Round number: 88
+
+Server Test Results:
+              value
+Accuracy   0.835533
+Precision  0.835398
+Recall     0.835533
+f1-score   0.834465
+Server Test Loss: 0.47789809107780457
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 55.704217195510864
+Client 1 finished in 57.179543018341064
+Current batch of clients is [2, 3]
+Client 2 finished in 48.94949197769165
+Client 3 finished in 46.32420778274536
+Current batch of clients is [4, 5]
+Client 4 finished in 52.840062618255615
+Client 5 finished in 52.877912521362305
+Current batch of clients is [6, 7]
+Client 6 finished in 56.272109031677246
+Client 7 finished in 56.1272349357605
+Current batch of clients is [8, 9]
+Client 8 finished in 55.714486837387085
+Client 9 finished in 55.6352059841156
+
+Server Valid Results:
+              value
+Accuracy   0.794646
+Precision  0.794997
+Recall     0.794804
+f1-score   0.792889
+Server Valid Loss: 0.6025664590299129
+
+Criterion metrics:
+Current loss: 0.6025664590299129
+Best loss: 0.6019941657781601
+Best round: 85
+
+Round time: 313.14718770980835
+
+Round number: 89
+
+Server Test Results:
+              value
+Accuracy   0.840883
+Precision  0.840394
+Recall     0.840883
+f1-score   0.840419
+Server Test Loss: 0.46568596363067627
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.35195183753967
+Client 1 finished in 56.94264531135559
+Current batch of clients is [2, 3]
+Client 2 finished in 55.70689606666565
+Client 3 finished in 56.48210334777832
+Current batch of clients is [4, 5]
+Client 4 finished in 45.9394690990448
+Client 5 finished in 46.349767446517944
+Current batch of clients is [6, 7]
+Client 6 finished in 56.19605255126953
+Client 7 finished in 54.67233633995056
+Current batch of clients is [8, 9]
+Client 8 finished in 46.36982560157776
+Client 9 finished in 53.037023305892944
+
+Server Valid Results:
+              value
+Accuracy   0.801908
+Precision  0.801429
+Recall     0.802477
+f1-score   0.800717
+Server Valid Loss: 0.5903715878725052
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5903715878725052
+Best loss: 0.5903715878725052
+Best round: 89
+
+Round time: 310.8543746471405
+
+Round number: 90
+
+Server Test Results:
+              value
+Accuracy    0.84095
+Precision  0.841376
+Recall      0.84095
+f1-score   0.840229
+Server Test Loss: 0.4673179090023041
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.41632699966431
+Client 1 finished in 55.94039845466614
+Current batch of clients is [2, 3]
+Client 2 finished in 50.11819577217102
+Client 3 finished in 50.29909110069275
+Current batch of clients is [4, 5]
+Client 4 finished in 53.946221113204956
+Client 5 finished in 56.39042043685913
+Current batch of clients is [6, 7]
+Client 6 finished in 50.836058616638184
+Client 7 finished in 54.957303285598755
+Current batch of clients is [8, 9]
+Client 8 finished in 55.003793716430664
+Client 9 finished in 53.4242901802063
+
+Server Valid Results:
+              value
+Accuracy   0.801799
+Precision  0.801953
+Recall     0.802501
+f1-score   0.800377
+Server Valid Loss: 0.594207190722227
+
+Criterion metrics:
+Current loss: 0.594207190722227
+Best loss: 0.5903715878725052
+Best round: 89
+
+Round time: 322.6957018375397
+
+Round number: 91
+
+Server Test Results:
+              value
+Accuracy     0.8412
+Precision  0.841848
+Recall       0.8412
+f1-score   0.841087
+Server Test Loss: 0.4636363387107849
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.72823905944824
+Client 1 finished in 58.86762046813965
+Current batch of clients is [2, 3]
+Client 2 finished in 61.65918207168579
+Client 3 finished in 61.42843055725098
+Current batch of clients is [4, 5]
+Client 4 finished in 56.7555775642395
+Client 5 finished in 55.1110577583313
+Current batch of clients is [6, 7]
+Client 6 finished in 52.597469091415405
+Client 7 finished in 52.170753955841064
+Current batch of clients is [8, 9]
+Client 8 finished in 56.77154016494751
+Client 9 finished in 57.125792503356934
+
+Server Valid Results:
+              value
+Accuracy   0.801383
+Precision  0.802155
+Recall     0.802061
+f1-score   0.800781
+Server Valid Loss: 0.5900684751570224
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5900684751570224
+Best loss: 0.5900684751570224
+Best round: 91
+
+Round time: 335.35525608062744
+
+Round number: 92
+
+Server Test Results:
+              value
+Accuracy    0.84155
+Precision  0.843918
+Recall      0.84155
+f1-score   0.841036
+Server Test Loss: 0.4704802334308624
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.748295545578
+Client 1 finished in 56.08611798286438
+Current batch of clients is [2, 3]
+Client 2 finished in 56.9290087223053
+Client 3 finished in 58.92655324935913
+Current batch of clients is [4, 5]
+Client 4 finished in 62.12470483779907
+Client 5 finished in 60.97569942474365
+Current batch of clients is [6, 7]
+Client 6 finished in 48.163813829422
+Client 7 finished in 51.187530517578125
+Current batch of clients is [8, 9]
+Client 8 finished in 48.521220684051514
+Client 9 finished in 48.06401610374451
+
+Server Valid Results:
+              value
+Accuracy   0.805278
+Precision  0.808161
+Recall     0.806136
+f1-score   0.804280
+Server Valid Loss: 0.6004384189844132
+
+Criterion metrics:
+Current loss: 0.6004384189844132
+Best loss: 0.5900684751570224
+Best round: 91
+
+Round time: 324.06454825401306
+
+Round number: 93
+
+Server Test Results:
+              value
+Accuracy     0.8418
+Precision  0.843655
+Recall       0.8418
+f1-score   0.841466
+Server Test Loss: 0.46678364276885986
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.727216482162476
+Client 1 finished in 57.36612582206726
+Current batch of clients is [2, 3]
+Client 2 finished in 57.10803484916687
+Client 3 finished in 57.058642625808716
+Current batch of clients is [4, 5]
+Client 4 finished in 58.829307079315186
+Client 5 finished in 60.99121928215027
+Current batch of clients is [6, 7]
+Client 6 finished in 56.99452352523804
+Client 7 finished in 56.7879102230072
+Current batch of clients is [8, 9]
+Client 8 finished in 45.75566649436951
+Client 9 finished in 46.27072215080261
+
+Server Valid Results:
+              value
+Accuracy   0.801696
+Precision  0.803809
+Recall     0.801857
+f1-score   0.800463
+Server Valid Loss: 0.5991788007318973
+
+Criterion metrics:
+Current loss: 0.5991788007318973
+Best loss: 0.5900684751570224
+Best round: 91
+
+Round time: 323.94108963012695
+
+Round number: 94
+
+Server Test Results:
+              value
+Accuracy    0.84625
+Precision  0.845386
+Recall      0.84625
+f1-score     0.8454
+Server Test Loss: 0.4524502456188202
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 60.65637445449829
+Client 1 finished in 60.71988248825073
+Current batch of clients is [2, 3]
+Client 2 finished in 55.1420361995697
+Client 3 finished in 55.778637647628784
+Current batch of clients is [4, 5]
+Client 4 finished in 57.97328972816467
+Client 5 finished in 58.739906311035156
+Current batch of clients is [6, 7]
+Client 6 finished in 59.7014479637146
+Client 7 finished in 59.62115430831909
+Current batch of clients is [8, 9]
+Client 8 finished in 52.77850008010864
+Client 9 finished in 52.87252712249756
+
+Server Valid Results:
+              value
+Accuracy   0.803798
+Precision  0.803520
+Recall     0.804431
+f1-score   0.802288
+Server Valid Loss: 0.5878002122044563
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5878002122044563
+Best loss: 0.5878002122044563
+Best round: 94
+
+Round time: 328.18942952156067
+
+Round number: 95
+
+Server Test Results:
+              value
+Accuracy   0.845967
+Precision  0.848326
+Recall     0.845967
+f1-score   0.845184
+Server Test Loss: 0.45318061113357544
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.93513464927673
+Client 1 finished in 55.03724932670593
+Current batch of clients is [2, 3]
+Client 2 finished in 56.746790170669556
+Client 3 finished in 57.16706085205078
+Current batch of clients is [4, 5]
+Client 4 finished in 52.840712547302246
+Client 5 finished in 52.899065256118774
+Current batch of clients is [6, 7]
+Client 6 finished in 56.89388084411621
+Client 7 finished in 57.31218600273132
+Current batch of clients is [8, 9]
+Client 8 finished in 56.126497983932495
+Client 9 finished in 56.529643297195435
+
+Server Valid Results:
+              value
+Accuracy   0.805697
+Precision  0.809531
+Recall     0.806728
+f1-score   0.804560
+Server Valid Loss: 0.5908747687935829
+
+Criterion metrics:
+Current loss: 0.5908747687935829
+Best loss: 0.5878002122044563
+Best round: 94
+
+Round time: 315.7309865951538
+
+Round number: 96
+
+Server Test Results:
+              value
+Accuracy   0.851083
+Precision  0.850893
+Recall     0.851083
+f1-score   0.850512
+Server Test Loss: 0.43940988183021545
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 45.94067406654358
+Client 1 finished in 46.5434353351593
+Current batch of clients is [2, 3]
+Client 2 finished in 60.35975384712219
+Client 3 finished in 58.410691022872925
+Current batch of clients is [4, 5]
+Client 4 finished in 58.91669201850891
+Client 5 finished in 60.34574031829834
+Current batch of clients is [6, 7]
+Client 6 finished in 55.66996741294861
+Client 7 finished in 56.029000997543335
+Current batch of clients is [8, 9]
+Client 8 finished in 60.31379675865173
+Client 9 finished in 60.5451180934906
+
+Server Valid Results:
+              value
+Accuracy   0.807901
+Precision  0.808008
+Recall     0.808091
+f1-score   0.806801
+Server Valid Loss: 0.5773094683885575
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5773094683885575
+Best loss: 0.5773094683885575
+Best round: 96
+
+Round time: 324.4489731788635
+
+Round number: 97
+
+Server Test Results:
+              value
+Accuracy   0.847117
+Precision  0.848804
+Recall     0.847117
+f1-score   0.847698
+Server Test Loss: 0.44802403450012207
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.01815366744995
+Client 1 finished in 55.75585722923279
+Current batch of clients is [2, 3]
+Client 2 finished in 48.85100483894348
+Client 3 finished in 49.00215458869934
+Current batch of clients is [4, 5]
+Client 4 finished in 60.799522161483765
+Client 5 finished in 61.09269189834595
+Current batch of clients is [6, 7]
+Client 6 finished in 57.903942823410034
+Client 7 finished in 58.93187761306763
+Current batch of clients is [8, 9]
+Client 8 finished in 55.191336154937744
+Client 9 finished in 56.178690910339355
+
+Server Valid Results:
+              value
+Accuracy   0.802436
+Precision  0.804737
+Recall     0.802849
+f1-score   0.802612
+Server Valid Loss: 0.5877803787589073
+
+Criterion metrics:
+Current loss: 0.5877803787589073
+Best loss: 0.5773094683885575
+Best round: 96
+
+Round time: 318.99835681915283
+
+Round number: 98
+
+Server Test Results:
+              value
+Accuracy    0.84915
+Precision  0.848958
+Recall      0.84915
+f1-score   0.847285
+Server Test Loss: 0.4435748755931854
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 58.452269077301025
+Client 1 finished in 58.70411205291748
+Current batch of clients is [2, 3]
+Client 2 finished in 49.72973942756653
+Client 3 finished in 49.85806941986084
+Current batch of clients is [4, 5]
+Client 4 finished in 52.661264181137085
+Client 5 finished in 54.491905212402344
+Current batch of clients is [6, 7]
+Client 6 finished in 58.36688780784607
+Client 7 finished in 58.63028836250305
+Current batch of clients is [8, 9]
+Client 8 finished in 55.362452268600464
+Client 9 finished in 56.64415645599365
+
+Server Valid Results:
+              value
+Accuracy   0.803691
+Precision  0.803866
+Recall     0.804478
+f1-score   0.801179
+Server Valid Loss: 0.5872377775609493
+
+Criterion metrics:
+Current loss: 0.5872377775609493
+Best loss: 0.5773094683885575
+Best round: 96
+
+Round time: 316.96396946907043
+
+Round number: 99
+
+Server Test Results:
+              value
+Accuracy   0.850617
+Precision  0.851247
+Recall     0.850617
+f1-score   0.849749
+Server Test Loss: 0.43663039803504944
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 58.31431818008423
+Client 1 finished in 60.09304857254028
+Current batch of clients is [2, 3]
+Client 2 finished in 58.29288959503174
+Client 3 finished in 60.147847175598145
+Current batch of clients is [4, 5]
+Client 4 finished in 46.81697368621826
+Client 5 finished in 45.541627407073975
+Current batch of clients is [6, 7]
+Client 6 finished in 62.49268937110901
+Client 7 finished in 62.2352397441864
+Current batch of clients is [8, 9]
+Client 8 finished in 58.842745304107666
+Client 9 finished in 61.20187306404114
+
+Server Valid Results:
+              value
+Accuracy   0.804846
+Precision  0.805563
+Recall     0.805314
+f1-score   0.803250
+Server Valid Loss: 0.5817721493542194
+
+Criterion metrics:
+Current loss: 0.5817721493542194
+Best loss: 0.5773094683885575
+Best round: 96
+
+Round time: 323.8502368927002
+
+Round number: 100
+
+Server Test Results:
+              value
+Accuracy   0.853333
+Precision   0.85286
+Recall     0.853333
+f1-score   0.852168
+Server Test Loss: 0.43439504504203796
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 56.077316999435425
+Client 1 finished in 58.57472372055054
+Current batch of clients is [2, 3]
+Client 2 finished in 60.95100116729736
+Client 3 finished in 62.096274852752686
+Current batch of clients is [4, 5]
+Client 4 finished in 60.272403955459595
+Client 5 finished in 62.25626182556152
+Current batch of clients is [6, 7]
+Client 6 finished in 44.687599658966064
+Client 7 finished in 48.345951318740845
+Current batch of clients is [8, 9]
+Client 8 finished in 61.21843218803406
+Client 9 finished in 62.11201739311218
+
+Server Valid Results:
+              value
+Accuracy   0.806958
+Precision  0.806345
+Recall     0.807707
+f1-score   0.805085
+Server Valid Loss: 0.5819012224674225
+
+Criterion metrics:
+Current loss: 0.5819012224674225
+Best loss: 0.5773094683885575
+Best round: 96
+
+Round time: 335.1976521015167
+
+Round number: 101
+
+Server Test Results:
+              value
+Accuracy   0.856067
+Precision  0.854531
+Recall     0.856067
+f1-score   0.854865
+Server Test Loss: 0.4269469976425171
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.236369132995605
+Client 1 finished in 57.513766050338745
+Current batch of clients is [2, 3]
+Client 2 finished in 54.521302223205566
+Client 3 finished in 57.4118754863739
+Current batch of clients is [4, 5]
+Client 4 finished in 56.782750368118286
+Client 5 finished in 59.553181171417236
+Current batch of clients is [6, 7]
+Client 6 finished in 51.860077142715454
+Client 7 finished in 56.75998616218567
+Current batch of clients is [8, 9]
+Client 8 finished in 49.15122127532959
+Client 9 finished in 53.843865633010864
+
+Server Valid Results:
+              value
+Accuracy   0.809898
+Precision  0.807646
+Recall     0.810272
+f1-score   0.807607
+Server Valid Loss: 0.5767266497015953
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5767266497015953
+Best loss: 0.5767266497015953
+Best round: 101
+
+Round time: 327.25124740600586
+
+Round number: 102
+
+Server Test Results:
+              value
+Accuracy   0.856567
+Precision  0.856825
+Recall     0.856567
+f1-score   0.855813
+Server Test Loss: 0.4254912734031677
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 57.359910011291504
+Client 1 finished in 57.14725112915039
+Current batch of clients is [2, 3]
+Client 2 finished in 56.192142724990845
+Client 3 finished in 57.24048972129822
+Current batch of clients is [4, 5]
+Client 4 finished in 61.38041424751282
+Client 5 finished in 61.13607954978943
+Current batch of clients is [6, 7]
+Client 6 finished in 59.736905336380005
+Client 7 finished in 59.66307830810547
+Current batch of clients is [8, 9]
+Client 8 finished in 48.32306265830994
+Client 9 finished in 48.748942136764526
+
+Server Valid Results:
+              value
+Accuracy   0.811272
+Precision  0.811472
+Recall     0.812020
+f1-score   0.809740
+Server Valid Loss: 0.5745123118162155
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5745123118162155
+Best loss: 0.5745123118162155
+Best round: 102
+
+Round time: 322.14188385009766
+
+Round number: 103
+
+Server Test Results:
+              value
+Accuracy   0.857183
+Precision  0.857888
+Recall     0.857183
+f1-score   0.857208
+Server Test Loss: 0.4190213680267334
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 59.64966034889221
+Client 1 finished in 59.81611347198486
+Current batch of clients is [2, 3]
+Client 2 finished in 60.0757737159729
+Client 3 finished in 60.15532970428467
+Current batch of clients is [4, 5]
+Client 4 finished in 50.756598472595215
+Client 5 finished in 52.11779308319092
+Current batch of clients is [6, 7]
+Client 6 finished in 52.346789598464966
+Client 7 finished in 52.32377362251282
+Current batch of clients is [8, 9]
+Client 8 finished in 47.69727659225464
+Client 9 finished in 48.03811454772949
+
+Server Valid Results:
+              value
+Accuracy   0.809592
+Precision  0.811179
+Recall     0.810087
+f1-score   0.808902
+Server Valid Loss: 0.5712826907634735
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5712826907634735
+Best loss: 0.5712826907634735
+Best round: 103
+
+Round time: 309.54572343826294
+
+Round number: 104
+
+Server Test Results:
+              value
+Accuracy   0.856917
+Precision  0.857882
+Recall     0.856917
+f1-score   0.856558
+Server Test Loss: 0.424876868724823
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.53580403327942
+Client 1 finished in 47.99621367454529
+Current batch of clients is [2, 3]
+Client 2 finished in 47.46752667427063
+Client 3 finished in 48.365716218948364
+Current batch of clients is [4, 5]
+Client 4 finished in 49.21070623397827
+Client 5 finished in 48.765878200531006
+Current batch of clients is [6, 7]
+Client 6 finished in 46.55444860458374
+Client 7 finished in 48.37981081008911
+Current batch of clients is [8, 9]
+Client 8 finished in 47.45638132095337
+Client 9 finished in 48.32155680656433
+
+Server Valid Results:
+              value
+Accuracy   0.811796
+Precision  0.812912
+Recall     0.812551
+f1-score   0.810688
+Server Valid Loss: 0.5791610859334468
+
+Criterion metrics:
+Current loss: 0.5791610859334468
+Best loss: 0.5712826907634735
+Best round: 103
+
+Round time: 270.5193860530853
+
+Round number: 105
+
+Server Test Results:
+              value
+Accuracy   0.858517
+Precision  0.860905
+Recall     0.858517
+f1-score   0.859316
+Server Test Loss: 0.4175030291080475
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 38.9062340259552
+Client 1 finished in 40.182791233062744
+Current batch of clients is [2, 3]
+Client 2 finished in 50.41544055938721
+Client 3 finished in 49.46805167198181
+Current batch of clients is [4, 5]
+Client 4 finished in 49.761637926101685
+Client 5 finished in 50.28913235664368
+Current batch of clients is [6, 7]
+Client 6 finished in 48.956347942352295
+Client 7 finished in 51.44441771507263
+Current batch of clients is [8, 9]
+Client 8 finished in 50.144819259643555
+Client 9 finished in 51.83266830444336
+
+Server Valid Results:
+              value
+Accuracy   0.811387
+Precision  0.814321
+Recall     0.811824
+f1-score   0.811739
+Server Valid Loss: 0.5727044209837914
+
+Criterion metrics:
+Current loss: 0.5727044209837914
+Best loss: 0.5712826907634735
+Best round: 103
+
+Round time: 275.55197739601135
+
+Round number: 106
+
+Server Test Results:
+              value
+Accuracy   0.858267
+Precision  0.858861
+Recall     0.858267
+f1-score   0.857352
+Server Test Loss: 0.41819098591804504
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 44.135058879852295
+Client 1 finished in 47.618088245391846
+Current batch of clients is [2, 3]
+Client 2 finished in 45.20371627807617
+Client 3 finished in 49.99472522735596
+Current batch of clients is [4, 5]
+Client 4 finished in 48.282031536102295
+Client 5 finished in 52.08539605140686
+Current batch of clients is [6, 7]
+Client 6 finished in 47.65062928199768
+Client 7 finished in 49.97303509712219
+Current batch of clients is [8, 9]
+Client 8 finished in 49.91651248931885
+Client 9 finished in 51.22185945510864
+
+Server Valid Results:
+              value
+Accuracy   0.812212
+Precision  0.812435
+Recall     0.812212
+f1-score   0.810408
+Server Valid Loss: 0.5728592991828918
+
+Criterion metrics:
+Current loss: 0.5728592991828918
+Best loss: 0.5712826907634735
+Best round: 103
+
+Round time: 285.63283014297485
+
+Round number: 107
+
+Server Test Results:
+              value
+Accuracy   0.862483
+Precision  0.861896
+Recall     0.862483
+f1-score   0.861567
+Server Test Loss: 0.40579724311828613
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 42.304582834243774
+Client 1 finished in 42.12343740463257
+Current batch of clients is [2, 3]
+Client 2 finished in 46.22280550003052
+Client 3 finished in 50.72783613204956
+Current batch of clients is [4, 5]
+Client 4 finished in 43.674935817718506
+Client 5 finished in 48.45955204963684
+Current batch of clients is [6, 7]
+Client 6 finished in 47.527832984924316
+Client 7 finished in 48.47202801704407
+Current batch of clients is [8, 9]
+Client 8 finished in 44.96839737892151
+Client 9 finished in 46.154560804367065
+
+Server Valid Results:
+              value
+Accuracy   0.814531
+Precision  0.814113
+Recall     0.815447
+f1-score   0.812916
+Server Valid Loss: 0.5647375151515007
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5647375151515007
+Best loss: 0.5647375151515007
+Best round: 107
+
+Round time: 274.8148248195648
+
+Round number: 108
+
+Server Test Results:
+              value
+Accuracy   0.866217
+Precision  0.865624
+Recall     0.866217
+f1-score   0.865799
+Server Test Loss: 0.3988063335418701
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 46.99279570579529
+Client 1 finished in 47.53638458251953
+Current batch of clients is [2, 3]
+Client 2 finished in 47.45901155471802
+Client 3 finished in 48.32880973815918
+Current batch of clients is [4, 5]
+Client 4 finished in 45.15449404716492
+Client 5 finished in 45.87158441543579
+Current batch of clients is [6, 7]
+Client 6 finished in 49.48837494850159
+Client 7 finished in 50.88434648513794
+Current batch of clients is [8, 9]
+Client 8 finished in 49.292266845703125
+Client 9 finished in 49.852474212646484
+
+Server Valid Results:
+              value
+Accuracy   0.817053
+Precision  0.816292
+Recall     0.817316
+f1-score   0.815842
+Server Valid Loss: 0.5617395356297493
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5617395356297493
+Best loss: 0.5617395356297493
+Best round: 108
+
+Round time: 273.128573179245
+
+Round number: 109
+
+Server Test Results:
+              value
+Accuracy   0.865917
+Precision  0.866204
+Recall     0.865917
+f1-score   0.865385
+Server Test Loss: 0.3994309604167938
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.207027435302734
+Client 1 finished in 50.337841272354126
+Current batch of clients is [2, 3]
+Client 2 finished in 46.13518929481506
+Client 3 finished in 46.60004019737244
+Current batch of clients is [4, 5]
+Client 4 finished in 49.53546500205994
+Client 5 finished in 50.370718479156494
+Current batch of clients is [6, 7]
+Client 6 finished in 43.79172682762146
+Client 7 finished in 46.103748083114624
+Current batch of clients is [8, 9]
+Client 8 finished in 51.007054567337036
+Client 9 finished in 51.87843203544617
+
+Server Valid Results:
+              value
+Accuracy   0.816215
+Precision  0.816655
+Recall     0.816296
+f1-score   0.814828
+Server Valid Loss: 0.5658939175307751
+
+Criterion metrics:
+Current loss: 0.5658939175307751
+Best loss: 0.5617395356297493
+Best round: 108
+
+Round time: 277.7757155895233
+
+Round number: 110
+
+Server Test Results:
+              value
+Accuracy    0.86425
+Precision  0.865249
+Recall      0.86425
+f1-score    0.86405
+Server Test Loss: 0.40411144495010376
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.19587850570679
+Client 1 finished in 49.36605715751648
+Current batch of clients is [2, 3]
+Client 2 finished in 46.91650462150574
+Client 3 finished in 48.15303063392639
+Current batch of clients is [4, 5]
+Client 4 finished in 42.20353055000305
+Client 5 finished in 42.95573043823242
+Current batch of clients is [6, 7]
+Client 6 finished in 46.801905155181885
+Client 7 finished in 47.68539786338806
+Current batch of clients is [8, 9]
+Client 8 finished in 42.77985191345215
+Client 9 finished in 43.951560735702515
+
+Server Valid Results:
+              value
+Accuracy   0.813995
+Precision  0.814910
+Recall     0.814083
+f1-score   0.812897
+Server Valid Loss: 0.572522372752428
+
+Criterion metrics:
+Current loss: 0.572522372752428
+Best loss: 0.5617395356297493
+Best round: 108
+
+Round time: 262.33481907844543
+
+Round number: 111
+
+Server Test Results:
+              value
+Accuracy   0.866983
+Precision  0.866478
+Recall     0.866983
+f1-score   0.866095
+Server Test Loss: 0.39742550253868103
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 46.031973123550415
+Client 1 finished in 48.608951807022095
+Current batch of clients is [2, 3]
+Client 2 finished in 45.99256467819214
+Client 3 finished in 47.82907509803772
+Current batch of clients is [4, 5]
+Client 4 finished in 43.30299425125122
+Client 5 finished in 43.394611835479736
+Current batch of clients is [6, 7]
+Client 6 finished in 45.65252757072449
+Client 7 finished in 44.54816651344299
+Current batch of clients is [8, 9]
+Client 8 finished in 50.30487895011902
+Client 9 finished in 51.446526527404785
+
+Server Valid Results:
+              value
+Accuracy   0.814839
+Precision  0.814251
+Recall     0.814754
+f1-score   0.812961
+Server Valid Loss: 0.5668341152369976
+
+Criterion metrics:
+Current loss: 0.5668341152369976
+Best loss: 0.5617395356297493
+Best round: 108
+
+Round time: 271.90080642700195
+
+Round number: 112
+
+Server Test Results:
+              value
+Accuracy   0.867933
+Precision  0.869573
+Recall     0.867933
+f1-score   0.868175
+Server Test Loss: 0.394879549741745
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.70823359489441
+Client 1 finished in 56.22949552536011
+Current batch of clients is [2, 3]
+Client 2 finished in 52.53931927680969
+Client 3 finished in 56.257803440093994
+Current batch of clients is [4, 5]
+Client 4 finished in 55.046977519989014
+Client 5 finished in 56.11808109283447
+Current batch of clients is [6, 7]
+Client 6 finished in 48.80395579338074
+Client 7 finished in 49.605950117111206
+Current batch of clients is [8, 9]
+Client 8 finished in 52.764806270599365
+Client 9 finished in 53.532628774642944
+
+Server Valid Results:
+              value
+Accuracy   0.817897
+Precision  0.819676
+Recall     0.818111
+f1-score   0.817587
+Server Valid Loss: 0.5656336165964604
+
+Criterion metrics:
+Current loss: 0.5656336165964604
+Best loss: 0.5617395356297493
+Best round: 108
+
+Round time: 307.4510066509247
+
+Round number: 113
+
+Server Test Results:
+              value
+Accuracy   0.870433
+Precision  0.870227
+Recall     0.870433
+f1-score    0.87003
+Server Test Loss: 0.3860180974006653
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 47.783469438552856
+Client 1 finished in 48.58996558189392
+Current batch of clients is [2, 3]
+Client 2 finished in 53.99686598777771
+Client 3 finished in 54.48800992965698
+Current batch of clients is [4, 5]
+Client 4 finished in 54.272319316864014
+Client 5 finished in 54.09625792503357
+Current batch of clients is [6, 7]
+Client 6 finished in 54.001235485076904
+Client 7 finished in 53.632208824157715
+Current batch of clients is [8, 9]
+Client 8 finished in 50.278788805007935
+Client 9 finished in 50.310707807540894
+
+Server Valid Results:
+              value
+Accuracy   0.819687
+Precision  0.820291
+Recall     0.820047
+f1-score   0.818661
+Server Valid Loss: 0.5603966563940048
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5603966563940048
+Best loss: 0.5603966563940048
+Best round: 113
+
+Round time: 297.3362069129944
+
+Round number: 114
+
+Server Test Results:
+              value
+Accuracy   0.870617
+Precision  0.871557
+Recall     0.870617
+f1-score   0.870266
+Server Test Loss: 0.38635480403900146
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.26269817352295
+Client 1 finished in 48.55628156661987
+Current batch of clients is [2, 3]
+Client 2 finished in 51.92950892448425
+Client 3 finished in 52.25628876686096
+Current batch of clients is [4, 5]
+Client 4 finished in 53.57382130622864
+Client 5 finished in 54.36245036125183
+Current batch of clients is [6, 7]
+Client 6 finished in 54.00300359725952
+Client 7 finished in 54.35938358306885
+Current batch of clients is [8, 9]
+Client 8 finished in 50.803444385528564
+Client 9 finished in 50.8941752910614
+
+Server Valid Results:
+              value
+Accuracy   0.817375
+Precision  0.818849
+Recall     0.818186
+f1-score   0.816579
+Server Valid Loss: 0.562650153040886
+
+Criterion metrics:
+Current loss: 0.562650153040886
+Best loss: 0.5603966563940048
+Best round: 113
+
+Round time: 301.7175221443176
+
+Round number: 115
+
+Server Test Results:
+              value
+Accuracy     0.8701
+Precision   0.87153
+Recall       0.8701
+f1-score   0.870159
+Server Test Loss: 0.3866318464279175
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.39449334144592
+Client 1 finished in 52.33532238006592
+Current batch of clients is [2, 3]
+Client 2 finished in 48.18010330200195
+Client 3 finished in 48.07828664779663
+Current batch of clients is [4, 5]
+Client 4 finished in 56.14780068397522
+Client 5 finished in 52.17213249206543
+Current batch of clients is [6, 7]
+Client 6 finished in 55.20703840255737
+Client 7 finished in 54.46307134628296
+Current batch of clients is [8, 9]
+Client 8 finished in 53.004597663879395
+Client 9 finished in 53.83370327949524
+
+Server Valid Results:
+              value
+Accuracy   0.819481
+Precision  0.821528
+Recall     0.819498
+f1-score   0.818922
+Server Valid Loss: 0.5619796998798847
+
+Criterion metrics:
+Current loss: 0.5619796998798847
+Best loss: 0.5603966563940048
+Best round: 113
+
+Round time: 303.6749472618103
+
+Round number: 116
+
+Server Test Results:
+              value
+Accuracy    0.87245
+Precision  0.872635
+Recall      0.87245
+f1-score   0.872233
+Server Test Loss: 0.38332599401474
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.03089714050293
+Client 1 finished in 48.7634334564209
+Current batch of clients is [2, 3]
+Client 2 finished in 54.811293601989746
+Client 3 finished in 54.92937254905701
+Current batch of clients is [4, 5]
+Client 4 finished in 48.388309717178345
+Client 5 finished in 48.70245623588562
+Current batch of clients is [6, 7]
+Client 6 finished in 54.132901668548584
+Client 7 finished in 54.38285231590271
+Current batch of clients is [8, 9]
+Client 8 finished in 54.65337109565735
+Client 9 finished in 54.832353591918945
+
+Server Valid Results:
+              value
+Accuracy   0.820631
+Precision  0.821070
+Recall     0.821104
+f1-score   0.819754
+Server Valid Loss: 0.5643504410982132
+
+Criterion metrics:
+Current loss: 0.5643504410982132
+Best loss: 0.5603966563940048
+Best round: 113
+
+Round time: 298.9639687538147
+
+Round number: 117
+
+Server Test Results:
+              value
+Accuracy   0.873767
+Precision  0.872995
+Recall     0.873767
+f1-score   0.873201
+Server Test Loss: 0.37742236256599426
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 44.35883545875549
+Client 1 finished in 44.61451268196106
+Current batch of clients is [2, 3]
+Client 2 finished in 53.97026467323303
+Client 3 finished in 53.4857063293457
+Current batch of clients is [4, 5]
+Client 4 finished in 53.32160830497742
+Client 5 finished in 53.521007776260376
+Current batch of clients is [6, 7]
+Client 6 finished in 50.14737677574158
+Client 7 finished in 49.97015023231506
+Current batch of clients is [8, 9]
+Client 8 finished in 52.86655950546265
+Client 9 finished in 53.81144595146179
+
+Server Valid Results:
+              value
+Accuracy   0.819682
+Precision  0.819021
+Recall     0.819950
+f1-score   0.818324
+Server Valid Loss: 0.5624910414218902
+
+Criterion metrics:
+Current loss: 0.5624910414218902
+Best loss: 0.5603966563940048
+Best round: 113
+
+Round time: 300.7088394165039
+
+Round number: 118
+
+Server Test Results:
+              value
+Accuracy    0.87625
+Precision  0.876125
+Recall      0.87625
+f1-score   0.875795
+Server Test Loss: 0.373321533203125
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 48.85554885864258
+Client 1 finished in 48.37283444404602
+Current batch of clients is [2, 3]
+Client 2 finished in 50.398961782455444
+Client 3 finished in 50.7054603099823
+Current batch of clients is [4, 5]
+Client 4 finished in 53.94509291648865
+Client 5 finished in 54.60729002952576
+Current batch of clients is [6, 7]
+Client 6 finished in 47.88905119895935
+Client 7 finished in 48.70915102958679
+Current batch of clients is [8, 9]
+Client 8 finished in 53.00585675239563
+Client 9 finished in 53.20014142990112
+
+Server Valid Results:
+              value
+Accuracy   0.821365
+Precision  0.821200
+Recall     0.821896
+f1-score   0.820204
+Server Valid Loss: 0.5580221638083458
+
+Server model saved!
+
+Criterion metrics:
+Current loss: 0.5580221638083458
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 298.30787992477417
+
+Round number: 119
+
+Server Test Results:
+              value
+Accuracy   0.872167
+Precision  0.873605
+Recall     0.872167
+f1-score   0.871807
+Server Test Loss: 0.3807549476623535
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.09891700744629
+Client 1 finished in 49.687724351882935
+Current batch of clients is [2, 3]
+Client 2 finished in 50.36074995994568
+Client 3 finished in 50.67758822441101
+Current batch of clients is [4, 5]
+Client 4 finished in 54.176103353500366
+Client 5 finished in 54.61719512939453
+Current batch of clients is [6, 7]
+Client 6 finished in 53.12076950073242
+Client 7 finished in 53.62962865829468
+Current batch of clients is [8, 9]
+Client 8 finished in 47.59798216819763
+Client 9 finished in 48.45213437080383
+
+Server Valid Results:
+              value
+Accuracy   0.816530
+Precision  0.818166
+Recall     0.817398
+f1-score   0.815384
+Server Valid Loss: 0.5654422372579575
+
+Criterion metrics:
+Current loss: 0.5654422372579575
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 298.3842089176178
+
+Round number: 120
+
+Server Test Results:
+              value
+Accuracy   0.877333
+Precision  0.876953
+Recall     0.877333
+f1-score    0.87687
+Server Test Loss: 0.3704114854335785
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.282179832458496
+Client 1 finished in 50.85731506347656
+Current batch of clients is [2, 3]
+Client 2 finished in 54.46723413467407
+Client 3 finished in 54.74554133415222
+Current batch of clients is [4, 5]
+Client 4 finished in 48.419713497161865
+Client 5 finished in 48.59660983085632
+Current batch of clients is [6, 7]
+Client 6 finished in 55.025357246398926
+Client 7 finished in 56.39159035682678
+Current batch of clients is [8, 9]
+Client 8 finished in 54.600135803222656
+Client 9 finished in 54.108301401138306
+
+Server Valid Results:
+              value
+Accuracy   0.822204
+Precision  0.821896
+Recall     0.822362
+f1-score   0.820998
+Server Valid Loss: 0.5606267981231212
+
+Criterion metrics:
+Current loss: 0.5606267981231212
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 303.7018172740936
+
+Round number: 121
+
+Server Test Results:
+              value
+Accuracy   0.874267
+Precision  0.874531
+Recall     0.874267
+f1-score    0.87297
+Server Test Loss: 0.37671712040901184
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.317381143569946
+Client 1 finished in 49.292327642440796
+Current batch of clients is [2, 3]
+Client 2 finished in 54.342578172683716
+Client 3 finished in 54.58856821060181
+Current batch of clients is [4, 5]
+Client 4 finished in 53.12801218032837
+Client 5 finished in 52.316100120544434
+Current batch of clients is [6, 7]
+Client 6 finished in 49.17551803588867
+Client 7 finished in 49.40787696838379
+Current batch of clients is [8, 9]
+Client 8 finished in 54.16728472709656
+Client 9 finished in 54.54042673110962
+
+Server Valid Results:
+              value
+Accuracy   0.817471
+Precision  0.818407
+Recall     0.818167
+f1-score   0.815431
+Server Valid Loss: 0.568228256702423
+
+Criterion metrics:
+Current loss: 0.568228256702423
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 300.8455619812012
+
+Round number: 122
+
+Server Test Results:
+              value
+Accuracy   0.874583
+Precision  0.875179
+Recall     0.874583
+f1-score   0.874408
+Server Test Loss: 0.37880074977874756
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 45.71943402290344
+Client 1 finished in 45.89675188064575
+Current batch of clients is [2, 3]
+Client 2 finished in 53.76634669303894
+Client 3 finished in 54.466694355010986
+Current batch of clients is [4, 5]
+Client 4 finished in 53.80254793167114
+Client 5 finished in 54.423603534698486
+Current batch of clients is [6, 7]
+Client 6 finished in 50.50410461425781
+Client 7 finished in 51.94240379333496
+Current batch of clients is [8, 9]
+Client 8 finished in 53.64421582221985
+Client 9 finished in 53.96412992477417
+
+Server Valid Results:
+              value
+Accuracy   0.818947
+Precision  0.819909
+Recall     0.819375
+f1-score   0.818021
+Server Valid Loss: 0.5711232729256153
+
+Criterion metrics:
+Current loss: 0.5711232729256153
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 301.4706919193268
+
+Round number: 123
+
+Server Test Results:
+              value
+Accuracy   0.874117
+Precision  0.876028
+Recall     0.874117
+f1-score   0.874235
+Server Test Loss: 0.3797602951526642
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.878464698791504
+Client 1 finished in 50.48416352272034
+Current batch of clients is [2, 3]
+Client 2 finished in 49.63235425949097
+Client 3 finished in 49.57909440994263
+Current batch of clients is [4, 5]
+Client 4 finished in 55.472147703170776
+Client 5 finished in 55.5451865196228
+Current batch of clients is [6, 7]
+Client 6 finished in 53.23900127410889
+Client 7 finished in 55.15251088142395
+Current batch of clients is [8, 9]
+Client 8 finished in 48.661892890930176
+Client 9 finished in 49.056336641311646
+
+Server Valid Results:
+              value
+Accuracy   0.817800
+Precision  0.821470
+Recall     0.817928
+f1-score   0.817769
+Server Valid Loss: 0.57484600096941
+
+Criterion metrics:
+Current loss: 0.57484600096941
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 299.4510016441345
+
+Round number: 124
+
+Server Test Results:
+              value
+Accuracy   0.879933
+Precision  0.880029
+Recall     0.879933
+f1-score   0.879038
+Server Test Loss: 0.3649451732635498
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.373536109924316
+Client 1 finished in 52.43078851699829
+Current batch of clients is [2, 3]
+Client 2 finished in 47.37822484970093
+Client 3 finished in 47.70036196708679
+Current batch of clients is [4, 5]
+Client 4 finished in 53.62388300895691
+Client 5 finished in 53.77786445617676
+Current batch of clients is [6, 7]
+Client 6 finished in 54.791471004486084
+Client 7 finished in 55.92893028259277
+Current batch of clients is [8, 9]
+Client 8 finished in 52.317408084869385
+Client 9 finished in 52.14213418960571
+
+Server Valid Results:
+              value
+Accuracy   0.822000
+Precision  0.822467
+Recall     0.822360
+f1-score   0.820440
+Server Valid Loss: 0.5615419261157513
+
+Criterion metrics:
+Current loss: 0.5615419261157513
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 304.2437334060669
+
+Round number: 125
+
+Server Test Results:
+              value
+Accuracy   0.878983
+Precision  0.879874
+Recall     0.878983
+f1-score   0.879107
+Server Test Loss: 0.3653692901134491
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 53.30657601356506
+Client 1 finished in 53.105778217315674
+Current batch of clients is [2, 3]
+Client 2 finished in 52.549572467803955
+Client 3 finished in 52.851439237594604
+Current batch of clients is [4, 5]
+Client 4 finished in 49.728118896484375
+Client 5 finished in 48.57748508453369
+Current batch of clients is [6, 7]
+Client 6 finished in 57.22228527069092
+Client 7 finished in 56.87380075454712
+Current batch of clients is [8, 9]
+Client 8 finished in 54.53823375701904
+Client 9 finished in 54.7722647190094
+
+Server Valid Results:
+              value
+Accuracy   0.822005
+Precision  0.823950
+Recall     0.822180
+f1-score   0.821773
+Server Valid Loss: 0.5613484621047974
+
+Criterion metrics:
+Current loss: 0.5613484621047974
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 306.8076186180115
+
+Round number: 126
+
+Server Test Results:
+              value
+Accuracy   0.881317
+Precision  0.881069
+Recall     0.881317
+f1-score    0.88074
+Server Test Loss: 0.3594106435775757
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 50.4411678314209
+Client 1 finished in 50.58720541000366
+Current batch of clients is [2, 3]
+Client 2 finished in 50.9263436794281
+Client 3 finished in 52.73651099205017
+Current batch of clients is [4, 5]
+Client 4 finished in 50.91362714767456
+Client 5 finished in 51.43344712257385
+Current batch of clients is [6, 7]
+Client 6 finished in 53.007874727249146
+Client 7 finished in 52.96309304237366
+Current batch of clients is [8, 9]
+Client 8 finished in 55.24859952926636
+Client 9 finished in 55.15674304962158
+
+Server Valid Results:
+              value
+Accuracy   0.821986
+Precision  0.822831
+Recall     0.822109
+f1-score   0.820922
+Server Valid Loss: 0.5600781828165055
+
+Criterion metrics:
+Current loss: 0.5600781828165055
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 302.2834897041321
+
+Round number: 127
+
+Server Test Results:
+              value
+Accuracy   0.881617
+Precision  0.881881
+Recall     0.881617
+f1-score   0.881157
+Server Test Loss: 0.35995736718177795
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 46.85320258140564
+Client 1 finished in 47.01913595199585
+Current batch of clients is [2, 3]
+Client 2 finished in 56.28264760971069
+Client 3 finished in 55.691383600234985
+Current batch of clients is [4, 5]
+Client 4 finished in 53.936684131622314
+Client 5 finished in 54.617260217666626
+Current batch of clients is [6, 7]
+Client 6 finished in 49.60366749763489
+Client 7 finished in 50.095080614089966
+Current batch of clients is [8, 9]
+Client 8 finished in 55.47043490409851
+Client 9 finished in 55.88900804519653
+
+Server Valid Results:
+              value
+Accuracy   0.823475
+Precision  0.824672
+Recall     0.823886
+f1-score   0.822550
+Server Valid Loss: 0.5617207638919354
+
+Criterion metrics:
+Current loss: 0.5617207638919354
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 302.74743032455444
+
+Round number: 128
+
+Server Test Results:
+              value
+Accuracy   0.880383
+Precision  0.882882
+Recall     0.880383
+f1-score   0.879878
+Server Test Loss: 0.361276239156723
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 49.598331928253174
+Client 1 finished in 49.867225885391235
+Current batch of clients is [2, 3]
+Client 2 finished in 50.10511326789856
+Client 3 finished in 50.2484450340271
+Current batch of clients is [4, 5]
+Client 4 finished in 53.51427340507507
+Client 5 finished in 54.70373225212097
+Current batch of clients is [6, 7]
+Client 6 finished in 52.464439392089844
+Client 7 finished in 53.12552523612976
+Current batch of clients is [8, 9]
+Client 8 finished in 47.914549827575684
+Client 9 finished in 49.01143169403076
+
+Server Valid Results:
+              value
+Accuracy   0.820420
+Precision  0.824957
+Recall     0.821326
+f1-score   0.819503
+Server Valid Loss: 0.5706286437809467
+
+Criterion metrics:
+Current loss: 0.5706286437809467
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 299.01059889793396
+
+Round number: 129
+
+Server Test Results:
+              value
+Accuracy   0.885667
+Precision  0.884951
+Recall     0.885667
+f1-score   0.884957
+Server Test Loss: 0.3500650227069855
+
+Training started
+
+Current batch of clients is [0, 1]
+Client 0 finished in 52.381558418273926
+Client 1 finished in 53.34326386451721
+Current batch of clients is [2, 3]
+Client 2 finished in 47.66413855552673
+Client 3 finished in 48.005738973617554
+Current batch of clients is [4, 5]
+Client 4 finished in 55.19840359687805
+Client 5 finished in 55.374412059783936
+Current batch of clients is [6, 7]
+Client 6 finished in 52.99227499961853
+Client 7 finished in 53.38592529296875
+Current batch of clients is [8, 9]
+Client 8 finished in 50.080363273620605
+Client 9 finished in 50.59486627578735
+
+Server Valid Results:
+              value
+Accuracy   0.825990
+Precision  0.825708
+Recall     0.826227
+f1-score   0.824621
+Server Valid Loss: 0.5591050237417221
+
+Criterion metrics:
+Current loss: 0.5591050237417221
+Best loss: 0.5580221638083458
+Best round: 118
+
+Round time: 301.9966778755188
+Shutdown clients, federated learning end
+Exit child 0 process
+Exit child 1 process
